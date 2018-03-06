@@ -68,7 +68,7 @@
             </ul>
         </div>
         <div class="clear"></div>
-    </div><div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
+    </div><div class="copyrights"><a href="http://www.cssmoban.com/" ></a></div>
     <div class="register w3layouts agileits">
         <h2>注 册</h2>
         <form action="#" method="post">
@@ -90,7 +90,7 @@
 </div>
 
 <div class="footer w3layouts agileits">
-    <p>Copyright &copy;2018 <a href="#" target="_blank" title="模板之家">Creams</a></p>
+    <p>Copyright &copy;2018 <a href="#" target="_blank" title="">Creams</a></p>
 </div>
 
 </body>
