@@ -11,7 +11,7 @@
 <!-- Head -->
 <head>
 
-    <title>系统登录</title>
+    <title>大学生助手 -- 登录</title>
     <!-- Meta-Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -29,7 +29,7 @@
 <!-- Body -->
 <body>
 
-<h1>登录表单</h1>
+<h1>欢迎使用大学生助手</h1>
 
 <div class="container w3layouts agileits">
 
@@ -43,6 +43,7 @@
             <li>
                 <input type="checkbox" id="brand1" value="">
                 <label for="brand1"><span></span>记住我</label>
+                <span>123456</span>
             </li>
         </ul>
         <div class="send-button w3layouts agileits">
@@ -89,7 +90,7 @@
 </div>
 
 <div class="footer w3layouts agileits">
-    <p>Copyright &copy;  <a href="#" target="_blank" title="模板之家">Creams</a></p>
+    <p>Copyright &copy;2018 <a href="#" target="_blank" title="模板之家">Creams</a></p>
 </div>
 
 </body>
