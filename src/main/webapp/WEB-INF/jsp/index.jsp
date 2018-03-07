@@ -6,94 +6,38 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<!DOCTYPE html>
 <html>
-
-<!-- Head -->
 <head>
-
-    <title>大学生助手 -- 登录</title>
-    <!-- Meta-Tags -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
+    <title>海大助手</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Lambent Login Form Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <!-- //Meta-Tags -->
-
-    <!-- Style --> <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
-
-
-
 </head>
-<!-- //Head -->
-
-<!-- Body -->
 <body>
-
-<h1>欢迎使用大学生助手</h1>
-
-<div class="container w3layouts agileits">
-
-    <div class="login w3layouts agileits">
-        <h2>登 录</h2>
-        <form action="#" method="post">
-            <input type="text" Name="Userame" placeholder="用户名" required="">
-            <input type="password" Name="Password" placeholder="密码" required="">
-        </form>
-        <ul class="tick w3layouts agileits">
+<h1>海大助手</h1>
+<div class="main-agileinfo">
+    <h2>登录</h2>
+    <form action="#" method="post">
+        <input type="text" name="name" class="name" placeholder="Usename" required="">
+        <input type="password" name="password" class="password" placeholder="Password" required="">
+        <ul>
             <li>
                 <input type="checkbox" id="brand1" value="">
-                <label for="brand1"><span></span>记住我</label>
-                <span>123456</span>
+                <label for="brand1"><span></span>记得我</label>
             </li>
         </ul>
-        <div class="send-button w3layouts agileits">
-            <form>
-                <input type="submit" value="登 录">
-            </form>
-        </div>
-
-        <div class="social-icons w3layouts agileits">
-            <p>- 其他方式登录 -</p>
-            <ul>
-                <li class="qq"><a href="#">
-                    <span class="icons w3layouts agileits"></span>
-                    <span class="text w3layouts agileits">QQ</span></a></li>
-                <li class="weixin w3ls"><a href="#">
-                    <span class="icons w3layouts"></span>
-                    <span class="text w3layouts agileits">微信</span></a></li>
-                <li class="weibo aits"><a href="#">
-                    <span class="icons agileits"></span>
-                    <span class="text w3layouts agileits">微博</span></a></li>
-                <div class="clear"> </div>
-            </ul>
-        </div>
+        <a href="#">忘记密码?
+        </a><br>
         <div class="clear"></div>
-    </div><div class="copyrights"><a href="http://www.cssmoban.com/" ></a></div>
-    <div class="register w3layouts agileits">
-        <h2>注 册</h2>
-        <form action="#" method="post">
-            <input type="text" Name="Name" placeholder="用户名" required="">
-            <input type="text" Name="Email" placeholder="邮箱" required="">
-            <input type="password" Name="Password" placeholder="密码" required="">
-            <input type="text" Name="Phone Number" placeholder="手机号码" required="">
-        </form>
-        <div class="send-button w3layouts agileits">
-            <form>
-                <input type="submit" value="免费注册">
-            </form>
-        </div>
-        <div class="clear"></div>
-    </div>
-
-    <div class="clear"></div>
-
+        <input type="submit" value="Login">
+    </form>
 </div>
-
-<div class="footer w3layouts agileits">
-    <p>Copyright &copy;2018 <a href="#" target="_blank" title="">Creams</a></p>
+<div class="footer-w3l">
+    <p class="agile"> &copy; 2018 <a href="#">Creams</a></p>
 </div>
-
 </body>
-<!-- //Body -->
-
 </html>
