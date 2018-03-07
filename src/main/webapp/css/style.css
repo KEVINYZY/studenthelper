@@ -117,7 +117,7 @@ form a {
 	font-size: 14px;
 
 }
-input[type="submit"]{
+#submit{
 	background:#e91e63;
 	padding:13px 0;
 	font-size:16px;
@@ -134,7 +134,7 @@ input[type="submit"]{
 	margin-top:25px;
 }
 
-input[type="submit"]:hover{
+#submit:hover{
 	background:#081148;
 }
 .footer-w3l p{
@@ -360,7 +360,7 @@ input[type="submit"]:hover{
 	input[type="password"]{
 		background: rgb(255, 255, 255) url("../images/password.png") no-repeat 248px 9px;
 	}
-	input[type="submit"] {
+	#submit {
 		padding: 11px 0;
 	}
 	

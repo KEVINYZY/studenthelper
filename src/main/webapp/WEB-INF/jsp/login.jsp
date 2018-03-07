@@ -21,7 +21,7 @@
 <h1>海大助手</h1>
 <div class="main-agileinfo">
     <h2>登录</h2>
-    <form action="" method="post" onsubmit="return login(this.form)">
+    <form action="##" method="post" id="loginform" onsubmit="return false">
         <input type="text" id="username" name="username" class="name" placeholder="username" required="">
         <input type="password" id="password" name="password" class="password" placeholder="password" required="">
         <span id="msg" style="color:#F00;font-size:14px;"></span><br><br>
@@ -34,7 +34,7 @@
         <a href="#">忘记密码?
         </a><br>
         <div class="clear"></div>
-        <input type="submit" value="Login" onclick="login(this.form)">
+        <input type="button" id="submit" value="Login" onclick="login()">
     </form>
 </div>
 <div class="footer-w3l">
@@ -44,10 +44,13 @@
 <script type="text/javascript">
         function login(that) {
             $.ajax({
-                data: {"username:" + $("#username").val() + "&password=" + $("#password").val()},
+                data: {
+                    "username":$("#username").val(),
+                    "password":$("#password").val()
+                },
                 type: "post",
                 url: "/checklogin",
-                dataType: "json",
+                dataType: "text",
                 error: function (data) {
                     alert("出现异常，请稍后重试");
                     $(that).removeClass("processing");
@@ -56,10 +59,8 @@
                     $(that).removeClass("processing");
                     if (response == "error") {
                         $("#msg").text("用户名或密码错误");
-                        return false;
                     } else {
                         window.location.href = "/welcome";
-                        return true;
                     }
                 }
             });
