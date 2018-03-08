@@ -43,7 +43,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">COMPANY NAME</a>
+            <a class="navbar-brand" href="index.html">大连海事大学</a>
         </div>
 
     </nav>
@@ -52,9 +52,8 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <div class="user-images-div">
-                        <images src="images/user.png" class="images-thumbnail" />
-
+                    <div class="user-img-div">
+                        <img src="img/user.png" class="img-thumbnail" />
                         <div class="inner-text">
                             Jhon Deo Alex
                             <br />
@@ -66,7 +65,7 @@
 
 
                 <li>
-                    <a class="active-menu" href="index.html"><i class="fa fa-dashboard "></i>Dashboard</a>
+                    <a class="active-menu" href="index.html"><i class="fa fa-dashboard "></i>主页</a>
                 </li>
                 <li>
                     <a href="#"><i class="fa fa-desktop "></i>UI Elements <span class="fa arrow"></span></a>
@@ -173,7 +172,6 @@
                         </li>
                     </ul>
                 </li>
-
                 <li>
                     <a href="blank.html"><i class="fa fa-square-o "></i>Blank Page</a>
                 </li>
@@ -185,14 +183,9 @@
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
         <div id="page-inner">
-
         </div>
-
     </div>
-    <!-- /. PAGE WRAPPER  -->
 </div>
-<!-- /. WRAPPER  -->
-
 <div id="footer-sec">
     Copyright &copy; 2018.<a href="#" target="_blank" title="">Creams </a>
 </div>

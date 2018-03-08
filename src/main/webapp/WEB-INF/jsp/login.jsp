@@ -50,7 +50,7 @@
                 },
                 type: "post",
                 url: "/checklogin",
-                dataType: "text",
+                dataType: "String",
                 error: function (data) {
                     alert("出现异常，请稍后重试");
                     $(that).removeClass("processing");
