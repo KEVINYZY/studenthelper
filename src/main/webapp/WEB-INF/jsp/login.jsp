@@ -60,7 +60,7 @@
                     if (response == "error") {
                         $("#msg").text("用户名或密码错误");
                     } else {
-                        window.location.href = "/welcome";
+                        window.location.href = "/login";
                     }
                 }
             });
