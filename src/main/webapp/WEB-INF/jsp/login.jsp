@@ -45,14 +45,14 @@
         function login(that) {
             $.ajax({
                 data: {
-                    "username":$("#username").val(),
-                    "password":$("#password").val()
+                    username:$("#username").val(),
+                    password:$("#password").val()
                 },
                 type: "post",
                 url: "/checklogin",
-                dataType: "String",
+                dataType: "json",
                 error: function (data) {
-                    alert("出现异常，请稍后重试");
+                    console.log(data);
                     $(that).removeClass("processing");
                 },
                 success: function (response) {
