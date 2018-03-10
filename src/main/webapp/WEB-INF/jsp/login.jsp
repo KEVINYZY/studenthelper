@@ -43,6 +43,12 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
         function login(that) {
+            var username = $("#username").val();
+            var password = $("#password").val();
+            if(username == "" || password == ""){
+                $("#msg").text("请输入用户名或密码");
+                return false;
+            }
             $.ajax({
                 data: {
                     username:$("#username").val(),
