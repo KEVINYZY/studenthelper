@@ -17,6 +17,7 @@ public class User {
     
     private int classno;
     
+    private int identity;
 
     public String getUsername() {
         return username;
@@ -81,5 +82,12 @@ public class User {
     public void setClassno(int classno) {
         this.classno = classno;
     }
-    
+
+    public int getIdentity() {
+        return identity;
+    }
+
+    public void setIdentity(int identity) {
+        this.identity = identity;
+    }
 }

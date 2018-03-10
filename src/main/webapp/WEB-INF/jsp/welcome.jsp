@@ -63,13 +63,13 @@
                 </li>
                 
                 <li>
-                    <a class="active-menu" href="index.html">主页</a>
+                    <a class="active-menu" href="#">主页</a>
                 </li>
                 <li>
                     <a href="#">我的学习<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="panel-tabs.html">我的课表</a>
+                            <a href="/coursetable">我的课表</a>
                         </li>
                         <li>
                             <a href="panel-tabs.html">我的成绩</a>
@@ -84,9 +84,6 @@
                 </li>
                 <li>
                     <a href="blank.html">校学生通知</a>
-                </li>
-                <li>
-                    <a href="blank.html">我的个人计划</a>
                 </li>
                 <li>
                     <a href="#"><%=user.getName()%><span class="fa arrow"></span></a>
@@ -128,6 +125,7 @@
                         我的信息
                     </div>
                     <div class="panel-body">
+                        <h4>学校:大连海事大学</h4>
                         <h4>学号:<%=user.getUsername()%></h4>
                         <h4>姓名:<%=user.getName()%></h4>
                         <h4>性别:<%=user.getSex()%></h4>
@@ -135,6 +133,7 @@
                         <h4>专业:<%=user.getMajor()%></h4>
                         <h4>年级:<%=user.getGrade()%>级</h4>
                         <h4>班级:<%=user.getClassno()%>班</h4>
+                        <h4>所属:<%=(user.getIdentity() == 1) ? "学生" : "教职工"%></h4>
                     </div>
                 </div>
             </div>
