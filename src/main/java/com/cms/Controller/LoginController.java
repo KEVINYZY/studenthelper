@@ -20,7 +20,6 @@ public class LoginController {
     @RequestMapping("/checklogin")
     @ResponseBody
     public String checkLogin(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession session){
-        System.out.println(username  + "-" + password);
         User user = userService.login(username, password);
         if(user != null){
             session.setAttribute("user", user);

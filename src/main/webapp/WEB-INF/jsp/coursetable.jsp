@@ -1,4 +1,6 @@
-<%@ page import="com.cms.Entity.User" %><%--
+<%@ page import="com.cms.Entity.User" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.cms.Entity.Coursetable" %><%--
   Created by IntelliJ IDEA.
   User: Creams
   Date: 2018/3/7
@@ -9,6 +11,7 @@
 <!DOCTYPE html>
 <%
     User user = (User) session.getAttribute("user");
+    List<Coursetable> coursetables = (List<Coursetable>)session.getAttribute("Coursetable");
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -69,7 +72,7 @@
                     <a href="#">我的学习<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="active-menu" href="#">我的课表</a>
+                            <a class="active-menu" href="/coursetable">我的课表</a>
                         </li>
                         <li>
                             <a href="#">我的成绩</a>
@@ -113,6 +116,55 @@
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
         <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-head-line">我的课表</h1>
+                    <h1 class="page-subhead-line">看准课表 今天又是元气满满的一天！</h1>
+                    <div class="panel-heading">
+                        <%=user.getName()%>&nbsp;&nbsp;
+                        <%=user.getUsername()%>&nbsp;&nbsp;
+                        <%=user.getCollage()%>&nbsp;&nbsp;
+                        <%=user.getMajor()%>&nbsp;&nbsp;
+                        <%=user.getGrade()%>级
+                        <%=user.getClassno()%>班
+                    </div>
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>星期一</th>
+                            <th>星期二</th>
+                            <th>星期三</th>
+                            <th>星期四</th>
+                            <th>星期五</th>
+                            <th>星期六</th>
+                            <th>星期日</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <%
+                                for(int i = 0; i < coursetables.size(); i++){
+                                    Coursetable coursetable = coursetables.get(i);
+                            %>
+                            <tr>
+                            <td>第<%= 2 * coursetable.getclassNo() - 1%> - <%=2 * coursetable.getclassNo() + 1%>节课</td>
+                            <td><%=coursetable.getMon()%></td>
+                            <td><%=coursetable.getTue()%></td>
+                            <td><%=coursetable.getWed()%></td>
+                            <td><%=coursetable.getThu()%></td>
+                            <td><%=coursetable.getFri()%></td>
+                            <td><%=coursetable.getSat()%></td>
+                            <td><%=coursetable.getSun()%></td>
+                            </tr>
+                            <%
+                                }
+                            %>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <center><button class="btn btn-inverse">编辑课表</button>&nbsp;&nbsp;<button class="btn btn-danger">清空课表</button></center>
+            </div>
         </div>
     </div>
 </div>

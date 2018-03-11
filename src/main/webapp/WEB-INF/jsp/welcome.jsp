@@ -61,9 +61,9 @@
                         </div>
                     </div>
                 </li>
-                
+
                 <li>
-                    <a class="active-menu" href="#">主页</a>
+                    <a class="active-menu" href="/login">主页</a>
                 </li>
                 <li>
                     <a href="#">我的学习<span class="fa arrow"></span></a>
@@ -72,24 +72,24 @@
                             <a href="/coursetable">我的课表</a>
                         </li>
                         <li>
-                            <a href="panel-tabs.html">我的成绩</a>
+                            <a href="#">我的成绩</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="blank.html">我的社团</a>
+                    <a href="#">我的社团</a>
                 </li>
                 <li>
-                    <a href="blank.html">我的个人计划</a>
+                    <a href="#">我的个人计划</a>
                 </li>
                 <li>
-                    <a href="blank.html">校学生通知</a>
+                    <a href="#">校学生通知</a>
                 </li>
                 <li>
                     <a href="#"><%=user.getName()%><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="panel-tabs.html">我的个人信息</a>
+                            <a href="#">我的个人信息</a>
                         </li>
                         <li>
                             <a href="/logout">注销</a>
@@ -100,12 +100,12 @@
                     <a href="#">UI Elements <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="panel-tabs.html">Tabs & Panels</a>
+                            <a href="#">Tabs & Panels</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="blank.html">Blank Page</a>
+                    <a href="#">Blank Page</a>
                 </li>
             </ul>
         </div>
@@ -133,7 +133,7 @@
                         <h4>专业:<%=user.getMajor()%></h4>
                         <h4>年级:<%=user.getGrade()%>级</h4>
                         <h4>班级:<%=user.getClassno()%>班</h4>
-                        <h4>所属:<%=(user.getIdentity() == 1) ? "学生" : "教职工"%></h4>
+                        <h4>属性:<%=(user.getIdentity() == 1) ? "学生" : "教职工"%></h4>
                     </div>
                 </div>
             </div>
