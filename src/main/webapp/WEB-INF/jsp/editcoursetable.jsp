@@ -162,9 +162,9 @@
                             %>
                             </tbody>
                         </table>
+                        <center><button type="submit" class="btn btn-inverse">提交编辑</button></a>&nbsp;&nbsp;<a href="/coursetable"><button class="btn btn-inverse">返回课表</button></a>&nbsp;&nbsp;<button class="btn btn-danger">清空课表</button></center>
                     </form>
                 </div>
-                <center><a href="/editcoursetable"><button type="submit" class="btn btn-inverse">提交编辑</button></a>&nbsp;&nbsp;<a href="/coursetable"><button class="btn btn-inverse">返回课表</button></a>&nbsp;&nbsp;<button class="btn btn-danger">清空课表</button></center>
             </div>
         </div>
     </div>
