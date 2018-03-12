@@ -128,42 +128,43 @@
                         <%=user.getGrade()%>级
                         <%=user.getClassno()%>班
                     </div>
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead>
-                        <tr>
-                            <th></th>
-                            <th>星期一</th>
-                            <th>星期二</th>
-                            <th>星期三</th>
-                            <th>星期四</th>
-                            <th>星期五</th>
-                            <th>星期六</th>
-                            <th>星期日</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+                    <form action="/submitcoursetable">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>星期一</th>
+                                <th>星期二</th>
+                                <th>星期三</th>
+                                <th>星期四</th>
+                                <th>星期五</th>
+                                <th>星期六</th>
+                                <th>星期日</th>
+                            </tr>
+                            </thead>
+                            <tbody>
                             <%
                                 for(int i = 0; i < 5; i++){
                                     Coursetable coursetable = coursetables.get(i);
                             %>
                             <tr>
-                            <td>第<%= 2 * coursetable.getclassNo() - 1%> - <%=2 * coursetable.getclassNo() + 1%>节课</td>
-                            <td><%=coursetable.getMon()%></td>
-                            <td><%=coursetable.getTue()%></td>
-                            <td><%=coursetable.getWed()%></td>
-                            <td><%=coursetable.getThu()%></td>
-                            <td><%=coursetable.getFri()%></td>
-                            <td><%=coursetable.getSat()%></td>
-                            <td><%=coursetable.getSun()%></td>
+                                <td>第<%=2 * (i + 1) - 1%>-<%=2 * (i + 1)%>节课</td>
+                                <td><textarea name=<%=(i+1) + "Mon"%> style="resize:none"><%=coursetable.getMon()%></textarea></td>
+                                <td><textarea name=<%=(i+1) + "Tue"%> style="resize:none"><%=coursetable.getTue()%></textarea></td>
+                                <td><textarea name=<%=(i+1) + "Wed"%> style="resize:none"><%=coursetable.getWed()%></textarea></td>
+                                <td><textarea name=<%=(i+1) + "Thu"%> style="resize:none"><%=coursetable.getThu()%></textarea></td>
+                                <td><textarea name=<%=(i+1) + "Fri"%> style="resize:none"><%=coursetable.getFri()%></textarea></td>
+                                <td><textarea name=<%=(i+1) + "Sat"%> style="resize:none"><%=coursetable.getSat()%></textarea></td>
+                                <td><textarea name=<%=(i+1) + "Sun"%> style="resize:none"><%=coursetable.getSun()%></textarea></td>
                             </tr>
                             <%
                                 }
                             %>
-                        
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </form>
                 </div>
-                <center><a href="/editcoursetable"><button class="btn btn-inverse">编辑课表</button></a>&nbsp;&nbsp;<button class="btn btn-danger">清空课表</button></center>
+                <center><a href="/editcoursetable"><button type="submit" class="btn btn-inverse">提交编辑</button></a>&nbsp;&nbsp;<a href="/coursetable"><button class="btn btn-inverse">返回课表</button></a>&nbsp;&nbsp;<button class="btn btn-danger">清空课表</button></center>
             </div>
         </div>
     </div>

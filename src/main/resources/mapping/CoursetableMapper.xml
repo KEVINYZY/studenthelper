@@ -4,5 +4,8 @@
     <select id="QueryCoursetableById" parameterType="string" resultType="com.cms.Entity.Coursetable">
         SELECT * FROM coursetable WHERE studentid=#{username} ORDER BY classNo ASC 
     </select>
-
+    
+    <insert id="UpadteCoursetable" parameterType="com.cms.Entity.Coursetable">
+        REPLACE INTO coursetable (mon, tue, wed, thu, fri, sat, sun) VALUES (#{mon}, #{tue}, #{wed}, #{thu}, #{fri}, #{sat}, #{sun}) WHERE studentid=#{studentid} AND classNo=#{classNo};
+    </insert>
 </mapper>

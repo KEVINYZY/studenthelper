@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
+
 public class StudentController {
     @Autowired
     private CourseService courseService;
@@ -22,5 +23,15 @@ public class StudentController {
         List<Coursetable> coursetables = courseService.QueryCoursetableById(username);
         session.setAttribute("Coursetable", coursetables);
         return "/coursetable";
+    }
+    
+    @RequestMapping("/editcoursetable")
+    public String editcoursetable(HttpSession session){
+        return "editcoursetable";
+    }
+    
+    @RequestMapping("/submitcoursetable")
+    public String submitCoursetable(HttpSession session){
+        return this.coursetable(session);
     }
 }

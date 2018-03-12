@@ -72,7 +72,7 @@
                             <a href="/coursetable">我的课表</a>
                         </li>
                         <li>
-                            <a href="#">我的成绩</a>
+                            <a href="#">我的考试倒计时</a>
                         </li>
                     </ul>
                 </li>
