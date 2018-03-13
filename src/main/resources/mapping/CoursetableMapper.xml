@@ -6,6 +6,10 @@
     </select>
     
     <insert id="UpadteCoursetable" parameterType="com.cms.Entity.Coursetable">
-        REPLACE INTO coursetable (mon, tue, wed, thu, fri, sat, sun) VALUES (#{mon}, #{tue}, #{wed}, #{thu}, #{fri}, #{sat}, #{sun}) WHERE studentid=#{studentid} AND classNo=#{classNo};
+        REPLACE INTO coursetable (studentid, classNo, mon, tue, wed, thu, fri, sat, sun) VALUES (#{studentid}, #{classNo}, #{mon}, #{tue}, #{wed}, #{thu}, #{fri}, #{sat}, #{sun})
     </insert>
+    
+    <select id="QueryCoursetableByDay" parameterType="string" resultType="string">
+        SELECT #{day} FROM coursetable WHERE studentid=#{studentid}
+    </select>
 </mapper>

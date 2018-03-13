@@ -11,6 +11,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath*:/spring-mvc.xml", "classpath*:/spring-mybatis.xml"})
@@ -32,5 +36,11 @@ public class TestService {
         for(String name:beanNames){
             System.out.println("beanName--->>> "+name);
         }
+    }
+    @Test
+    public void test3(){
+        SimpleDateFormat sdf = new SimpleDateFormat("E", Locale.ENGLISH);
+        Date date = new Date();
+        System.out.println(sdf.format(date));
     }
 }

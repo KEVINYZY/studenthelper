@@ -148,7 +148,7 @@
                                     Coursetable coursetable = coursetables.get(i);
                             %>
                             <tr>
-                                <td>第<%=2 * (i + 1) - 1%>-<%=2 * (i + 1)%>节课</td>
+                                <td>第<%= 2 * coursetable.getclassNo() - 1%> - <%=2 * coursetable.getclassNo()%>节课</td>
                                 <td><textarea name=<%=(i+1) + "Mon"%> style="resize:none"><%=coursetable.getMon()%></textarea></td>
                                 <td><textarea name=<%=(i+1) + "Tue"%> style="resize:none"><%=coursetable.getTue()%></textarea></td>
                                 <td><textarea name=<%=(i+1) + "Wed"%> style="resize:none"><%=coursetable.getWed()%></textarea></td>
@@ -162,7 +162,7 @@
                             %>
                             </tbody>
                         </table>
-                        <center><button type="submit" class="btn btn-inverse">提交编辑</button></a>&nbsp;&nbsp;<a href="/coursetable"><button class="btn btn-inverse">返回课表</button></a>&nbsp;&nbsp;<button class="btn btn-danger">清空课表</button></center>
+                        <center><button type="submit" class="btn btn-inverse">提交编辑</button></a>&nbsp;&nbsp;<button class="btn btn-inverse">返回课表</button></center>
                     </form>
                 </div>
             </div>
@@ -172,5 +172,6 @@
 <div id="footer-sec">
     Copyright &copy; 2018 <a href="#" target="_blank" title="">Creams </a>
 </div>
+
 </body>
 </html>

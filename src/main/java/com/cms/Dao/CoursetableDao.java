@@ -7,5 +7,9 @@ import java.util.List;
 
 @Repository
 public interface CoursetableDao {
-    List<Coursetable> QueryCoursetableById(String username);
+    List<Coursetable> QueryCoursetableById (String username);
+    
+    void UpadteCoursetable (Coursetable coursetable);
+    
+    List<String> QueryCoursetableByDay(String day, String studentid);
 }

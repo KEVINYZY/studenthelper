@@ -147,7 +147,7 @@
                                     Coursetable coursetable = coursetables.get(i);
                             %>
                             <tr>
-                            <td>第<%= 2 * coursetable.getclassNo() - 1%> - <%=2 * coursetable.getclassNo() + 1%>节课</td>
+                            <td>第<%= 2 * coursetable.getclassNo() - 1%> - <%=2 * coursetable.getclassNo()%>节课</td>
                             <td><%=coursetable.getMon()%></td>
                             <td><%=coursetable.getTue()%></td>
                             <td><%=coursetable.getWed()%></td>
@@ -163,7 +163,7 @@
                         </tbody>
                     </table>
                 </div>
-                <center><a href="/editcoursetable"><button class="btn btn-inverse">编辑课表</button></a>&nbsp;&nbsp;<button class="btn btn-danger">清空课表</button></center>
+                <center><a href="/editcoursetable"><button class="btn btn-inverse">编辑课表</button></a></center>
             </div>
         </div>
     </div>
