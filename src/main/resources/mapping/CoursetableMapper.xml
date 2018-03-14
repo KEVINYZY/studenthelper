@@ -9,7 +9,8 @@
         REPLACE INTO coursetable (studentid, classNo, mon, tue, wed, thu, fri, sat, sun) VALUES (#{studentid}, #{classNo}, #{mon}, #{tue}, #{wed}, #{thu}, #{fri}, #{sat}, #{sun})
     </insert>
     
-    <select id="QueryCoursetableByDay" parameterType="string" resultType="string">
-        SELECT #{day} FROM coursetable WHERE studentid=#{studentid}
+    <select id="QueryDaytableById" parameterType="String" resultType="String">
+        SELECT ${day} FROM coursetable WHERE studentid=#{studentid}
     </select>
+    
 </mapper>

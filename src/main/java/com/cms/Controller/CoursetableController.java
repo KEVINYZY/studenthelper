@@ -34,10 +34,11 @@ public class CoursetableController {
     
     @RequestMapping("/submitcoursetable")
     public String submitCoursetable(HttpSession session, HttpServletRequest request){
+        String username = ((User)session.getAttribute("user")).getUsername();
         Coursetable coursetable = null;
         for (int i = 0; i < 5; i++) {
             coursetable = new Coursetable();
-            coursetable.setStudentid(((User)session.getAttribute("user")).getUsername());
+            coursetable.setStudentid(username);
             coursetable.setclassNo(i + 1);
             coursetable.setMon(request.getParameter(i + 1 + "Mon"));
             coursetable.setTue(request.getParameter(i + 1 + "Tue"));
@@ -48,6 +49,8 @@ public class CoursetableController {
             coursetable.setSun(request.getParameter(i + 1 + "Sun"));
             courseService.UpadteCoursetable(coursetable);
         }
+        List<String> todayClass = courseService.QueryDaytableById(username);
+        session.setAttribute("todaytable", todayClass);
         return this.coursetable(session);
     }
 }

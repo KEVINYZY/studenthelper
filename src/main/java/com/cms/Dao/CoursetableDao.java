@@ -1,6 +1,7 @@
 package com.cms.Dao;
 
 import com.cms.Entity.Coursetable;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -10,6 +11,6 @@ public interface CoursetableDao {
     List<Coursetable> QueryCoursetableById (String username);
     
     void UpadteCoursetable (Coursetable coursetable);
-    
-    List<String> QueryCoursetableByDay(String day, String studentid);
+
+    List<String> QueryDaytableById(@Param("day") String day, @Param("studentid") String studentid);
 }

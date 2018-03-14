@@ -1,4 +1,8 @@
-<%@ page import="com.cms.Entity.User" %><%--
+<%@ page import="com.cms.Entity.User" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Locale" %>
+<%@ page import="java.util.Date" %><%--
   Created by IntelliJ IDEA.
   User: Creams
   Date: 2018/3/7
@@ -9,6 +13,10 @@
 <!DOCTYPE html>
 <%
     User user = (User) session.getAttribute("user");
+    List<String> todaytable = (List<String>)session.getAttribute("todaytable");
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日E");
+    Date date = new Date();
+    String day = sdf.format(date);
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -181,11 +189,11 @@
                         我的今日课表
                     </div>
                     <div class="panel-body">
-                        <p class="text-muted">TO BE WRITTEN</p>
-                        <p class="text-muted">TO BE WRITTEN</p>
-                        <p class="text-muted">TO BE WRITTEN</p>
-                        <p class="text-muted">TO BE WRITTEN</p>
-                        <p class="text-muted">TO BE WRITTEN</p>
+                        <p class="text-muted">1-2节 08:00-09:35 <%=todaytable.get(0)%></p>
+                        <p class="text-muted">3-4节 10:00-11:35 <%=todaytable.get(1)%></p>
+                        <p class="text-muted">5-6节 13:30-15:05 <%=todaytable.get(2)%></p>
+                        <p class="text-muted">7-8节 15:30-17:05 <%=todaytable.get(3)%></p>
+                        <p class="text-muted">9-10节 18:00-19:35 <%=todaytable.get(4)%></p>
                     </div>
                 </div>
             </div>

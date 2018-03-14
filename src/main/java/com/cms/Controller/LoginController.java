@@ -28,7 +28,8 @@ public class LoginController {
         User user = userService.login(username, password);
         if(user != null){
             session.setAttribute("user", user);
-            List<String> todayClass = courseService.QueryCoursetableByDay(user.getUsername());
+            List<String> todayClass = courseService.QueryDaytableById(user.getUsername());
+            session.setAttribute("todaytable", todayClass);
             return "success";
         }
         else{

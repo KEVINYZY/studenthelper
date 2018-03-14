@@ -14,8 +14,6 @@ import java.util.Locale;
 @Service
 public class CourseService {
     private Logger log = Logger.getLogger(this.getClass());
-    SimpleDateFormat sdf = new SimpleDateFormat("E", Locale.ENGLISH);
-    Date date = new Date();
     
     @Resource
     private CoursetableDao coursetableDao;
@@ -29,9 +27,12 @@ public class CourseService {
         log.info("更新课程表");
         coursetableDao.UpadteCoursetable(coursetable);
     }
-    public List<String> QueryCoursetableByDay(String studentid){
-        String weekday = sdf.format(date);
-        log.info("获取" + weekday + "课程表");
-        return coursetableDao.QueryCoursetableByDay(weekday, studentid);
+    
+    public List<String> QueryDaytableById(String studentid){
+        SimpleDateFormat sdf = new SimpleDateFormat("E", Locale.ENGLISH);
+        Date date = new Date();
+        String day = sdf.format(date).toLowerCase();
+        log.info("获取" + studentid + "-" + day + "课程表");
+        return coursetableDao.QueryDaytableById(day, studentid);
     }
 }

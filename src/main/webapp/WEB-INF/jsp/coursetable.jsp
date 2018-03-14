@@ -147,14 +147,14 @@
                                     Coursetable coursetable = coursetables.get(i);
                             %>
                             <tr>
-                            <td>第<%= 2 * coursetable.getclassNo() - 1%> - <%=2 * coursetable.getclassNo()%>节课</td>
-                            <td><%=coursetable.getMon()%></td>
-                            <td><%=coursetable.getTue()%></td>
-                            <td><%=coursetable.getWed()%></td>
-                            <td><%=coursetable.getThu()%></td>
-                            <td><%=coursetable.getFri()%></td>
-                            <td><%=coursetable.getSat()%></td>
-                            <td><%=coursetable.getSun()%></td>
+                            <td width="100px">第<%= 2 * coursetable.getclassNo() - 1%> - <%=2 * coursetable.getclassNo()%>节课</td>
+                            <td width="210px"><%=coursetable.getMon()%></td>
+                            <td width="210px"><%=coursetable.getTue()%></td>
+                            <td width="210px"><%=coursetable.getWed()%></td>
+                            <td width="210px"><%=coursetable.getThu()%></td>
+                            <td width="210px"><%=coursetable.getFri()%></td>
+                            <td width="210px"><%=coursetable.getSat()%></td>
+                            <td width="210px"><%=coursetable.getSun()%></td>
                             </tr>
                             <%
                                 }
