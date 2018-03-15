@@ -14,9 +14,7 @@
 <%
     User user = (User) session.getAttribute("user");
     List<String> todaytable = (List<String>)session.getAttribute("todaytable");
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日E");
-    Date date = new Date();
-    String day = sdf.format(date);
+    String day = (String)session.getAttribute("today");
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -65,7 +63,7 @@
                         <div class="inner-text">
                             <%=user.getName()%>
                             <br />
-                            <small><%=user.getCollage()%>&nbsp;<%=user.getMajor()%> <%=user.getGrade()%>级<%=user.getClassno()%>班</small>
+                            <small><%=user.getCollage()%>&nbsp;<%=user.getMajor()%> <%=user.getGrade()%>级<%=user.getClassno()%>班 <br> <%=day%></small>
                         </div>
                     </div>
                 </li>
@@ -80,7 +78,7 @@
                             <a href="/coursetable">我的课表</a>
                         </li>
                         <li>
-                            <a href="#">我的考试倒计时</a>
+                            <a href="/examschedule">我的考试倒计时</a>
                         </li>
                     </ul>
                 </li>
@@ -88,7 +86,7 @@
                     <a href="#">我的社团</a>
                 </li>
                 <li>
-                    <a href="#">我的个人计划</a>
+                    <a href="#">我的个人备忘录</a>
                 </li>
                 <li>
                     <a href="#">校学生通知</a>
@@ -200,7 +198,7 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        我的个人计划
+                        我的个人备忘录
                     </div>
                     <div class="panel-body">
                         <p class="text-muted">TO BE WRITTEN</p>

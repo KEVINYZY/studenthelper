@@ -58,7 +58,7 @@
                 url: "/checklogin",
                 dataType: "json",
                 error: function (data) {
-                    console.log(data);
+                    alert("系统错误 请重试");
                     $(that).removeClass("processing");
                 },
                 success: function (response) {

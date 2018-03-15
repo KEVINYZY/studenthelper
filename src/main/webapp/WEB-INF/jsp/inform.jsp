@@ -1,17 +1,20 @@
-<%@ page import="com.cms.Entity.User" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.cms.Entity.Coursetable" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: Creams
-  Date: 2018/3/7
-  Time: 22:31
+  Date: 2018/3/14
+  Time: 17:36
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="com.cms.Entity.User" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Locale" %>
+<%@ page import="java.util.Date" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <%
     User user = (User) session.getAttribute("user");
-    List<Coursetable> coursetables = (List<Coursetable>)session.getAttribute("Coursetable");
+    List<String> todaytable = (List<String>)session.getAttribute("todaytable");
     String day = (String)session.getAttribute("today");
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -57,7 +60,7 @@
             <ul class="nav" id="main-menu">
                 <li>
                     <div class="user-img-div">
-                        <img src="../../images/user.png" class="img-thumbnail" />
+                        <img src="images/user.png" class="img-thumbnail" />
                         <div class="inner-text">
                             <%=user.getName()%>
                             <br />
@@ -73,7 +76,7 @@
                     <a href="#">我的学习<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="active-menu" href="/coursetable">我的课表</a>
+                            <a href="/coursetable">我的课表</a>
                         </li>
                         <li>
                             <a href="/examschedule">我的考试倒计时</a>
@@ -87,7 +90,7 @@
                     <a href="#">我的个人备忘录</a>
                 </li>
                 <li>
-                    <a href="#">校学生通知</a>
+                    <a class="active-menu" href="#">校学生通知</a>
                 </li>
                 <li>
                     <a href="#"><%=user.getName()%><span class="fa arrow"></span></a>
@@ -119,52 +122,9 @@
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="page-head-line">我的课表</h1>
-                    <h1 class="page-subhead-line">看准课表 今天又是元气满满的一天！</h1>
-                    <div class="panel-heading">
-                        <%=user.getName()%>&nbsp;&nbsp;
-                        <%=user.getUsername()%>&nbsp;&nbsp;
-                        <%=user.getCollage()%>&nbsp;&nbsp;
-                        <%=user.getMajor()%>&nbsp;&nbsp;
-                        <%=user.getGrade()%>级
-                        <%=user.getClassno()%>班
-                    </div>
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead>
-                        <tr>
-                            <th></th>
-                            <th>星期一</th>
-                            <th>星期二</th>
-                            <th>星期三</th>
-                            <th>星期四</th>
-                            <th>星期五</th>
-                            <th>星期六</th>
-                            <th>星期日</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <%
-                                for(int i = 0; i < 5; i++){
-                                    Coursetable coursetable = coursetables.get(i);
-                            %>
-                            <tr>
-                            <td width="100px">第<%= 2 * coursetable.getclassNo() - 1%> - <%=2 * coursetable.getclassNo()%>节课</td>
-                            <td width="210px"><%=coursetable.getMon()%></td>
-                            <td width="210px"><%=coursetable.getTue()%></td>
-                            <td width="210px"><%=coursetable.getWed()%></td>
-                            <td width="210px"><%=coursetable.getThu()%></td>
-                            <td width="210px"><%=coursetable.getFri()%></td>
-                            <td width="210px"><%=coursetable.getSat()%></td>
-                            <td width="210px"><%=coursetable.getSun()%></td>
-                            </tr>
-                            <%
-                                }
-                            %>
-                        
-                        </tbody>
-                    </table>
+                    <h1 class="page-head-line">我的考试倒计时</h1>
+                    <h1 class="page-subhead-line">关注考试 稳扎稳打不用慌！</h1>
                 </div>
-                <center><a href="/editcoursetable"><button class="btn btn-inverse">编辑课表</button></a></center>
             </div>
         </div>
     </div>
@@ -172,5 +132,6 @@
 <div id="footer-sec">
     Copyright &copy; 2018 <a href="#" target="_blank" title="">Creams </a>
 </div>
+
 </body>
 </html>

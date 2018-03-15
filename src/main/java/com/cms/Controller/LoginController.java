@@ -30,6 +30,10 @@ public class LoginController {
             session.setAttribute("user", user);
             List<String> todayClass = courseService.QueryDaytableById(user.getUsername());
             session.setAttribute("todaytable", todayClass);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日E");
+            Date date = new Date();
+            String day = sdf.format(date);
+            session.setAttribute("today", day);
             return "success";
         }
         else{
