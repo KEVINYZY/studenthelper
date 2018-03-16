@@ -145,12 +145,12 @@
                             </thead>
                             <tbody>
                             <tr class="list-group-item-success">
-                                <td>1</td>
-                                <td><input type="checkbox" value="" /></td>
-                                <td>100$ Pending Payment</td>
-                                <td>23rd June </td>
-                                <td><a href="#" class="btn btn-primary ">Just Done</a></td>
-                                <td><a href="#" class="btn btn-primary ">Just Done</a></td>
+                                <td>数据结构</td>
+                                <td><input type="date" value="" /></td>
+                                <td>学汇楼</td>
+                                <td></td>
+                                <td>还有3天</td>
+                                <td><a href="#" class="btn btn-primary ">编辑</a>   <a href="#" class="btn btn-danger ">删除</a></td>
                             </tr>
                             <tr class="list-group-item-danger">
                             </tr>
