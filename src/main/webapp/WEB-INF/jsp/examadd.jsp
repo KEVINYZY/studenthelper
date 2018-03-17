@@ -124,41 +124,36 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="panel panel-info">
-                        <!-- Default panel contents -->
-                        <div class="panel-heading">我的考试安排  <a href="/addexam"><button class="btn btn-inverse"><i class="glyphicon glyphicon-plus"></i>添加考试</button></a></div>
-                        <!-- Table -->
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>考试科目</th>
-                                <th>考试时间</th>
-                                <th>考试地点</th>
-                                <th>考试备注</th>
-                                <th>倒计时</th>
-                                <th>操作</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr class="list-group-item-success">
-                                <td>数据结构</td>
-                                <td><input type="date" value="" /></td>
-                                <td>学汇楼</td>
-                                <td></td>
-                                <td>还有3天</td>
-                                <td><a href="#" class="btn btn-primary ">编辑</a>   <a href="#" class="btn btn-danger ">删除</a></td>
-                            </tr>
-                            <tr class="list-group-item-danger">
-                            </tr>
-                            </tr>
-                            <tr class="list-group-item-warning">
-                            </tr>
-                            </tbody>
-                        </table>
+                        <div class="panel-heading">
+                            添加考试
+                        </div>
+                        <div class="panel-body">
+                            <form action="/submitexam">
+                                <div class="form-group">
+                                    <label>考试科目</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>考试时间</label>
+                                    <input name="date" class="form-control" type="date">
+                                    <p class="help-block"></p>
+                                </div>
+                                <div class="form-group">
+                                    <label>考试考试地点</label>
+                                    <input class="form-control" type="text">
+                                    <p class="help-block"></p>
+                                </div>
+                                <div class="form-group">
+                                    <label>考试备注</label>
+                                    <textarea style="resize:none" class="form-control" rows="3"></textarea>
+                                </div>
+                                <center><button type="submit" class="btn btn-success">确认添加</button> <a href="/examschedule" class="btn btn-default">返回列表</a> </center>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </div>

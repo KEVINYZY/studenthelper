@@ -7,9 +7,11 @@ public class Examschedule {
 
     private String examname;
 
-    private Date examtime;
+    private String examtime;
 
     private String remark;
+    
+    private String examplace;
 
     public String getStudentid() {
         return studentid;
@@ -27,11 +29,11 @@ public class Examschedule {
         this.examname = examname == null ? null : examname.trim();
     }
 
-    public Date getExamtime() {
+    public String getExamtime() {
         return examtime;
     }
 
-    public void setExamtime(Date examtime) {
+    public void setExamtime(String examtime) {
         this.examtime = examtime;
     }
 
@@ -41,5 +43,13 @@ public class Examschedule {
 
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
+    }
+
+    public String getExamplace() {
+        return examplace;
+    }
+
+    public void setExamplace(String examplace) {
+        this.examplace = examplace;
     }
 }
