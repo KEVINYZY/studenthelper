@@ -9,6 +9,9 @@
         SELECT * FROM examschedule WHERE studentid=#{studentid}
     </select>
     
+    <delete id="DeleteExamscheduleByName" parameterType="String">
+        DELETE FROM examschedule WHERE studentid=#{1} AND examname=#{0};
+    </delete>
     
     
 </mapper>

@@ -23,4 +23,9 @@ public class ExamscheduleService {
         logger.info("获取考试安排");
         return examscheduleDao.QueryExamscheduleById(studentid);
     }
+    
+    public void DeleteExamscheduleByName(String examname, String studentid){
+        logger.info("删除科目" + examname + "考试");
+        examscheduleDao.DeleteExamscheduleByName(examname, studentid);
+    }
 }

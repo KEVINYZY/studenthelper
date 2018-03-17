@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class ExamscheduleController {
     }
     
     @RequestMapping("/examedit")
-    public String addexam(){
+    public String addexam(HttpServletRequest request, HttpSession session){
         return "examedit";
     }
     
@@ -39,6 +40,18 @@ public class ExamscheduleController {
         examschedule.setExamtime(date.replace("T", " "));
         examschedule.setRemark(remark);
         examscheduleService.addExam(examschedule);
+        return this.examschedule(session);
+    }
+    
+    @RequestMapping("examdelete")
+    public String examdelete(HttpSession session, HttpServletRequest request){
+        String deletenum = request.getParameter("delete");
+        String studentid = ((User)session.getAttribute("user")).getUsername();
+        String examname = ((List<Examschedule>)session.getAttribute("examschedule")).get(Integer.parseInt(deletenum)).getExamname();
+        System.out.println(deletenum);
+        System.out.println(studentid);
+        System.out.println(examname);
+        examscheduleService.DeleteExamscheduleByName(examname, studentid);
         return this.examschedule(session);
     }
 }

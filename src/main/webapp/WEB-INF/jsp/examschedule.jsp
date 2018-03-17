@@ -152,7 +152,7 @@
                                 <td><%=examschedule.getExamplace()%></td>
                                 <td><%=examschedule.getRemark()%></td>
                                 <td><%=examschedule.getExamname()%></td>
-                                <td><a><button class="btn btn-primary" name="edit" value=<%=i%>>编辑</button></a>   <a href=""><button class="btn btn-danger" name="delete" value=<%=i%>>删除</button></a></td>
+                                <td><a href="/examedit"><button class="btn btn-primary" name="edit" value=<%=i%>>编辑</button></a>   <a href="/examdelete?delete=<%=i%>"><button class="btn btn-danger" name="delete">删除</button></a></td>
                             </tr>
                             <%
                                 }

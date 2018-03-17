@@ -10,4 +10,6 @@ public interface ExamscheduleDao {
     void addExamschedule(Examschedule examschedule);
     
     List<Examschedule> QueryExamscheduleById(String studentid);
+    
+    void DeleteExamscheduleByName(String examname, String studentid);
 }
