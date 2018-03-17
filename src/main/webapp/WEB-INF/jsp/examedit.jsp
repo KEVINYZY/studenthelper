@@ -11,7 +11,6 @@
 <!DOCTYPE html>
 <%
     User user = (User) session.getAttribute("user");
-    List<String> todaytable = (List<String>)session.getAttribute("todaytable");
     String day = (String)session.getAttribute("today");
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -133,21 +132,21 @@
                             <form action="/submitexam">
                                 <div class="form-group">
                                     <label>考试科目</label>
-                                    <input class="form-control" type="text">
+                                    <input name="examsubject" class="form-control" type="text">
                                 </div>
                                 <div class="form-group">
                                     <label>考试时间</label>
-                                    <input name="date" class="form-control" type="date">
+                                    <input name="date" class="form-control" type="datetime-local">
                                     <p class="help-block"></p>
                                 </div>
                                 <div class="form-group">
                                     <label>考试考试地点</label>
-                                    <input class="form-control" type="text">
+                                    <input name="place" class="form-control" type="text">
                                     <p class="help-block"></p>
                                 </div>
                                 <div class="form-group">
                                     <label>考试备注</label>
-                                    <textarea style="resize:none" class="form-control" rows="3"></textarea>
+                                    <textarea name="remark" style="resize:none" class="form-control" rows="3"></textarea>
                                 </div>
                                 <center><button type="submit" class="btn btn-success">确认添加</button> <a href="/examschedule" class="btn btn-default">返回列表</a> </center>
                             </form>

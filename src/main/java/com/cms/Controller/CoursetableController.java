@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-
 public class CoursetableController {
     @Autowired
     private CourseService courseService;
@@ -53,4 +52,6 @@ public class CoursetableController {
         session.setAttribute("todaytable", todayClass);
         return this.coursetable(session);
     }
+    
+    
 }

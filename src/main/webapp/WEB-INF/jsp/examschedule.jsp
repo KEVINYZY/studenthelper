@@ -7,11 +7,12 @@
 --%>
 <%@ page import="com.cms.Entity.User" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.cms.Entity.Examschedule" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <%
     User user = (User) session.getAttribute("user");
-    List<String> todaytable = (List<String>)session.getAttribute("todaytable");
+    List<Examschedule> examschedules = (List<Examschedule>)session.getAttribute("examschedule");
     String day = (String)session.getAttribute("today");
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -127,7 +128,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-info">
                         <!-- Default panel contents -->
-                        <div class="panel-heading">我的考试安排  <a href="/addexam"><button class="btn btn-inverse"><i class="glyphicon glyphicon-plus"></i>添加考试</button></a></div>
+                        <div class="panel-heading">我的考试安排  <a href="/examedit"><button class="btn btn-inverse"><i class="glyphicon glyphicon-plus"></i>添加考试</button></a></div>
                         <!-- Table -->
                         <table class="table">
                             <thead>
@@ -141,19 +142,21 @@
                             </tr>
                             </thead>
                             <tbody>
+                            <%
+                                for (int i = 0; i < examschedules.size(); i++){
+                                    Examschedule examschedule = examschedules.get(i);
+                            %>
                             <tr class="list-group-item-success">
-                                <td>数据结构</td>
-                                <td><input type="date" value="" /></td>
-                                <td>学汇楼</td>
-                                <td></td>
-                                <td>还有3天</td>
-                                <td><a href="#" class="btn btn-primary ">编辑</a>   <a href="#" class="btn btn-danger ">删除</a></td>
+                                <td><%=examschedule.getExamname()%></td>
+                                <td><%=examschedule.getExamtime()%></td>
+                                <td><%=examschedule.getExamplace()%></td>
+                                <td><%=examschedule.getRemark()%></td>
+                                <td><%=examschedule.getExamname()%></td>
+                                <td><a><button class="btn btn-primary" name="edit" value=<%=i%>>编辑</button></a>   <a href=""><button class="btn btn-danger" name="delete" value=<%=i%>>删除</button></a></td>
                             </tr>
-                            <tr class="list-group-item-danger">
-                            </tr>
-                            </tr>
-                            <tr class="list-group-item-warning">
-                            </tr>
+                            <%
+                                }
+                            %>
                             </tbody>
                         </table>
                     </div>
