@@ -8,6 +8,7 @@
 <%@ page import="com.cms.Entity.User" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.cms.Entity.Examschedule" %>
+<%@ page import="com.cms.Action.TimeCalculator" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <%
@@ -133,12 +134,12 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>考试科目</th>
-                                <th>考试时间</th>
-                                <th>考试地点</th>
-                                <th>考试备注</th>
-                                <th>倒计时</th>
-                                <th>操作</th>
+                                <th width="245px">考试科目</th>
+                                <th width="245px">考试时间</th>
+                                <th width="245px">考试地点</th>
+                                <th width="245px">考试备注</th>
+                                <th width="245px">倒计时</th>
+                                <th width="245px">操作</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -151,7 +152,7 @@
                                 <td><%=examschedule.getExamtime()%></td>
                                 <td><%=examschedule.getExamplace()%></td>
                                 <td><%=examschedule.getRemark()%></td>
-                                <td><%=examschedule.getExamname()%></td>
+                                <td><%=TimeCalculator.TimeCalculate(examschedule.getExamtime())%></td>
                                 <td><a href="/examedit"><button class="btn btn-primary" name="edit" value=<%=i%>>编辑</button></a>   <a href="/examdelete?delete=<%=i%>"><button class="btn btn-danger" name="delete">删除</button></a></td>
                             </tr>
                             <%

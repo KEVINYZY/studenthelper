@@ -38,9 +38,10 @@ public class ExamscheduleController {
         examschedule.setExamname(examsubject);
         examschedule.setExamplace(place);
         examschedule.setExamtime(date.replace("T", " "));
+        System.out.println(date);
         examschedule.setRemark(remark);
         examscheduleService.addExam(examschedule);
-        return this.examschedule(session);
+        return "redirect:" + this.examschedule(session);
     }
     
     @RequestMapping("examdelete")
@@ -48,10 +49,7 @@ public class ExamscheduleController {
         String deletenum = request.getParameter("delete");
         String studentid = ((User)session.getAttribute("user")).getUsername();
         String examname = ((List<Examschedule>)session.getAttribute("examschedule")).get(Integer.parseInt(deletenum)).getExamname();
-        System.out.println(deletenum);
-        System.out.println(studentid);
-        System.out.println(examname);
         examscheduleService.DeleteExamscheduleByName(examname, studentid);
-        return this.examschedule(session);
+        return "redirect:" + this.examschedule(session);
     }
 }

@@ -50,7 +50,7 @@ public class CoursetableController {
         }
         List<String> todayClass = courseService.QueryDaytableById(username);
         session.setAttribute("todaytable", todayClass);
-        return this.coursetable(session);
+        return "redirect:" + this.coursetable(session);
     }
     
     

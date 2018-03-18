@@ -2,7 +2,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Locale" %>
-<%@ page import="java.util.Date" %><%--
+<%@ page import="java.util.Date" %>
+<%@ page import="com.cms.Entity.Examschedule" %><%--
   Created by IntelliJ IDEA.
   User: Creams
   Date: 2018/3/7
@@ -15,6 +16,7 @@
     User user = (User) session.getAttribute("user");
     List<String> todaytable = (List<String>)session.getAttribute("todaytable");
     String day = (String)session.getAttribute("today");
+    List<Examschedule> examschedules = (List<Examschedule>)session.getAttribute("examschedule");
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -215,11 +217,14 @@
                         我的考试倒计时
                     </div>
                     <div class="panel-body">
-                        <p class="text-muted">TO BE WRITTEN</p>
-                        <p class="text-muted">TO BE WRITTEN</p>
-                        <p class="text-muted">TO BE WRITTEN</p>
-                        <p class="text-muted">TO BE WRITTEN</p>
-                        <p class="text-muted">TO BE WRITTEN</p>
+                        <%
+                            for (int i = 0; i < 5; i++) {
+                                Examschedule examschedule = examschedules.get(i);
+                        %>
+                        <p class="text-muted"><%=i + 1%>.<%=(examschedule == null) ? examschedule.getExamname() + "-" + examschedule.getExamtime() + "-" + examschedule.getExamplace() : "-"%></p>
+                        <%
+                            }
+                        %>
                     </div>
                 </div>
             </div>

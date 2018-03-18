@@ -129,36 +129,48 @@
                             添加考试
                         </div>
                         <div class="panel-body">
-                            <form action="/submitexam">
+                            <form action="/submitexam" onsubmit="return add()">
                                 <div class="form-group">
                                     <label>考试科目</label>
-                                    <input name="examsubject" class="form-control" type="text">
+                                    <input name="examsubject" id="subject" class="form-control" type="text">
                                 </div>
                                 <div class="form-group">
                                     <label>考试时间</label>
-                                    <input name="date" class="form-control" type="datetime-local">
+                                    <input name="date" class="form-control" id="time" type="date">
                                     <p class="help-block"></p>
                                 </div>
                                 <div class="form-group">
                                     <label>考试考试地点</label>
-                                    <input name="place" class="form-control" type="text">
+                                    <input name="place" class="form-control" id="place" type="text">
                                     <p class="help-block"></p>
                                 </div>
                                 <div class="form-group">
                                     <label>考试备注</label>
                                     <textarea name="remark" style="resize:none" class="form-control" rows="3"></textarea>
                                 </div>
+                                <span id="msg" style="color:#F00;font-size:14px;text-align: center"></span>
                                 <center><button type="submit" class="btn btn-success">确认添加</button> <a href="/examschedule" class="btn btn-default">返回列表</a> </center>
                             </form>
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>
 <div id="footer-sec">
     Copyright &copy; 2018 <a href="#" target="_blank" title="">Creams </a>
 </div>
-
+<script type="text/javascript">
+    function add() {
+        var subject = $("#subject").val();
+        var place = $("#place").val();
+        var time = $("#time").val();
+        if (subject == "" || place == "" || time == "") {
+            $("#msg").text("请填写完整信息");
+            return false;
+        }
+    }
+</script>
 </body>
 </html>
