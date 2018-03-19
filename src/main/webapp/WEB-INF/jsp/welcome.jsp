@@ -1,9 +1,7 @@
 <%@ page import="com.cms.Entity.User" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.util.Locale" %>
-<%@ page import="java.util.Date" %>
-<%@ page import="com.cms.Entity.Examschedule" %><%--
+<%@ page import="com.cms.Entity.Examschedule" %>
+<%@ page import="com.cms.Action.TimeCalculator" %><%--
   Created by IntelliJ IDEA.
   User: Creams
   Date: 2018/3/7
@@ -186,7 +184,7 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        我的今日课表
+                        <a href="/coursetable">我的今日课表</a>
                     </div>
                     <div class="panel-body">
                         <p class="text-muted">1-2节 08:00-09:35 <%=todaytable.get(0)%></p>
@@ -214,14 +212,17 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        我的考试倒计时
+                        <a href="/examschedule">我的考试倒计时</a>
                     </div>
                     <div class="panel-body">
                         <%
-                            for (int i = 0; i < 5; i++) {
+                            for (int i = 0; i < examschedules.size(); i++){
+                                if(i == 5){
+                                    break; 
+                                }
                                 Examschedule examschedule = examschedules.get(i);
                         %>
-                        <p class="text-muted"><%=i + 1%>.<%=(examschedule == null) ? examschedule.getExamname() + "-" + examschedule.getExamtime() + "-" + examschedule.getExamplace() : "-"%></p>
+                        <p style="color: #000000;" class="text-muted"><%=i+1%>. 距离 <%=examschedule.getExamname()%> <%=TimeCalculator.TimeCalculate(examschedule.getExamtime())%></p>
                         <%
                             }
                         %>
