@@ -11,7 +11,7 @@ public class TimeCalculator {
         Date date2 = null;
         try {
              date1 = sdf.parse(date);
-             date2 = new Date();
+             date2 = sdf.parse(sdf.format(new Date()));
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -22,5 +22,6 @@ public class TimeCalculator {
         else{
             return  "已过去" + -a + "天";
         }
+
     }
 }

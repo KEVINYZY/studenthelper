@@ -69,8 +69,8 @@
                     <a href="/login">主页</a>
                 </li>
                 <li>
-                    <a href="#">我的学习<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
+                    <a href="#" class="active-menu-top">我的学习<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse in ">
                         <li>
                             <a href="/coursetable">我的课表</a>
                         </li>
