@@ -1,6 +1,5 @@
 package com.cms.Entity;
 
-import java.util.Date;
 
 public class Examschedule {
     private String studentid;
@@ -12,6 +11,8 @@ public class Examschedule {
     private String remark;
     
     private String examplace;
+    
+    private String oldname;
 
     public String getStudentid() {
         return studentid;
@@ -51,5 +52,13 @@ public class Examschedule {
 
     public void setExamplace(String examplace) {
         this.examplace = examplace;
+    }
+
+    public String getOldname() {
+        return oldname;
+    }
+
+    public void setOldname(String oldname) {
+        this.oldname = oldname;
     }
 }

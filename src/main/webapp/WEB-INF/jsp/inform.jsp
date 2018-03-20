@@ -122,8 +122,8 @@
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="page-head-line">我的考试倒计时</h1>
-                    <h1 class="page-subhead-line">关注考试 稳扎稳打不用慌！</h1>
+                    <h1 class="page-head-line">学生通知</h1>
+                    <h1 class="page-subhead-line">关注学校全新动态</h1>
                 </div>
             </div>
         </div>

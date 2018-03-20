@@ -6,12 +6,18 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="com.cms.Entity.User" %>
-<%@ page import="java.util.List" %>
+<%@ page import="com.cms.Entity.Examschedule" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <%
     User user = (User) session.getAttribute("user");
     String day = (String)session.getAttribute("today");
+    Examschedule examschedule = (Examschedule)session.getAttribute("editexam");
+    String action = "edit";
+    if(examschedule == null){
+        action = "add";
+    }
+        
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -129,24 +135,24 @@
                             添加考试
                         </div>
                         <div class="panel-body">
-                            <form action="/submitexam" onsubmit="return add()">
+                            <form action="/submitexam?action=<%=action%>"onsubmit="return add()" method="post">
                                 <div class="form-group">
                                     <label>考试科目</label>
-                                    <input name="examsubject" id="subject" class="form-control" type="text">
+                                    <input name="examsubject" id="subject" class="form-control" type="text" value="<%=examschedule.getExamname()%>">
                                 </div>
                                 <div class="form-group">
                                     <label>考试时间</label>
-                                    <input name="date" class="form-control" id="time" type="date">
+                                    <input name="date" class="form-control" id="time" type="date" value="<%=examschedule.getExamtime()%>">
                                     <p class="help-block"></p>
                                 </div>
                                 <div class="form-group">
                                     <label>考试考试地点</label>
-                                    <input name="place" class="form-control" id="place" type="text">
+                                    <input name="place" class="form-control" id="place" type="text" value="<%=examschedule.getExamplace()%>">
                                     <p class="help-block"></p>
                                 </div>
                                 <div class="form-group">
                                     <label>考试备注</label>
-                                    <textarea name="remark" style="resize:none" class="form-control" rows="3"></textarea>
+                                    <textarea name="remark" style="resize:none" class="form-control" rows="3"><%=examschedule.getRemark()%></textarea>
                                 </div>
                                 <span id="msg" style="color:#F00;font-size:14px;text-align: center"></span>
                                 <center><button type="submit" class="btn btn-success">确认添加</button> <a href="/examschedule" class="btn btn-default">返回列表</a> </center>

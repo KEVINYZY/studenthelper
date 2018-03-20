@@ -28,19 +28,37 @@ public class ExamscheduleController {
     
     @RequestMapping("/examedit")
     public String addexam(HttpServletRequest request, HttpSession session){
+        String edit = request.getParameter("edit");
+        if(edit != null){
+            String studentid = ((User)session.getAttribute("user")).getUsername();
+            List<Examschedule> examschedules = examscheduleService.QueryExamscheduleById(studentid);
+            Examschedule examschedule = examschedules.get(Integer.parseInt(edit));
+            session.setAttribute("editexam", examschedule);
+        }
+        else{
+            session.removeAttribute("editexam");
+        }
         return "examedit";
     }
     
     @RequestMapping("/submitexam")
-    public String submitexam(@RequestParam("date") String date, @RequestParam("examsubject") String examsubject, @RequestParam("place") String place, @RequestParam("remark") String remark, HttpSession session){
+    public String submitexam(@RequestParam("date") String date, @RequestParam("examsubject") String examsubject, @RequestParam("place") String place, @RequestParam("remark") String remark, HttpSession session, HttpServletRequest request){
+        String action = request.getParameter("action");
+        System.out.println(action);
         Examschedule examschedule = new Examschedule();
         examschedule.setStudentid(((User)session.getAttribute("user")).getUsername());
         examschedule.setExamname(examsubject);
         examschedule.setExamplace(place);
         examschedule.setExamtime(date.replace("T", " "));
-        System.out.println(date);
         examschedule.setRemark(remark);
-        examscheduleService.addExam(examschedule);
+        if(action.equals("add")){
+            examscheduleService.addExam(examschedule);
+        }
+        else {
+            Examschedule oldexam = (Examschedule) session.getAttribute("editexam");
+            examschedule.setOldname(oldexam.getExamname());
+            examscheduleService.UpdateExamscheduleById(examschedule);
+        }
         return "redirect:" + this.examschedule(session);
     }
     

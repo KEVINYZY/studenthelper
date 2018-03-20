@@ -89,7 +89,7 @@
                     <a href="#">我的个人备忘录</a>
                 </li>
                 <li>
-                    <a href="#">校学生通知</a>
+                    <a href="/inform">校学生通知</a>
                 </li>
                 <li>
                     <a href="#"><%=user.getName()%><span class="fa arrow"></span></a>

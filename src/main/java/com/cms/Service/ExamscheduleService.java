@@ -28,4 +28,9 @@ public class ExamscheduleService {
         logger.info("删除科目" + examname + "考试");
         examscheduleDao.DeleteExamscheduleByName(examname, studentid);
     }
+    
+    public void UpdateExamscheduleById(Examschedule examschedule){
+        logger.info("更新" + examschedule.getExamname() + "考试");
+        examscheduleDao.UpdateExamscheduleById(examschedule);
+    }
 }

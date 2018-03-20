@@ -1,6 +1,7 @@
 package com.cms.Dao;
 
 import com.cms.Entity.Examschedule;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,4 +13,6 @@ public interface ExamscheduleDao {
     List<Examschedule> QueryExamscheduleById(String studentid);
     
     void DeleteExamscheduleByName(String examname, String studentid);
+    
+    void UpdateExamscheduleById (Examschedule examschedule);
 }

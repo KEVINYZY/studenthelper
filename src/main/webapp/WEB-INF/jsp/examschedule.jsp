@@ -15,6 +15,7 @@
     User user = (User) session.getAttribute("user");
     List<Examschedule> examschedules = (List<Examschedule>)session.getAttribute("examschedule");
     String day = (String)session.getAttribute("today");
+
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -153,7 +154,7 @@
                                 <td><%=examschedule.getExamplace()%></td>
                                 <td><%=examschedule.getRemark()%></td>
                                 <td><%=TimeCalculator.TimeCalculate(examschedule.getExamtime())%></td>
-                                <td><a href="/examedit"><button class="btn btn-primary" name="edit" value=<%=i%>>编辑</button></a>   <a href="/examdelete?delete=<%=i%>"><button class="btn btn-danger" name="delete">删除</button></a></td>
+                                <td><a href="/examedit?edit=<%=i%>"><button class="btn btn-primary" name="edit" value=<%=i%>>编辑</button></a>   <a href="/examdelete?delete=<%=i%>"><button class="btn btn-danger" name="delete">删除</button></a></td>
                             </tr>
                             <%
                                 }

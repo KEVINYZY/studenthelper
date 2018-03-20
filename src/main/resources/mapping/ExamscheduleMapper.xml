@@ -13,5 +13,9 @@
         DELETE FROM examschedule WHERE studentid=#{1} AND examname=#{0};
     </delete>
     
+    <update id="UpdateExamscheduleById" parameterType="com.cms.Entity.Examschedule">
+        UPDATE examschedule SET studentid=#{studentid}, examname=#{examname}, examtime=#{examtime}, remark=#{remark}, examplace=#{examplace} WHERE studentid=#{studentid} and examname=#{oldname};
+    </update>
+    
     
 </mapper>
