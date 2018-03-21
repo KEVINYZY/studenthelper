@@ -126,7 +126,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="panel panel-default">
+                <div class="panel panel-info">
                     <div class="panel-heading">
                         我的信息
                     </div>
@@ -143,10 +143,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <i class="fa fa-bell fa-fw"></i>我的通知
+                        <i class="fa fa-bell fa-fw"></i>我的备忘录
                     </div>
 
                     <div class="panel-body">
@@ -177,12 +177,12 @@
                                     </span>
                             </a>
                         </div>
-                        <a href="#" class="btn btn-info btn-block">查看全部消息</a>
+                        <a href="#" class="btn btn-info btn-block">查看全部备忘录</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
+            <div class="col-md-6">
+                <div class="panel panel-info">
                     <div class="panel-heading">
                         <a href="/coursetable">我的今日课表</a>
                     </div>
@@ -195,34 +195,22 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        我的个人备忘录
-                    </div>
-                    <div class="panel-body">
-                        <p class="text-muted">TO BE WRITTEN</p>
-                        <p class="text-muted">TO BE WRITTEN</p>
-                        <p class="text-muted">TO BE WRITTEN</p>
-                        <p class="text-muted">TO BE WRITTEN</p>
-                        <p class="text-muted">TO BE WRITTEN</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
+            <div class="col-md-6">
+                <div class="panel panel-info">
                     <div class="panel-heading">
                         <a href="/examschedule">我的考试倒计时</a>
                     </div>
                     <div class="panel-body">
                         <%
-                            for (int i = 0; i < examschedules.size(); i++){
-                                if(i == 5){
-                                    break; 
-                                }
-                                Examschedule examschedule = examschedules.get(i);
+                            int size = examschedules.size();
+                            Examschedule examschedule = null;
+                            for (int i = 0; i < 5; i++){
+                                if(i < size)
+                                    examschedule = examschedules.get(i);
+                                else
+                                    examschedule = null;
                         %>
-                        <p style="color: #000000;" class="text-muted"><%=i+1%>. 距离 <%=examschedule.getExamname()%> <%=TimeCalculator.TimeCalculate(examschedule.getExamtime())%></p>
+                        <p style="color: #000000;" class="text-muted"><%=i+1%>.<%=(examschedule == null)? "" : examschedule.getExamname()%> <%=(examschedule == null)? "" : examschedule.getExamplace()%> <%=(examschedule == null)? "" : examschedule.getRemark()%> <%=(examschedule == null)? "" : TimeCalculator.TimeCalculate(examschedule.getExamtime())%></p>
                         <%
                             }
                         %>

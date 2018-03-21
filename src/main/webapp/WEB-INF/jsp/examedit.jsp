@@ -138,21 +138,21 @@
                             <form action="/submitexam?action=<%=action%>"onsubmit="return add()" method="post">
                                 <div class="form-group">
                                     <label>考试科目</label>
-                                    <input name="examsubject" id="subject" class="form-control" type="text" value="<%=examschedule.getExamname()%>">
+                                    <input name="examsubject" id="subject" class="form-control" type="text" value="<%=(action.equals("edit"))? examschedule.getExamname() : ""%>">
                                 </div>
                                 <div class="form-group">
                                     <label>考试时间</label>
-                                    <input name="date" class="form-control" id="time" type="date" value="<%=examschedule.getExamtime()%>">
+                                    <input name="date" class="form-control" id="time" type="date" value="<%=(action.equals("edit")) ? examschedule.getExamtime() : ""%>">
                                     <p class="help-block"></p>
                                 </div>
                                 <div class="form-group">
                                     <label>考试考试地点</label>
-                                    <input name="place" class="form-control" id="place" type="text" value="<%=examschedule.getExamplace()%>">
+                                    <input name="place" class="form-control" id="place" type="text" value="<%=(action.equals("edit")) ? examschedule.getExamplace() : ""%>">
                                     <p class="help-block"></p>
                                 </div>
                                 <div class="form-group">
-                                    <label>考试备注</label>
-                                    <textarea name="remark" style="resize:none" class="form-control" rows="3"><%=examschedule.getRemark()%></textarea>
+                                    <label>考试备注 (字数在100字以内)</label>
+                                    <textarea id="remark" name="remark" style="resize:none" class="form-control" rows="3"><%=(action.equals("edit")) ? examschedule.getRemark() : ""%></textarea>
                                 </div>
                                 <span id="msg" style="color:#F00;font-size:14px;text-align: center"></span>
                                 <center><button type="submit" class="btn btn-success">确认添加</button> <a href="/examschedule" class="btn btn-default">返回列表</a> </center>
@@ -174,6 +174,10 @@
         var time = $("#time").val();
         if (subject == "" || place == "" || time == "") {
             $("#msg").text("请填写完整信息");
+            return false;
+        }
+        if($("#remark").val().length > 100){
+            $("#msg").text("备注长度超过100字");
             return false;
         }
     }
