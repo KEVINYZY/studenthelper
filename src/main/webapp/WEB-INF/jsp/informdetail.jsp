@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Creams
-  Date: 2018/3/14
-  Time: 17:36
+  Date: 2018/3/21
+  Time: 19:37
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="com.cms.Entity.User" %>
@@ -16,7 +16,7 @@
 <%
     User user = (User) session.getAttribute("user");
     String day = (String)session.getAttribute("today");
-    List<Inform> informs = (List<Inform>) session.getAttribute("informlist");
+    Inform inform = (Inform) session.getAttribute("detailnum");
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -128,29 +128,17 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 col-sm-12">
+                <div class="col-md-12">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            学生通知
+                         通知详情
                         </div>
-                        <div class="panel-body">
-                            <table>
-                                <tbody>
-                            <%
-                                Inform inform = null;
-                                for (int i = 0; i < informs.size(); i++) {
-                                    inform = informs.get(i);
-                            %>
-                            <tr>
-                                <td width="80%"><a href="/detail?num=<%=i%>" target="_blank"><%=inform.getTitle()%></a></td><td><%=inform.getInfo()%></td>
-                            </tr>
-                            <%
-                                }
-                            %>
-                                </tbody>
-                            </table>
-                        </div>
+                       <div class="panel-body">
+                           <h1 style="text-align: center"><%=inform.getTitle()%></h1>
+                           <h4 style="text-align: center"><%=inform.getInfo()%></h4><hr>
+                           <h4 style="line-height: 50px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=inform.getPbox()%></h4>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
