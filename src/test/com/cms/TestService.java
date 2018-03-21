@@ -4,7 +4,7 @@ import com.cms.Entity.User;
 import com.cms.Service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.jsoup.nodes.Element;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
@@ -25,6 +25,7 @@ public class TestService {
     @Test
     public void test1(){
         User user = userService.login("12345", "12345");
+        
         System.out.println(user.toString());
     }
     

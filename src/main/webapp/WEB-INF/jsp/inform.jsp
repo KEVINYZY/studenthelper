@@ -10,12 +10,13 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Locale" %>
 <%@ page import="java.util.Date" %>
+<%@ page import="com.cms.Entity.Inform" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <%
     User user = (User) session.getAttribute("user");
-    List<String> todaytable = (List<String>)session.getAttribute("todaytable");
     String day = (String)session.getAttribute("today");
+    List<Inform> informs = (List<Inform>) session.getAttribute("informlist");
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -124,6 +125,32 @@
                 <div class="col-md-12">
                     <h1 class="page-head-line">学生通知</h1>
                     <h1 class="page-subhead-line">关注学校全新动态</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            学生通知
+                        </div>
+                        <div class="panel-body">
+                            <table>
+                                <tbody>
+                            <%
+                                Inform inform = null;
+                                for (int i = 0; i < informs.size(); i++) {
+                                    inform = informs.get(i);
+                            %>
+                            <tr>
+                                <td width="80%"><a href="#"><%=inform.getTitle()%></a></td><td><%=inform.getInfo()%><br></td>
+                            </tr>
+                            <%
+                                }
+                            %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
