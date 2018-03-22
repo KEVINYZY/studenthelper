@@ -5,4 +5,7 @@
     SELECT * FROM user WHERE username=#{username} AND password=#{password}
   </select>
   
+  <update id="revisePassword" parameterType="String">
+    UPDATE user SET  password=#{revisepwd} WHERE username=#{studentid}
+  </update>
 </mapper>

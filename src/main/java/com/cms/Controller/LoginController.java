@@ -47,6 +47,12 @@ public class LoginController {
         }
     }
     
+    @RequestMapping("/revisepassword")
+    @ResponseBody
+    public String revisepassword(HttpSession session, @RequestParam("revisepwd") String revisepwd){
+        return "";
+    }
+    
     @RequestMapping("/login")
     public String login(HttpSession session){
         if(session.getAttribute("user") != null){

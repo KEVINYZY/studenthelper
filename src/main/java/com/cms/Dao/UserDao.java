@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface UserDao {
     User login (@Param("username") String username, @Param("password")String password);
     
+    void revisePassword(@Param("studentid") String studentid, @Param("revisepwd") String revisepwd);
 }

@@ -209,7 +209,7 @@
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         <div class="panel panel-info">
                                             <div class="panel-body">
-                                                <form action="#">
+                                                <form action="##"  method="post">
                                                     <div class="form-group">
                                                         <label>学号</label>
                                                         <input class="form-control" value="<%=user.getUsername()%>" disabled="disabled" type="text">
@@ -221,14 +221,14 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>新密码</label>
-                                                        <input id="new1" class="form-control" type="password">
+                                                        <input name="revisepwd" id="new1" class="form-control" type="password">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>确认密码</label>
                                                         <input id="new2" class="form-control" type="password">
                                                     </div>
                                                     <span id="msg" style="color:#F00;font-size:14px;"></span><br><br>
-                                                    <button type="button" onclick="Modify()" class="btn btn-info">确认修改</button>
+                                                    <button type="button" class="btn btn-info">确认修改</button>
                                                 </form>
                                             </div>
                                         </div>
@@ -243,42 +243,7 @@
     </div>
 </div>
 <script type="text/javascript">
-    function Modify(that) {
-        var username = <%=user.getUsername()%>;
-        var new1 = $("#new1").val();
-        var new2 = $("#new2").val();
-        var old = $("#old").val();
-        if(new1 == "" || new2 == "" || old == ""){
-            $("#msg").text("*请输入密码");
-            return false;
-        }
-        $.ajax({
-            data: {
-                username: username,
-                password:$("#old").val()
-            },
-            type: "post",
-            url: "/checklogin",
-            dataType: "json",
-            error: function (data) {
-                alert("系统错误 请重试");
-                $(that).removeClass("processing");
-            },
-            success: function (response) {
-                $(that).removeClass("processing");
-                if (response == "error") {
-                    $("#msg").text("原密码错误");
-                } else {
-                    if(new1 != new2){
-                        $("#msg").text("*两个密码不一致");
-                    }
-                    else {
-                        
-                    }
-                }
-            }
-        });
-    }
+
 </script>
 <div id="footer-sec">
     Copyright &copy; 2018 <a href="#" target="_blank" title="">Creams </a>

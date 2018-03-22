@@ -18,4 +18,9 @@ public class UserService {
         return userDao.login(username, password);
     }
     
+    public void revisePassword(String studentid, String revisepwd){
+        log.info("修改密码");
+        userDao.revisePassword(studentid, revisepwd);
+    }
+    
 }
