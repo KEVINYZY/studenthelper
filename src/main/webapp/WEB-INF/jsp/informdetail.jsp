@@ -6,10 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="com.cms.Entity.User" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.util.Locale" %>
-<%@ page import="java.util.Date" %>
 <%@ page import="com.cms.Entity.Inform" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -134,9 +130,9 @@
                          通知详情
                         </div>
                        <div class="panel-body">
-                           <h1 style="text-align: center"><%=inform.getTitle()%></h1>
-                           <h4 style="text-align: center"><%=inform.getInfo()%></h4><hr>
-                           <h4 style="line-height: 50px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=inform.getPbox()%></h4>
+                           <h1 style="text-align: center;"><%=inform.getTitle()%></h1>
+                           <h4 style="text-align: center;"><%=inform.getInfo()%></h4><hr>
+                           <h4 style="line-height: 50px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=inform.getPbox()%></h4>
                     </div>
                 </div>
                 </div>

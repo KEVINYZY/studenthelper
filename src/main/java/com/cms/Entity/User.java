@@ -18,7 +18,11 @@ public class User {
     private int classno;
     
     private int identity;
-
+    
+    private String phone;
+    
+    private String email;
+    
     public String getUsername() {
         return username;
     }
@@ -89,5 +93,21 @@ public class User {
 
     public void setIdentity(int identity) {
         this.identity = identity;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

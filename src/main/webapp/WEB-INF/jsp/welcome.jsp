@@ -95,7 +95,7 @@
                     <a href="#"><%=user.getName()%><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">我的个人信息</a>
+                            <a href="/personalInfo">我的个人信息</a>
                         </li>
                         <li>
                             <a href="/logout">注销</a>
@@ -128,7 +128,7 @@
             <div class="col-md-4">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        我的信息
+                        <a href="/personalInfo">我的信息</a>
                     </div>
                     <div class="panel-body">
                         <h4>学校:大连海事大学</h4>
