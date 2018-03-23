@@ -142,7 +142,7 @@
                                     inform = informs.get(i);
                             %>
                             <tr>
-                                <td width="80%"><a href="/detail?num=<%=i%>" target="_blank"><%=inform.getTitle()%></a></td><td><%=inform.getInfo()%></td>
+                                <td width="80%"><a href="/detail?num=<%=i%>"  class="btn btn-inverse"target="_blank"><%=inform.getTitle()%></a></td><td><%=inform.getInfo()%></td>
                             </tr>
                             <%
                                 }
