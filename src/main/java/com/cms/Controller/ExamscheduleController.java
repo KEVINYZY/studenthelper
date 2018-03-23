@@ -20,6 +20,10 @@ public class ExamscheduleController {
     
     @RequestMapping("/examschedule")
     public String examschedule(HttpSession session){
+        Object obj = session.getAttribute("user");
+        if(obj == null){
+            return "redirect:/login";
+        }
         String studentid = ((User)session.getAttribute("user")).getUsername();
         List<Examschedule> examschedules = examscheduleService.QueryExamscheduleById(studentid);
         session.setAttribute("examschedule", examschedules);
@@ -28,6 +32,10 @@ public class ExamscheduleController {
     
     @RequestMapping("/examedit")
     public String addexam(HttpServletRequest request, HttpSession session){
+        Object obj = session.getAttribute("user");
+        if(obj == null){
+            return "redirect:/login";
+        }
         String edit = request.getParameter("edit");
         if(edit != null){
             String studentid = ((User)session.getAttribute("user")).getUsername();
@@ -43,6 +51,10 @@ public class ExamscheduleController {
     
     @RequestMapping("/submitexam")
     public String submitexam(@RequestParam("date") String date, @RequestParam("examsubject") String examsubject, @RequestParam("place") String place, @RequestParam("remark") String remark, HttpSession session, HttpServletRequest request){
+        Object obj = session.getAttribute("user");
+        if(obj == null){
+            return "redirect:/login";
+        }
         String action = request.getParameter("action");
         System.out.println(action);
         Examschedule examschedule = new Examschedule();
@@ -64,6 +76,10 @@ public class ExamscheduleController {
     
     @RequestMapping("examdelete")
     public String examdelete(HttpSession session, HttpServletRequest request){
+        Object obj = session.getAttribute("user");
+        if(obj == null){
+            return "/login";
+        }
         String deletenum = request.getParameter("delete");
         String studentid = ((User)session.getAttribute("user")).getUsername();
         String examname = ((List<Examschedule>)session.getAttribute("examschedule")).get(Integer.parseInt(deletenum)).getExamname();

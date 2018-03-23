@@ -20,6 +20,10 @@ public class CoursetableController {
     
     @RequestMapping("/coursetable")
     public String coursetable(HttpSession session){
+        Object obj = session.getAttribute("user");
+        if(obj == null){
+            return "redirect:/login";
+        }
         String username = ((User)session.getAttribute("user")).getUsername();
         List<Coursetable> coursetables = courseService.QueryCoursetableById(username);
         session.setAttribute("Coursetable", coursetables);
@@ -28,6 +32,10 @@ public class CoursetableController {
     
     @RequestMapping("/editcoursetable")
     public String editcoursetable(HttpSession session){
+        Object obj = session.getAttribute("user");
+        if(obj == null){
+            return "redirect:/login";
+        }
         return "editcoursetable";
     }
     

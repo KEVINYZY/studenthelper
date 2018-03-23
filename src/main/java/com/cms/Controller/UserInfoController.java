@@ -58,6 +58,14 @@ public class UserInfoController {
         return "/personal";
     }
 
-    
+    @RequestMapping("/personalInfo")
+    public String personInfo(HttpSession session){
+        Object obj = session.getAttribute("user");
+        if(obj == null){
+            return "redirect:/login";
+        }
+        return "/personal";
+    }
     
 }
+ 

@@ -103,17 +103,6 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#">UI Elements <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="#">Tabs & Panels</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Blank Page</a>
-                </li>
             </ul>
         </div>
     </nav>

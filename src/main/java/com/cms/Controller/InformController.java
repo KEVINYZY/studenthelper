@@ -13,6 +13,10 @@ import java.util.List;
 public class InformController {
     @RequestMapping("/inform")
     public String inform(HttpSession session){
+        Object obj = session.getAttribute("user");
+        if(obj == null){
+            return "redirect:/login";
+        }
         InformDigger informDigger = new InformDigger();
         List<Inform> informs = null;
         try {
@@ -26,6 +30,10 @@ public class InformController {
     
     @RequestMapping("/detail")
     public String  detail(HttpSession session, HttpServletRequest request){
+        Object obj = session.getAttribute("user");
+        if(obj == null){
+            return "redirect:/login";
+        }
         int num = Integer.parseInt(request.getParameter("num"));
         List<Inform> informs = (List<Inform>) session.getAttribute("informlist");
         session.setAttribute("detailnum", ((List<Inform>) session.getAttribute("informlist")).get(num));

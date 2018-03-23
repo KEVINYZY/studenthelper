@@ -9,6 +9,10 @@ import javax.servlet.http.HttpSession;
 public class MemoController {
     @RequestMapping("/memo")
     public String memo(HttpSession session){
+        Object obj = session.getAttribute("user");
+        if(obj == null){
+            return "redirect:/login";
+        }
         return "/memo";
     }
 }
