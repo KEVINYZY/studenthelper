@@ -84,16 +84,16 @@
                     <a href="#">我的社团</a>
                 </li>
                 <li>
-                    <a href="#">我的个人备忘录</a>
+                    <a href="/memo">我的个人备忘录</a>
                 </li>
                 <li>
-                    <a class="active-menu" href="#">校学生通知</a>
+                    <a class="active-menu" href="/inform">校学生通知</a>
                 </li>
                 <li>
                     <a href="#"><%=user.getName()%><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">我的个人信息</a>
+                            <a href="/personalInfo">我的个人信息</a>
                         </li>
                         <li>
                             <a href="/logout">注销</a>
@@ -123,12 +123,10 @@
                     <h1 class="page-subhead-line">关注学校全新动态</h1>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-info">
-                        <div class="panel-heading">
-                         通知详情
-                        </div>
                        <div class="panel-body">
                            <h1 style="text-align: center;"><%=inform.getTitle()%></h1>
                            <h4 style="text-align: center;"><%=inform.getInfo()%></h4><hr>

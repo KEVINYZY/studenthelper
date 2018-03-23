@@ -1,7 +1,8 @@
 <%@ page import="com.cms.Entity.User" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.cms.Entity.Examschedule" %>
-<%@ page import="com.cms.Action.TimeCalculator" %><%--
+<%@ page import="com.cms.Action.TimeCalculator" %>
+<%--
   Created by IntelliJ IDEA.
   User: Creams
   Date: 2018/3/7
@@ -86,7 +87,7 @@
                     <a href="#">我的社团</a>
                 </li>
                 <li>
-                    <a href="#">我的个人备忘录</a>
+                    <a href="/memo">我的个人备忘录</a>
                 </li>
                 <li>
                     <a href="/inform">校学生通知</a>
@@ -177,7 +178,7 @@
                                     </span>
                             </a>
                         </div>
-                        <a href="#" class="btn btn-info btn-block">查看全部备忘录</a>
+                        <a href="/memo" class="btn btn-info btn-block">查看全部备忘录</a>
                     </div>
                 </div>
             </div>

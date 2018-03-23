@@ -47,12 +47,6 @@ public class LoginController {
         }
     }
     
-    @RequestMapping("/revisepassword")
-    @ResponseBody
-    public String revisepassword(HttpSession session, @RequestParam("revisepwd") String revisepwd){
-        return "";
-    }
-    
     @RequestMapping("/login")
     public String login(HttpSession session){
         if(session.getAttribute("user") != null){
@@ -66,6 +60,9 @@ public class LoginController {
     @RequestMapping("/logout")
     public String logout(HttpSession session){
         session.removeAttribute("user");
+        session.removeAttribute("today");
+        session.removeAttribute("Coursetable");
+        session.removeAttribute("informlist");
         session.setMaxInactiveInterval(1);
         return "redirect:/login";
     }

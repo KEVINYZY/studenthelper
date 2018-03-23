@@ -86,16 +86,16 @@
                     <a href="#">我的社团</a>
                 </li>
                 <li>
-                    <a href="#">我的个人备忘录</a>
+                    <a href="/memo">我的个人备忘录</a>
                 </li>
                 <li>
-                    <a href="#">校学生通知</a>
+                    <a href="/inform">校学生通知</a>
                 </li>
                 <li>
                     <a href="#" class="active-menu-top"><%=user.getName()%><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse in ">
                         <li>
-                            <a href="#" class="active-menu">我的个人信息</a>
+                            <a href="/personalInfo" class="active-menu">我的个人信息</a>
                         </li>
                         <li>
                             <a href="/logout">注销</a>
@@ -166,38 +166,38 @@
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         <div class="panel panel-info">
                                             <div class="panel-body">
-                                                <form role="form">
+                                                <form role="form" action="/updateuser">
                                                     <div class="form-group">
                                                         <label>姓名</label>
-                                                        <input class="form-control" value="<%=user.getName()%>" type="text">
+                                                        <input class="form-control" name="name" value="<%=user.getName()%>" type="text">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>性别</label>
-                                                        <input class="form-control" value="<%=user.getSex()%>" type="text">
+                                                        <input class="form-control" name="sex" value="<%=user.getSex()%>" type="text">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>联系电话</label>
-                                                        <input class="form-control" value="<%=user.getPhone()%>" type="text">
+                                                        <input class="form-control" name="phone" value="<%=user.getPhone()%>" type="text">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>E-mail</label>
-                                                        <input class="form-control" value="<%=user.getEmail()%>" type="text">
+                                                        <input class="form-control" name="email" value="<%=user.getEmail()%>" type="text">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>所在学院</label>
-                                                        <input class="form-control" value="<%=user.getCollage()%>" type="text">
+                                                        <input class="form-control" name="collage" value="<%=user.getCollage()%>" type="text">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>就读专业</label>
-                                                        <input class="form-control" value="<%=user.getMajor()%>" type="text">
+                                                        <input class="form-control" name="major" value="<%=user.getMajor()%>" type="text">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>所在年级</label>
-                                                        <input class="form-control" value="<%=user.getGrade()%>" type="text">
+                                                        <input class="form-control" name="grade" value="<%=user.getGrade()%>" type="text">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>班级</label>
-                                                        <input class="form-control" value="<%=user.getClassno()%>" type="text">
+                                                        <input class="form-control" name="classno" value="<%=user.getClassno()%>" type="text">
                                                     </div>
                                                     <button type="submit" class="btn btn-info">提交</button>
                                                 </form>
@@ -209,7 +209,7 @@
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         <div class="panel panel-info">
                                             <div class="panel-body">
-                                                <form action="##"  method="post">
+                                                <form action="#"  method="post">
                                                     <div class="form-group">
                                                         <label>学号</label>
                                                         <input class="form-control" value="<%=user.getUsername()%>" disabled="disabled" type="text">
@@ -221,14 +221,14 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>新密码</label>
-                                                        <input name="revisepwd" id="new1" class="form-control" type="password">
+                                                        <input id="newpwd" class="form-control" type="password">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>确认密码</label>
-                                                        <input id="new2" class="form-control" type="password">
+                                                        <input id="repeat" class="form-control" type="password">
                                                     </div>
-                                                    <span id="msg" style="color:#F00;font-size:14px;"></span><br><br>
-                                                    <button type="button" class="btn btn-info">确认修改</button>
+                                                    <span id="msg" style="color:#F00;font-size:14px;"></span><br>
+                                                    <button type="button" onclick="check()" class="btn btn-info">确认修改</button>
                                                 </form>
                                             </div>
                                         </div>
@@ -243,7 +243,42 @@
     </div>
 </div>
 <script type="text/javascript">
-
+    function check(that) {
+        var old = $("#old").val();
+        var newpwd = $("#newpwd").val();
+        var repeat = $("#repeat").val();
+        if(newpwd == "" || repeat == "" || old == ""){
+            $("#msg").text("请输入完整信息");
+            return false;
+        }
+        if(newpwd != repeat){
+            $("#msg").text("前后密码不一致");
+            return false;
+        }
+        $.ajax({
+            data: {
+                old:$("#old").val(),
+                newpwd:$("#newpwd").val()
+            },
+            type: "post",
+            url: "/revisepassword",
+            dataType: "json",
+            error: function (data) {
+                alert("系统错误 请重试" + data);
+                $(that).removeClass("processing");
+            },
+            success: function (response) {
+                $(that).removeClass("processing");
+                if (response == "errorpassworrd") {
+                    $("#msg").text("密码错误,请重试");
+                } else {
+                    $("#msg").text("");
+                    window.location.href = "/personalInfo";
+                    alert("密码修改成功,请妥善保管密码")
+                }
+            }
+        });
+    }
 </script>
 <div id="footer-sec">
     Copyright &copy; 2018 <a href="#" target="_blank" title="">Creams </a>

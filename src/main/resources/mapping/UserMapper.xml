@@ -6,6 +6,10 @@
   </select>
   
   <update id="revisePassword" parameterType="String">
-    UPDATE user SET  password=#{revisepwd} WHERE username=#{studentid}
+    UPDATE user SET password=#{revisepwd} WHERE username=#{studentid}
+  </update>
+  
+  <update id="updateUser" parameterType="com.cms.Entity.User">
+   UPDATE user SET name=#{name}, sex=#{sex}, collage=#{collage}, major=#{major}, grade=#{grade}, classno=#{classno}, phone=#{phone}, email=#{email}, identity=#{identity} WHERE username =#{username};
   </update>
 </mapper>

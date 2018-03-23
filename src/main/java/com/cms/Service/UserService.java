@@ -23,4 +23,9 @@ public class UserService {
         userDao.revisePassword(studentid, revisepwd);
     }
     
+    public void updateUser(User user){
+        log.info("修改个人资料");
+        userDao.updateUser(user);
+    }
+    
 }

@@ -84,16 +84,16 @@
                     <a href="#">我的社团</a>
                 </li>
                 <li>
-                    <a href="#">我的个人备忘录</a>
+                    <a href="/memo">我的个人备忘录</a>
                 </li>
                 <li>
-                    <a href="#">校学生通知</a>
+                    <a href="/inform">校学生通知</a>
                 </li>
                 <li>
                     <a href="#"><%=user.getName()%><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">我的个人信息</a>
+                            <a href="/personalInfo">我的个人信息</a>
                         </li>
                         <li>
                             <a href="/logout">注销</a>
@@ -164,7 +164,7 @@
                         </tbody>
                     </table>
                 </div>
-                <center><a href="/editcoursetable"><button class="btn btn-inverse">编辑课表</button></a></center>
+                <a href="/editcoursetable"><button class="btn btn-inverse">编辑课表</button></a></center>
             </div>
         </div>
     </div>
