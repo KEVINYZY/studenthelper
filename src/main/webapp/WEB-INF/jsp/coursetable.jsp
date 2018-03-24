@@ -153,7 +153,7 @@
                         </tbody>
                     </table>
                 </div>
-                <a href="/editcoursetable"><button class="btn btn-inverse">编辑课表</button></a></center>
+                <center><a href="/editcoursetable"><button class="btn btn-inverse">编辑课表</button></a></center>
             </div>
         </div>
     </div>

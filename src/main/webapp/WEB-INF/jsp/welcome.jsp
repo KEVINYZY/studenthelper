@@ -2,6 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.cms.Entity.Examschedule" %>
 <%@ page import="com.cms.Action.TimeCalculator" %>
+<%@ page import="com.cms.Entity.Inform" %>
 <%--
   Created by IntelliJ IDEA.
   User: Creams
@@ -16,6 +17,7 @@
     List<String> todaytable = (List<String>)session.getAttribute("todaytable");
     String day = (String)session.getAttribute("today");
     List<Examschedule> examschedules = (List<Examschedule>)session.getAttribute("examschedule");
+    List<Inform> informs = (List<Inform>) session.getAttribute("informlist");
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -136,38 +138,26 @@
             <div class="col-md-8">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <i class="fa fa-bell fa-fw"></i>我的备忘录
+                        <i class="fa fa-bell fa-fw"></i>校学生通知
                     </div>
 
                     <div class="panel-body">
                         <div class="list-group">
-                            <a href="#" class="list-group-item">
-                                3 New Followers
-                                <span class="pull-right text-muted small"><em>12 minutes ago</em>
+                            <%
+                                Inform inform = null;
+                                for (int i = 0; i < 5; i++){
+                                    inform = informs.get(i);
+                            %>
+                            <a href="/detail?num=<%=i%>" target="_blank" class="list-group-item">
+                                <%=inform.getTitle()%>
+                                <span class="pull-right text-muted small"><em><%=inform.getInfo()%></em>
                                     </span>
                             </a>
-                            <a href="#" class="list-group-item">
-                                Message Sent
-                                <span class="pull-right text-muted small"><em>27 minutes ago</em>
-                                    </span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                New Task
-                                <span class="pull-right text-muted small"><em>43 minutes ago</em>
-                                    </span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                New Task
-                                <span class="pull-right text-muted small"><em>43 minutes ago</em>
-                                    </span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                New Task
-                                <span class="pull-right text-muted small"><em>43 minutes ago</em>
-                                    </span>
-                            </a>
+                            <%
+                                }
+                            %>
                         </div>
-                        <a href="/memo" class="btn btn-info btn-block">查看全部备忘录</a>
+                        <a href="/inform" class="btn btn-info btn-block">查看全部通知</a>
                     </div>
                 </div>
             </div>
@@ -207,11 +197,77 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-info">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">个人备忘录</div>
+
+                        <!-- Table -->
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>#</th>
+                                <th>Task Name</th>
+                                <th>On Date</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="list-group-item-text">
+                                <td>1</td>
+                                <td><input type="checkbox" value="" /></td>
+                                <td>100$ Pending Payment</td>
+                                <td>23rd June </td>
+                                <td><a href="#" class="btn btn-primary ">Just Done</a></td>
+                            </tr>
+                            <tr class="list-group-item-text">
+                                <td>2</td>
+                                <td><input type="checkbox" value="" /></td>
+                                <td>200 Messages To Reply</td>
+                                <td>10th November </td>
+                                <td><a href="#" class="btn btn-success">Pending</a></td>
+                            </tr>
+                            <tr class="list-group-item-text">
+                                <td>3</td>
+                                <td><input type="checkbox" value="" /></td>
+                                <td>90 Orders To Process</td>
+                                <td>2nd December </td>
+                                <td><a href="#" class="btn btn-primary">In Process</a></td>
+                            </tr>
+                            <tr class="list-group-item-text">
+                                <td>4</td>
+                                <td><input type="checkbox" value="" /></td>
+                                <td>100$ Pending Payment</td>
+                                <td>23rd June </td>
+                                <td><a href="#" class="btn btn-danger">Just Done </a></td>
+                            </tr>
+                            <tr class="list-group-item-text">
+                                <td>5</td>
+                                <td><input type="checkbox" value="" /></td>
+                                <td>200 Messages To Reply</td>
+                                <td>10th November </td>
+                                <td><a href="#" class="btn btn-warning">Pending</a></td>
+                            </tr>
+                            <tr class="list-group-item-text">
+                                <td>6</td>
+                                <td><input type="checkbox" value="" /></td>
+                                <td>90 Orders To Process</td>
+                                <td>2nd December </td>
+                                <td><a href="#" class="btn btn-info">In Process</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
     </div>
 </div>
 <div id="footer-sec">
-    Copyright &copy; 2018 <a href="#" target="_blank" title="">Creams </a>
+    Copyright &copy; 2018 <a href="http://www.github.com/Crearns" target="_blank" title="">Creams</a>
 </div>
 
 

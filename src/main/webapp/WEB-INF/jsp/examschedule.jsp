@@ -137,7 +137,7 @@
                                 for (int i = 0; i < examschedules.size(); i++){
                                     Examschedule examschedule = examschedules.get(i);
                             %>
-                            <tr class="list-group-item-success">
+                            <tr class="list-group-item-text">
                                 <td><%=examschedule.getExamname()%></td>
                                 <td><%=examschedule.getExamtime()%></td>
                                 <td><%=examschedule.getExamplace()%></td>
