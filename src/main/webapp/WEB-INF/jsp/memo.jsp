@@ -62,9 +62,9 @@
                     <div class="user-img-div">
                         <img src="images/user.png" class="img-thumbnail" />
                         <div class="inner-text">
-                            <%=user.getName()%>
+                            <%=user.getName()%>&nbsp;<%=user.getCollage()%>&nbsp;
                             <br />
-                            <small><%=user.getCollage()%>&nbsp;<%=user.getMajor()%> <%=user.getGrade()%>级<%=user.getClassno()%>班 <br> <%=day%></small>
+                            <small><%=user.getGrade()%>级&nbsp;<%=user.getMajor()%>&nbsp;<%=user.getClassno()%>班 <br> <%=day%></small>
                         </div>
                     </div>
                 </li>
@@ -123,15 +123,13 @@
                         </div>
                         <div class="panel-body" style="padding: 2px;">
                             <div class="chat-widget-main">
-                                <a href="#"class="list-group-item">aaaa</a>
-                                <a href="#"class="list-group-item">aaaa</a>
-                                <a href="#"class="list-group-item">aaaa</a>
-                                <a href="#"class="list-group-item">aaaa</a>
-                                <a href="#"class="list-group-item">aaaa</a>
-                                <a href="#"class="list-group-item">aaaa</a>
-                                <a href="#"class="list-group-item">aaaa</a>
-                                <a href="#"class="list-group-item">aaaa</a>
-                                <a href="#"class="list-group-item">aaaa</a>
+                                <%
+                                    for (int i = 0; i < 20; i++) {
+                                %>
+                                <a href="#" onclick="click(<%=i%>)" class="list-group-item">aaaa</a><span id="<%=i%>" class="pull-right text-muted small"><em>→</em></span>
+                                <%
+                                    }
+                                %>
                             </div>
                         </div>
                     </div>
@@ -141,17 +139,18 @@
                         <div class="panel-heading">
                             备忘录详情
                         </div>
-                        <div class="panel-body" style="padding: 2px;">
+                        <div class="panel-body" style="padding: 0px;">
                             <div class="chat-widget-main">
-                                <input type="text" style="width: 720px;height: 45px"><br><br>
-                                <textarea style="resize:none;height: 285px;width: 720px;">
-                                </textarea>
+                                <input placeholder="标题" type="text" style="width: 740px;height: 45px"><br><br>
+                                <textarea style="resize:none;height: 325px;width: 740px;"></textarea>
                             </div>
                         </div>
                         <div class="panel-footer">
                             <div class="input-group">
+                                置顶首页  <input type="checkbox" name="stick"/>
                                 <span class="input-group-btn">
-                                        <button class="btn btn-success" type="button">SEND</button>
+                                    <button class="btn btn-success" style="width: 110px;" type="button">保存</button>
+                                    <button class="btn btn-danger" style="width: 110px;" type="button">删除</button>
                                 </span>
                             </div>
                         </div>
@@ -161,6 +160,8 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+</script>
 <div id="footer-sec">
     Copyright &copy; 2018 <a href="#" target="_blank" title="">Creams </a>
 </div>

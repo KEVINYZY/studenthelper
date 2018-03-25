@@ -64,9 +64,9 @@
                     <div class="user-img-div">
                         <img src="images/user.png" class="img-thumbnail" />
                         <div class="inner-text">
-                            <%=user.getName()%>
+                            <%=user.getName()%>&nbsp;<%=user.getCollage()%>&nbsp;
                             <br />
-                            <small><%=user.getCollage()%>&nbsp;<%=user.getMajor()%> <%=user.getGrade()%>级<%=user.getClassno()%>班 <br> <%=day%></small>
+                            <small><%=user.getGrade()%>级&nbsp;<%=user.getMajor()%>&nbsp;<%=user.getClassno()%>班 <br> <%=day%></small>
                         </div>
                     </div>
                 </li>
