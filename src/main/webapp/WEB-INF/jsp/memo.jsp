@@ -115,6 +115,49 @@
                     <h1 class="page-subhead-line">经常忘事儿? 它能帮你!</h1>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            备忘录
+                        </div>
+                        <div class="panel-body" style="padding: 2px;">
+                            <div class="chat-widget-main">
+                                <a href="#"class="list-group-item">aaaa</a>
+                                <a href="#"class="list-group-item">aaaa</a>
+                                <a href="#"class="list-group-item">aaaa</a>
+                                <a href="#"class="list-group-item">aaaa</a>
+                                <a href="#"class="list-group-item">aaaa</a>
+                                <a href="#"class="list-group-item">aaaa</a>
+                                <a href="#"class="list-group-item">aaaa</a>
+                                <a href="#"class="list-group-item">aaaa</a>
+                                <a href="#"class="list-group-item">aaaa</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            备忘录详情
+                        </div>
+                        <div class="panel-body" style="padding: 2px;">
+                            <div class="chat-widget-main">
+                                <input type="text" style="width: 720px;height: 45px"><br><br>
+                                <textarea style="resize:none;height: 285px;width: 720px;">
+                                </textarea>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                        <button class="btn btn-success" type="button">SEND</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
