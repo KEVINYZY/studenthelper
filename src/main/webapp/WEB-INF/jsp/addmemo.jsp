@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Creams
-  Date: 2018/3/14
-  Time: 17:36
+  Date: 2018/3/27
+  Time: 18:40
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="com.cms.Entity.User" %>
@@ -112,43 +112,20 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="panel panel-info">
-                        <div class="panel-heading">
-                            备忘录&nbsp;&nbsp;&nbsp;&nbsp;<a href="/addmemo"><button class="btn btn-inverse"><i class="glyphicon glyphicon-plus"></i></button></a>
-                        </div>
-                        <div class="panel-body" style="padding: 2px;">
-                            <div class="chat-widget-main">
-                                <%
-                                    for (int i = 0; i < 20; i++) {
-                                %>
-                                <a href="#" onclick="click(<%=i%>)" class="list-group-item">aaaa</a>
-                                <%
-                                    }
-                                %>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            备忘录详情
-                        </div>
-                        <div class="panel-body" style="padding: 0px;">
-                            <div class="chat-widget-main">
-                                <input placeholder="标题" type="text" style="width: 820px;height: 45px"><br><br>
-                                <textarea style="resize:none;height: 325px;width: 820px;"></textarea>
-                            </div>
-                        </div>
-                        <div class="panel-footer">
-                            <div class="input-group">
-                                置顶首页<input type="checkbox" name="stick"/>
-                                <span class="input-group-btn">
-                                    <button class="btn btn-success" style="width: 110px;" type="button">保存</button>
-                                    <button class="btn btn-danger" style="width: 110px;" type="button">删除</button>
-                                </span>
-                            </div>
+                        <div class="panel-body">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label>备忘录标题</label>
+                                    <input class="form-control" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>备忘录详情</label><br>
+                                    <textarea style="resize:none;height: 325px;width: 1745px;"></textarea>
+                                </div>
+                                <center><button type="submit" class="btn btn-success">添加备忘录</button><a href="/memo" class="btn btn-default">返回列表</a></center>
+                            </form>
                         </div>
                     </div>
                 </div>

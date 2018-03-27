@@ -15,4 +15,9 @@ public class MemoController {
         }
         return "/memo";
     }
+    
+    @RequestMapping("/addmemo")
+    public String addmemo(HttpSession session){
+        return "/addmemo";
+    }
 }
