@@ -13,6 +13,8 @@ public class Examschedule {
     private String examplace;
     
     private String oldname;
+    
+    private String createtime;
 
     public String getStudentid() {
         return studentid;
@@ -60,5 +62,13 @@ public class Examschedule {
 
     public void setOldname(String oldname) {
         this.oldname = oldname;
+    }
+
+    public String getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(String craetetime) {
+        this.createtime = craetetime;
     }
 }

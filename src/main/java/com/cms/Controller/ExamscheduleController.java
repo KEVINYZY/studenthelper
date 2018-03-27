@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -52,6 +54,7 @@ public class ExamscheduleController {
     @RequestMapping("/submitexam")
     public String submitexam(@RequestParam("date") String date, @RequestParam("examsubject") String examsubject, @RequestParam("place") String place, @RequestParam("remark") String remark, HttpSession session, HttpServletRequest request){
         Object obj = session.getAttribute("user");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         if(obj == null){
             return "redirect:/login";
         }
@@ -61,9 +64,11 @@ public class ExamscheduleController {
         examschedule.setStudentid(((User)session.getAttribute("user")).getUsername());
         examschedule.setExamname(examsubject);
         examschedule.setExamplace(place);
-        examschedule.setExamtime(date.replace("T", " "));
+        examschedule.setExamtime(date);
         examschedule.setRemark(remark);
         if(action.equals("add")){
+            Date date1 = new Date();
+            examschedule.setCreatetime(sdf.format(date1));
             examscheduleService.addExam(examschedule);
         }
         else {
