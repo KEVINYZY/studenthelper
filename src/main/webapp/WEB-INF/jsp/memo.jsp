@@ -7,11 +7,13 @@
 --%>
 <%@ page import="com.cms.Entity.User" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.cms.Entity.Memo" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <%
     User user = (User) session.getAttribute("user");
     String day = (String)session.getAttribute("today");
+    List<Memo> memoList = (List<Memo>)session.getAttribute("memolist");
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -117,12 +119,14 @@
                         <div class="panel-heading">
                             备忘录&nbsp;&nbsp;&nbsp;&nbsp;<a href="/addmemo"><button class="btn btn-inverse"><i class="glyphicon glyphicon-plus"></i></button></a>
                         </div>
-                        <div class="panel-body" style="padding: 2px;">
+                        <div class="panel-body" style="padding: 2px;height: 502px; ">
                             <div class="chat-widget-main">
                                 <%
-                                    for (int i = 0; i < 20; i++) {
+                                    Memo memo = null;
+                                    for (int i = 0; i < memoList.size(); i++) {
+                                        memo = memoList.get(i);
                                 %>
-                                <a href="#" onclick="click(<%=i%>)" class="list-group-item">aaaa</a>
+                                <a onclick="submitcheck()" class="list-group-item"><%=memo.getTitle()%></a>
                                 <%
                                     }
                                 %>
@@ -131,32 +135,47 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            备忘录详情
-                        </div>
-                        <div class="panel-body" style="padding: 0px;">
-                            <div class="chat-widget-main">
-                                <input placeholder="标题" type="text" style="width: 820px;height: 45px"><br><br>
-                                <textarea style="resize:none;height: 325px;width: 820px;"></textarea>
+                    <form action="#" onsubmit="return submitcheck()">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                备忘录详情
                             </div>
-                        </div>
-                        <div class="panel-footer">
-                            <div class="input-group">
-                                置顶首页<input type="checkbox" name="stick"/>
-                                <span class="input-group-btn">
-                                    <button class="btn btn-success" style="width: 110px;" type="button">保存</button>
+                            <div class="panel-body" style="padding: 0px;height: 460px;">
+                                <div class="chat-widget-main">
+                                    <input id="title" placeholder="标题" type="text" style="width: 820px;height: 45px"><br><br>
+                                    <textarea id="detail" style="resize:none;height: 325px;width: 820px;"></textarea>
+                                    <span id="msg" style="color:#F00;font-size:14px;text-align: center"></span>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="input-group">
+                                    置顶首页<input type="checkbox" name="stick"/>
+                                    <span class="input-group-btn">
+                                    <button class="btn btn-success" style="width: 110px;" type="submit">保存</button>
                                     <button class="btn btn-danger" style="width: 110px;" type="button">删除</button>
                                 </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <script type="text/javascript">
+    function submitcheck() {
+        var title = $("#title").val();
+        var detail = $("#detail").val();
+        if (title == "" || detail == "" ) {
+            $("#msg").text("请填写完整信息");
+            return false;
+        }
+        if($("#detail").val().length > 1000){
+            $("#msg").text("备注长度超过1000字");
+            return false;
+        }
+    }
 </script>
 <div id="footer-sec">
     Copyright &copy; 2018 <a href="#" target="_blank" title="">Creams </a>

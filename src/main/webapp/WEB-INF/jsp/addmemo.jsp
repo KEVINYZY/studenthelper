@@ -115,15 +115,16 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="panel panel-info">
                         <div class="panel-body">
-                            <form role="form">
+                            <form action="/submitmemo" method="post" onsubmit="return add()">
                                 <div class="form-group">
                                     <label>备忘录标题</label>
-                                    <input class="form-control" type="text">
+                                    <input id="title" name="title" class="form-control" type="text">
                                 </div>
                                 <div class="form-group">
                                     <label>备忘录详情</label><br>
-                                    <textarea style="resize:none;height: 325px;width: 1745px;"></textarea>
+                                    <textarea id="detail" name="detail" style="resize:none;height: 325px;width: 1745px;"></textarea>
                                 </div>
+                                <span id="msg" style="color:#F00;font-size:14px;text-align: center"></span>
                                 <center><button type="submit" class="btn btn-success">添加备忘录</button><a href="/memo" class="btn btn-default">返回列表</a></center>
                             </form>
                         </div>
@@ -134,6 +135,18 @@
     </div>
 </div>
 <script type="text/javascript">
+    function add() {
+        var title = $("#title").val();
+        var detail = $("#detail").val();
+        if (title == "" || detail == "" ) {
+            $("#msg").text("请填写完整信息");
+            return false;
+        }
+        if($("#detail").val().length > 1000){
+            $("#msg").text("备注长度超过1000字");
+            return false;
+        }
+    }
 </script>
 <div id="footer-sec">
     Copyright &copy; 2018 <a href="#" target="_blank" title="">Creams </a>

@@ -12,7 +12,7 @@ public interface ExamscheduleDao {
     
     List<Examschedule> QueryExamscheduleById(String studentid);
     
-    void DeleteExamscheduleByName(String examname, String studentid);
+    void DeleteExamscheduleByName(String examname, String studentid, String createtime);
     
     void UpdateExamscheduleById (Examschedule examschedule);
 }

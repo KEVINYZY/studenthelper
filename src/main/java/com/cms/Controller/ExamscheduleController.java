@@ -54,12 +54,11 @@ public class ExamscheduleController {
     @RequestMapping("/submitexam")
     public String submitexam(@RequestParam("date") String date, @RequestParam("examsubject") String examsubject, @RequestParam("place") String place, @RequestParam("remark") String remark, HttpSession session, HttpServletRequest request){
         Object obj = session.getAttribute("user");
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
         if(obj == null){
             return "redirect:/login";
         }
         String action = request.getParameter("action");
-        System.out.println(action);
         Examschedule examschedule = new Examschedule();
         examschedule.setStudentid(((User)session.getAttribute("user")).getUsername());
         examschedule.setExamname(examsubject);
@@ -87,8 +86,10 @@ public class ExamscheduleController {
         }
         String deletenum = request.getParameter("delete");
         String studentid = ((User)session.getAttribute("user")).getUsername();
-        String examname = ((List<Examschedule>)session.getAttribute("examschedule")).get(Integer.parseInt(deletenum)).getExamname();
-        examscheduleService.DeleteExamscheduleByName(examname, studentid);
+        Examschedule examschedule = ((List<Examschedule>)session.getAttribute("examschedule")).get(Integer.parseInt(deletenum));
+        String examname =examschedule.getExamname();
+        String createtime = examschedule.getCreatetime();
+        examscheduleService.DeleteExamscheduleByName(examname, studentid, createtime);
         return "redirect:" + this.examschedule(session);
     }
 }

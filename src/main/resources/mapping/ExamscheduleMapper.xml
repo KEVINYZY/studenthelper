@@ -10,7 +10,7 @@
     </select>
     
     <delete id="DeleteExamscheduleByName" parameterType="String">
-        DELETE FROM examschedule WHERE studentid=#{1} AND examname=#{0};
+        DELETE FROM examschedule WHERE studentid=#{1} AND examname=#{0} AND createtime=#{2};
     </delete>
     
     <update id="UpdateExamscheduleById" parameterType="com.cms.Entity.Examschedule">
