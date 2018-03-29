@@ -24,7 +24,7 @@
     <form action="##" method="post" id="loginform" onsubmit="return false">
         <input type="text" id="username" name="username" class="name" placeholder="用户名" required="">
         <input type="password" id="password" name="password" class="password" placeholder="密码" required=""><br>
-        <span id="msg" style="color:#F00;font-size:14px;"></span><br><br>
+        <span id="msg" style="color:#F00;font-size:14px;"></span>
         <a href="#">注册
         </a><br>
         <div class="clear"></div>
