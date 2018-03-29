@@ -134,10 +134,14 @@
                         <tbody>
                             <%
                                 for(int i = 0; i < 5; i++){
-                                    Coursetable coursetable = coursetables.get(i);
+                                    Coursetable coursetable;
+                                    if(coursetables == null)
+                                        coursetable = coursetables.get(i);
+                                    else
+                                        coursetable = new Coursetable();
                             %>
                             <tr>
-                            <td width="100px">第<%= 2 * coursetable.getclassNo() - 1%> - <%=2 * coursetable.getclassNo()%>节课</td>
+                            <td width="100px">第<%=(i + 1) * 2 - 1%> - <%=(i + 1) * 2%>节课</td>
                             <td width="210px"><%=coursetable.getMon()%></td>
                             <td width="210px"><%=coursetable.getTue()%></td>
                             <td width="210px"><%=coursetable.getWed()%></td>

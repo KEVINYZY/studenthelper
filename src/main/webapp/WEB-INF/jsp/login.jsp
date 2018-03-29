@@ -22,16 +22,10 @@
 <div class="main-agileinfo">
     <h2>登录</h2>
     <form action="##" method="post" id="loginform" onsubmit="return false">
-        <input type="text" id="username" name="username" class="name" placeholder="username" required="">
-        <input type="password" id="password" name="password" class="password" placeholder="password" required="">
+        <input type="text" id="username" name="username" class="name" placeholder="用户名" required="">
+        <input type="password" id="password" name="password" class="password" placeholder="密码" required="">
         <span id="msg" style="color:#F00;font-size:14px;"></span><br><br>
-        <ul>
-            <li>
-                <input type="checkbox" id="brand1" value="">
-                <label for="brand1"><span></span>记得我</label>
-            </li>
-        </ul>
-        <a href="#">忘记密码?
+        <a href="#">注册
         </a><br>
         <div class="clear"></div>
         <input type="button" id="submit" value="Login" onclick="login()">

@@ -155,7 +155,7 @@
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         <div class="panel panel-info">
                                             <div class="panel-body">
-                                                <form role="form" action="/updateuser">
+                                                <form role="form" method="post" action="/updateuser">
                                                     <div class="form-group">
                                                         <label>姓名</label>
                                                         <input class="form-control" name="name" value="<%=user.getName()%>" type="text">

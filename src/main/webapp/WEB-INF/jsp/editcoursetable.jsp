@@ -135,10 +135,14 @@
                             <tbody>
                             <%
                                 for(int i = 0; i < 5; i++){
-                                    Coursetable coursetable = coursetables.get(i);
+                                    Coursetable coursetable;
+                                    if(coursetables == null)
+                                        coursetable = coursetables.get(i);
+                                    else
+                                        coursetable = new Coursetable();
                             %>
                             <tr>
-                                <td>第<%= 2 * coursetable.getclassNo() - 1%> - <%=2 * coursetable.getclassNo()%>节课</td>
+                                <td>第<%=(i + 1) * 2 - 1%> - <%=(i + 1) * 2%>节课</td>
                                 <td><textarea name=<%=(i+1) + "Mon"%> style="resize:none"><%=coursetable.getMon()%></textarea></td>
                                 <td><textarea name=<%=(i+1) + "Tue"%> style="resize:none"><%=coursetable.getTue()%></textarea></td>
                                 <td><textarea name=<%=(i+1) + "Wed"%> style="resize:none"><%=coursetable.getWed()%></textarea></td>
