@@ -23,7 +23,7 @@
     <h2>登录</h2>
     <form action="##" method="post" id="loginform" onsubmit="return false">
         <input type="text" id="username" name="username" class="name" placeholder="用户名" required="">
-        <input type="password" id="password" name="password" class="password" placeholder="密码" required="">
+        <input type="password" id="password" name="password" class="password" placeholder="密码" required=""><br>
         <span id="msg" style="color:#F00;font-size:14px;"></span><br><br>
         <a href="#">注册
         </a><br>
