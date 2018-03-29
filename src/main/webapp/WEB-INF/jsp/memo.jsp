@@ -117,7 +117,7 @@
                 <div class="col-md-6">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            备忘录&nbsp;&nbsp;&nbsp;&nbsp;<a href="/addmemo"><button class="btn btn-inverse"><i class="glyphicon glyphicon-plus"></i></button></a>
+                            备忘录
                         </div>
                         <div class="panel-body" style="padding: 2px;height: 502px; ">
                             <div class="chat-widget-main">
@@ -138,7 +138,7 @@
                     <form action="#">
                         <div class="panel panel-info">
                             <div class="panel-heading">
-                                备忘录详情
+                                备忘录详情&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="add()" class="btn btn-inverse"><i class="glyphicon glyphicon-plus"></i></button>
                             </div>
                             <div class="panel-body" style="padding: 0px;height: 460px;">
                                 <div class="chat-widget-main">
@@ -152,7 +152,7 @@
                                     置顶首页<input id="home" type="checkbox" name="stick"/>
                                     <span class="input-group-btn">
                                     <button onclick="return submitcheck()" class="btn btn-success" style="width: 110px;" type="button">保存</button>
-                                    <button class="btn btn-danger" style="width: 110px;" type="button">删除</button>
+                                    <button onclick="deletememo()" class="btn btn-danger" style="width: 110px;" type="button">删除</button>
                                 </span>
                                 </div>
                             </div>
@@ -163,6 +163,8 @@
         </div>
     </div>
 </div>
+
+
 <script type="text/javascript">
     var select = -1;
     var title = document.getElementById("title");
@@ -192,9 +194,24 @@
             }
         });
     }
+
+    function add() {
+        select = "new";
+        ishome.checked = false;
+        title.value = "";
+        detail.value = "";
+    }
+
+    
     function submitcheck() {
         var title = $("#title").val();
         var detail = $("#detail").val();
+        var ishome = document.getElementById("home");
+        if(select == "-1"){
+            $("#msg").text("请选择备忘录再进行编辑");
+            
+            return false;
+        }
         if (title == "" || detail == "" ) {
             $("#msg").text("请填写完整信息");
             return false;
@@ -203,10 +220,52 @@
             $("#msg").text("备注长度超过1000字");
             return false;
         }
-        if(select == "-1"){
-            $("#msg").text("请选择备忘录再进行编辑");
+        $.ajax({
+            data:{
+                title:$("#title").val(),
+                detail:$("#detail").val(),
+                select:select,
+                home:ishome.checked
+            },
+            type:"post",
+            url:"/submitmemo",
+            dataType:"json",
+            error:function (data) {
+                alert("系统错误 请重试" + data + select);
+                $(that).removeClass("processing");
+            },
+            success:function (response) {
+                if(response == "success"){
+                    alert("操作成功");
+                    window.location.href = "/memo";
+                }
+            }
+        });
+    }
+    
+    function deletememo() {
+        if(select == "-1" || select == "new"){
+            $("#msg").text("请选择目标备忘录");
             return false;
         }
+        $.ajax({
+            data:{
+                select:select
+            },
+            type:"post",
+            url:"/deletememo",
+            dataType:"json",
+            error:function (data) {
+                alert("系统错误 请重试" + data + select);
+                $(that).removeClass("processing");
+            },
+            success:function (response) {
+                if(response == "success"){
+                    alert("操作成功");
+                    window.location.href = "/memo";
+                }
+            }
+        });
     }
 </script>
 <div id="footer-sec">

@@ -12,4 +12,10 @@ public interface MemoDao {
     void addMemo(Memo memo);
     
     List<Memo> QueryMemoById(@Param("studentid") String studentid);
+    
+    void updateMemo(Memo memo);
+    
+    void deleteMemo(@Param("studentid") String studentid, @Param("createtime") String createtime);
+    
+    List<Memo> QueryHomeMemoById(String studentid);
 }

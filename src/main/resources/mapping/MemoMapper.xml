@@ -8,4 +8,16 @@
     <select id="QueryMemoById" parameterType="String" resultType="com.cms.Entity.Memo">
         SELECT * FROM memo WHERE studentid=#{studentid}
     </select>
+    
+    <update id="updateMemo" parameterType="com.cms.Entity.Memo">
+        UPDATE memo SET title=#{title}, detail=#{detail}, home=#{home} WHERE studentid=#{studentid} AND createtime=#{createtime}
+    </update>
+    
+    <delete id="deleteMemo" parameterType="String">
+        DELETE from memo where studentid=#{studentid} AND createtime=#{createtime}
+    </delete>
+    
+    <select id="QueryHomeMemoById" parameterType="String" resultType="com.cms.Entity.Memo">
+        SELECT * FROM memo WHERE studentid=#{studentid} AND home='1'
+    </select>
 </mapper>

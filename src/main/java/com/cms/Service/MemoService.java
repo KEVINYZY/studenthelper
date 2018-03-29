@@ -23,4 +23,19 @@ public class MemoService {
         logger.info("获取备忘录");
         return memoDao.QueryMemoById(studentid);
     }
+    
+    public void updateMemo(Memo memo){
+        logger.info("更新备忘录");;
+        memoDao.updateMemo(memo);
+    }
+    
+    public void deleteMemo(String studentid,String createtime){
+        logger.info("删除备忘录");
+        memoDao.deleteMemo(studentid, createtime);
+    }
+    
+    public List<Memo> QueryHomeMemoById(String studentid){
+        logger.info("获取首页备忘录");
+        return memoDao.QueryHomeMemoById(studentid);
+    }
 }

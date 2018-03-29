@@ -3,6 +3,7 @@
 <%@ page import="com.cms.Entity.Examschedule" %>
 <%@ page import="com.cms.Action.TimeCalculator" %>
 <%@ page import="com.cms.Entity.Inform" %>
+<%@ page import="com.cms.Entity.Memo" %>
 <%--
   Created by IntelliJ IDEA.
   User: Creams
@@ -18,6 +19,7 @@
     String day = (String)session.getAttribute("today");
     List<Examschedule> examschedules = (List<Examschedule>)session.getAttribute("examschedule");
     List<Inform> informs = (List<Inform>) session.getAttribute("informlist");
+    List<Memo> homememo = (List<Memo>) session.getAttribute("homememo");
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -200,62 +202,32 @@
                 <div class="col-md-12">
                     <div class="panel panel-info">
                         <!-- Default panel contents -->
-                        <div class="panel-heading">个人备忘录</div>
+                        <div class="panel-heading"><a href="/memo">我的个人备忘录</a></div>
 
                         <!-- Table -->
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>#</th>
-                                <th>#</th>
-                                <th>Task Name</th>
-                                <th>On Date</th>
-                                <th>Actions</th>
+                                <th> </th>
+                                <th>标题</th>
+                                <th>详情</th>
                             </tr>
                             </thead>
                             <tbody>
+                            <%
+                                Memo memo;
+                                for (int i = 0; i < homememo.size(); i++) {
+                                    memo = homememo.get(i);
+                                
+                            %>
                             <tr class="list-group-item-text">
-                                <td>1</td>
-                                <td><input type="checkbox" value="" /></td>
-                                <td>100$ Pending Payment</td>
-                                <td>23rd June </td>
-                                <td><a href="#" class="btn btn-primary ">Just Done</a></td>
+                                <td><%=i + 1%></td>
+                                <td><%=memo.getTitle()%></td>
+                                <td><%=(memo.getDetail().length() >= 190) ? memo.getDetail().substring(0, 190) + "..." : memo.getDetail()%></td>
                             </tr>
-                            <tr class="list-group-item-text">
-                                <td>2</td>
-                                <td><input type="checkbox" value="" /></td>
-                                <td>200 Messages To Reply</td>
-                                <td>10th November </td>
-                                <td><a href="#" class="btn btn-success">Pending</a></td>
-                            </tr>
-                            <tr class="list-group-item-text">
-                                <td>3</td>
-                                <td><input type="checkbox" value="" /></td>
-                                <td>90 Orders To Process</td>
-                                <td>2nd December </td>
-                                <td><a href="#" class="btn btn-primary">In Process</a></td>
-                            </tr>
-                            <tr class="list-group-item-text">
-                                <td>4</td>
-                                <td><input type="checkbox" value="" /></td>
-                                <td>100$ Pending Payment</td>
-                                <td>23rd June </td>
-                                <td><a href="#" class="btn btn-danger">Just Done </a></td>
-                            </tr>
-                            <tr class="list-group-item-text">
-                                <td>5</td>
-                                <td><input type="checkbox" value="" /></td>
-                                <td>200 Messages To Reply</td>
-                                <td>10th November </td>
-                                <td><a href="#" class="btn btn-warning">Pending</a></td>
-                            </tr>
-                            <tr class="list-group-item-text">
-                                <td>6</td>
-                                <td><input type="checkbox" value="" /></td>
-                                <td>90 Orders To Process</td>
-                                <td>2nd December </td>
-                                <td><a href="#" class="btn btn-info">In Process</a></td>
-                            </tr>
+                            <%
+                                }
+                            %>
                             </tbody>
                         </table>
                     </div>

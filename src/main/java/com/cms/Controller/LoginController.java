@@ -1,12 +1,10 @@
 package com.cms.Controller;
 
 import com.cms.Action.InformDigger;
-import com.cms.Entity.Coursetable;
-import com.cms.Entity.Examschedule;
-import com.cms.Entity.Inform;
-import com.cms.Entity.User;
+import com.cms.Entity.*;
 import com.cms.Service.CourseService;
 import com.cms.Service.ExamscheduleService;
+import com.cms.Service.MemoService;
 import com.cms.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +25,8 @@ public class LoginController {
     private CourseService courseService;
     @Autowired
     private ExamscheduleService examscheduleService;
+    @Autowired
+    private MemoService memoService;
     
     @RequestMapping("/checklogin")
     @ResponseBody
@@ -36,6 +36,7 @@ public class LoginController {
             session.setAttribute("user", user);
             List<String> todayClass = courseService.QueryDaytableById(user.getUsername());
             List<Examschedule> examschedules = examscheduleService.QueryExamscheduleById(user.getUsername());
+            List<Memo> homememo = memoService.QueryHomeMemoById(user.getUsername());
             InformDigger informDigger = new InformDigger();
             List<Inform> informs = null;
             try {
@@ -43,6 +44,7 @@ public class LoginController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            session.setAttribute("homememo", homememo);
             session.setAttribute("informlist", informs);
             session.setAttribute("examschedule", examschedules);
             session.setAttribute("todaytable", todayClass);

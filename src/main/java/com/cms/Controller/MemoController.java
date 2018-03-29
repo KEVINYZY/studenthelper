@@ -23,13 +23,15 @@ public class MemoController {
     
     @RequestMapping("/memo")
     public String memo(HttpSession session){
-        Object obj = session.getAttribute("user");
-        if(obj == null){
+        User user = (User)session.getAttribute("user");
+        if(user == null){
             return "redirect:/login";
         }
         String studentid = ((User)session.getAttribute("user")).getUsername();
         List<Memo> memoList = memoService.QueryMemoById(studentid);
+        List<Memo> homememo = memoService.QueryHomeMemoById(studentid);
         session.setAttribute("memolist", memoList);
+        session.setAttribute("homememo", homememo);
         return "/memo";
     }
     
@@ -39,19 +41,33 @@ public class MemoController {
     }
     
     @RequestMapping("submitmemo")
-    public String submitmemo(HttpSession session, @RequestParam("title") String title, @RequestParam("detail") String detail){
-        Memo memo = new Memo();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
-        Date date = new Date();
-        String studentid = ((User)session.getAttribute("user")).getUsername();
-        memo.setDetail(detail);
-        memo.setTitle(title);
-        memo.setStudentid(studentid);
-        memo.setCreatetime(sdf.format(date));
-        memo.setHome(0);
-        memoService.addMemo(memo);
-        return "redirect:" + this.memo(session);
+    @ResponseBody
+    public String submitmemo(HttpSession session, HttpServletRequest request, @RequestParam("title") String title, @RequestParam("detail") String detail, @RequestParam("select") String select, @RequestParam("home") String home){
+        if(select.equals("new")){
+            Memo memo = new Memo();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
+            Date date = new Date();
+            String studentid = ((User)session.getAttribute("user")).getUsername();
+            memo.setDetail(detail);
+            memo.setTitle(title);
+            memo.setStudentid(studentid);
+            memo.setCreatetime(sdf.format(date));
+            memo.setHome((home.equals("true")) ? 1 : 0);
+            memoService.addMemo(memo);
+            return "success";
+        }
+        else{
+            List<Memo> memoList = (List<Memo>)session.getAttribute("memolist");
+            Memo memo = memoList.get(Integer.parseInt(select));
+            memo.setDetail(detail);
+            memo.setTitle(title);
+            memo.setHome((home.equals("true")) ? 1 : 0);
+            memoService.updateMemo(memo);
+            return "success";
+        }
     }
+    
+    
     
     @RequestMapping("getselect")
     @ResponseBody
@@ -61,4 +77,14 @@ public class MemoController {
         Memo memo = memoList.get(Integer.parseInt(select));
         return  memo.getTitle() + "/*/" + memo.getDetail() + "/*/" + memo.getHome();
     }
+    
+    @RequestMapping("deletememo")
+    @ResponseBody
+    public String deletememo(HttpSession session, @RequestParam("select") String select){
+        List<Memo> memoList = (List<Memo>)session.getAttribute("memolist");
+        Memo memo = memoList.get(Integer.parseInt(select));
+        memoService.deleteMemo(memo.getStudentid(), memo.getCreatetime());
+        return "success";
+    }
+    
 }
