@@ -126,7 +126,7 @@
                                     for (int i = 0; i < memoList.size(); i++) {
                                         memo = memoList.get(i);
                                 %>
-                                <a onclick="submitcheck()" class="list-group-item"><%=memo.getTitle()%></a>
+                                <a onclick="check(<%=i%>)" class="list-group-item"><%=memo.getTitle()%></a>
                                 <%
                                     }
                                 %>
@@ -135,7 +135,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <form action="#" onsubmit="return submitcheck()">
+                    <form action="#">
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 备忘录详情
@@ -149,9 +149,9 @@
                             </div>
                             <div class="panel-footer">
                                 <div class="input-group">
-                                    置顶首页<input type="checkbox" name="stick"/>
+                                    置顶首页<input id="home" type="checkbox" name="stick"/>
                                     <span class="input-group-btn">
-                                    <button class="btn btn-success" style="width: 110px;" type="submit">保存</button>
+                                    <button onclick="return submitcheck()" class="btn btn-success" style="width: 110px;" type="button">保存</button>
                                     <button class="btn btn-danger" style="width: 110px;" type="button">删除</button>
                                 </span>
                                 </div>
@@ -164,6 +164,34 @@
     </div>
 </div>
 <script type="text/javascript">
+    var select = -1;
+    var title = document.getElementById("title");
+    var detail = document.getElementById("detail");
+    var ishome = document.getElementById("home");
+    function check(i) {
+        select = i;
+        $.ajax({
+            data: {
+                selectnum:select
+            },
+            type: "post",
+            url: "/getselect",
+            dataType: "json",
+            error: function (data) {
+                alert("系统错误 请重试" + data + select);
+                $(that).removeClass("processing");
+            },
+            success: function (response) {
+                data = response.split("/*/");
+                title.value = data[0];
+                detail.value = data[1];
+                if(data[2] == "1")
+                    ishome.checked = true;
+                else
+                    ishome.checked = false;
+            }
+        });
+    }
     function submitcheck() {
         var title = $("#title").val();
         var detail = $("#detail").val();
@@ -173,6 +201,10 @@
         }
         if($("#detail").val().length > 1000){
             $("#msg").text("备注长度超过1000字");
+            return false;
+        }
+        if(select == "-1"){
+            $("#msg").text("请选择备忘录再进行编辑");
             return false;
         }
     }

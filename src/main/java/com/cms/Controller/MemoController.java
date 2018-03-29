@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -49,5 +51,14 @@ public class MemoController {
         memo.setHome(0);
         memoService.addMemo(memo);
         return "redirect:" + this.memo(session);
+    }
+    
+    @RequestMapping("getselect")
+    @ResponseBody
+    public String getselect(HttpSession session, HttpServletRequest request){
+        String select = request.getParameter("selectnum");
+        List<Memo> memoList = (List<Memo>)session.getAttribute("memolist");
+        Memo memo = memoList.get(Integer.parseInt(select));
+        return  memo.getTitle() + "/*/" + memo.getDetail() + "/*/" + memo.getHome();
     }
 }
