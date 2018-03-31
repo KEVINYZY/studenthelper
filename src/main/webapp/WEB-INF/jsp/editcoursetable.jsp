@@ -30,7 +30,7 @@
     <!-- GOOGLE FONTS-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <!-- JQUERY SCRIPTS -->
-    <script src="../../js/jquery-1.10.2.js"></script>
+    <script src="../../js/jquery-3.2.1.min.js"></script>
     <!-- BOOTSTRAP SCRIPTS -->
     <script src="../../js/bootstrap.js"></script>
     <!-- METISMENU SCRIPTS -->
@@ -136,7 +136,7 @@
                             <%
                                 for(int i = 0; i < 5; i++){
                                     Coursetable coursetable;
-                                    if(coursetables == null)
+                                    if(coursetables != null)
                                         coursetable = coursetables.get(i);
                                     else
                                         coursetable = new Coursetable();
@@ -164,7 +164,7 @@
     </div>
 </div>
 <div id="footer-sec">
-    Copyright &copy; 2018 <a href="#" target="_blank" title="">Creams </a>
+    Copyright &copy; 2018 <a href="http://www.github.com/Crearns" target="_blank" title="">Creams </a>
 </div>
 </body>
 </html>

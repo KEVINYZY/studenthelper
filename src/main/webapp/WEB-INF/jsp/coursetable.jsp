@@ -135,7 +135,7 @@
                             <%
                                 for(int i = 0; i < 5; i++){
                                     Coursetable coursetable;
-                                    if(coursetables == null)
+                                    if(coursetables != null)
                                         coursetable = coursetables.get(i);
                                     else
                                         coursetable = new Coursetable();
@@ -162,7 +162,7 @@
     </div>
 </div>
 <div id="footer-sec">
-    Copyright &copy; 2018 <a href="#" target="_blank" title="">Creams </a>
+    Copyright &copy; 2018 <a href="http://www.github.com/Crearns" target="_blank" title="">Creams </a>
 </div>
 </body>
 </html>

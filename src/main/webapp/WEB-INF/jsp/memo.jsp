@@ -170,6 +170,8 @@
     var title = document.getElementById("title");
     var detail = document.getElementById("detail");
     var ishome = document.getElementById("home");
+    
+    
     function check(i) {
         select = i;
         $.ajax({
@@ -201,15 +203,14 @@
         title.value = "";
         detail.value = "";
     }
-
     
     function submitcheck() {
         var title = $("#title").val();
         var detail = $("#detail").val();
         var ishome = document.getElementById("home");
+        alert(select);
         if(select == "-1"){
-            $("#msg").text("请选择备忘录再进行编辑");
-            
+            $("#msg").text("请选择备忘录再进行编辑" + select);
             return false;
         }
         if (title == "" || detail == "" ) {
@@ -269,7 +270,7 @@
     }
 </script>
 <div id="footer-sec">
-    Copyright &copy; 2018 <a href="#" target="_blank" title="">Creams </a>
+    Copyright &copy; 2018 <a href="http://www.github.com/Crearns" target="_blank" title="">Creams </a>
 </div>
 
 </body>

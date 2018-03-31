@@ -240,10 +240,5 @@
 <div id="footer-sec">
     Copyright &copy; 2018 <a href="http://www.github.com/Crearns" target="_blank" title="">Creams</a>
 </div>
-
-
-
-
-
 </body>
 </html>

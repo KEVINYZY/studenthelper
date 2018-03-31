@@ -11,7 +11,7 @@
 <html>
 <head>
     <title>海大助手 -- 登录</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Lambent Login Form Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
@@ -21,9 +21,9 @@
 <h1>海大助手</h1>
 <div class="main-agileinfo">
     <h2>登录</h2>
-    <form action="##" method="post" id="loginform" onsubmit="return false">
-        <input type="text" id="username" name="username" class="name" placeholder="用户名" required="">
-        <input type="password" id="password" name="password" class="password" placeholder="密码" required=""><br>
+    <form action="#" method="post" id="loginform" onsubmit="return false">
+        <input type="text" id="username" name="username" class="name" style="width:540px;" placeholder="用户名" required="">
+        <input type="password" id="password" name="password" class="password" style="width:540px;" placeholder="密码" required=""><br>
         <span id="msg" style="color:#F00;font-size:14px;"></span>
         <a href="#">注册
         </a><br>
@@ -32,9 +32,9 @@
     </form>
 </div>
 <div class="footer-w3l">
-    <p class="agile">Copyright &copy; 2018 <a href="#">Creams</a></p>
+    <p class="agile">Copyright &copy; 2018 <a href="http://www.github.com/Crearns">Creams</a></p>
 </div>
-<script src="js/jquery-3.2.1.min.js"></script>
+<script src="../../js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
         function login(that) {
             var username = $("#username").val();
