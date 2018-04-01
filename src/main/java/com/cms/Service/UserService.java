@@ -28,4 +28,8 @@ public class UserService {
         userDao.updateUser(user);
     }
     
+    public User QueryUserById(String username){
+        return userDao.QueryUserById(username);
+    }
+    
 }

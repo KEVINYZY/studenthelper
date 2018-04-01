@@ -25,7 +25,7 @@
         <input type="text" id="username" name="username" class="name" style="width:540px;" placeholder="用户名" required="">
         <input type="password" id="password" name="password" class="password" style="width:540px;" placeholder="密码" required=""><br>
         <span id="msg" style="color:#F00;font-size:14px;"></span>
-        <a href="#">注册
+        <a href="/regester">注册
         </a><br>
         <div class="clear"></div>
         <input type="button" id="submit" value="Login" onclick="login()">

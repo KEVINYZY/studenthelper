@@ -75,6 +75,8 @@ public class LoginController {
         session.removeAttribute("today");
         session.removeAttribute("Coursetable");
         session.removeAttribute("informlist");
+        session.removeAttribute("memolist");
+        session.removeAttribute("homememo");
         session.setMaxInactiveInterval(1);
         return "redirect:/login";
     }

@@ -31,7 +31,7 @@
     <!-- GOOGLE FONTS-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <!-- JQUERY SCRIPTS -->
-    <script src="../../js/jquery-1.10.2.js"></script>
+    <script src="../../js/jquery-3.2.1.min.js"></script>
     <!-- BOOTSTRAP SCRIPTS -->
     <script src="../../js/bootstrap.js"></script>
     <!-- METISMENU SCRIPTS -->
@@ -208,7 +208,6 @@
         var title = $("#title").val();
         var detail = $("#detail").val();
         var ishome = document.getElementById("home");
-        alert(select);
         if(select == "-1"){
             $("#msg").text("请选择备忘录再进行编辑" + select);
             return false;

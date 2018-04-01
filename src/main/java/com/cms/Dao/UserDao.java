@@ -12,4 +12,6 @@ public interface UserDao {
     void revisePassword(@Param("studentid") String studentid, @Param("revisepwd") String revisepwd);
     
     void updateUser(User user);
+    
+    User QueryUserById(String username);
 }

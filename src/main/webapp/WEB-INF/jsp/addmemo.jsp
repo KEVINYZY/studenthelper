@@ -29,7 +29,7 @@
     <!-- GOOGLE FONTS-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <!-- JQUERY SCRIPTS -->
-    <script src="../../js/jquery-1.10.2.js"></script>
+    <script src="../../js/jquery-3.2.1.min.js"></script>
     <!-- BOOTSTRAP SCRIPTS -->
     <script src="../../js/bootstrap.js"></script>
     <!-- METISMENU SCRIPTS -->
