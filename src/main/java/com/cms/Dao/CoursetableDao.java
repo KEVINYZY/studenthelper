@@ -13,4 +13,6 @@ public interface CoursetableDao {
     void UpadteCoursetable (Coursetable coursetable);
 
     List<String> QueryDaytableById(@Param("day") String day, @Param("studentid") String studentid);
+    
+    void regester(String studentid);
 }

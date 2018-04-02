@@ -46,14 +46,14 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="panel panel-info">
                 <div class="panel-body">
-                    <form action="#" method="post" onsubmit="return checksubmit()">
+                    <form action="/regestersubmit" method="post" onsubmit="return checksubmit()">
                         <div class="form-group">
-                            <label>学号(学号将是您的用户名)</label>
-                            <input id="username" name="username" class="form-control" type="text">
+                            <label>学号(学号将是您的用户名)</label>&nbsp;&nbsp;<span id="existcheck" style="color:#F00;font-size:14px;text-align: center"></span>
+                            <input id="username" onkeyup="existcheck()" name="username" class="form-control" type="text">
                         </div>
                         <div class="form-group">
                             <label>密码</label>
-                            <input id="password" name="password"class="form-control" type="password">
+                            <input id="password" name="password" class="form-control" type="password">
                         </div>
                         <div class="form-group">
                             <label>确认密码</label>
@@ -62,6 +62,13 @@
                         <div class="form-group">
                             <label>学生姓名</label>
                             <input id="name" name="name" class="form-control" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label>性别</label>
+                            <select id="sex" name="sex" class="form-control">
+                                <option value="男">男</option>
+                                <option value="女">女</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>联系电话</label>
@@ -118,12 +125,30 @@
             $("#msg").text("请填写完整信息");
             return false;
         }
+        else {
+            $("#msg").text("");
+        }
         
+        if($("#password").val() != $("#passwordcheck").val()){
+            $("#msg").text("两次输入密码不一致，请确认后输入");
+            return false;
+        }
+        else {
+            $("#msg").text("");
+        }
+        
+        if($("#existcheck").val() != ""){
+            $("#existcheck").text("此学号已存在, 请确认");
+            return false;
+        }
+    }
+    
+    function existcheck() {
         $.ajax({
-           data:{
-               username:$("#username").val()
-           }, 
-            type:"post", 
+            data:{
+                username:$("#username").val()
+            },
+            type:"post",
             dataType:"json",
             url:"/checkusername",
             error: function (data) {
@@ -132,16 +157,13 @@
             },
             success: function (response) {
                 if(response == "exist"){
-                    $("#msg").text("此学号已存在, 请确认");
-                    return false;
+                    $("#existcheck").text("此学号已存在, 请确认");
+                }
+                else{
+                    $("#existcheck").text("");
                 }
             }
         });
-        
-        if($("#password").val() != $("#passwordcheck").val()){
-            $("#msg").text("两次输入密码不一致，请确认后输入");
-            return false;
-        }
     }
 </script>
 <div id="footer-sec">

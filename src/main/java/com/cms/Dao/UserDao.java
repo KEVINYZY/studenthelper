@@ -14,4 +14,6 @@ public interface UserDao {
     void updateUser(User user);
     
     User QueryUserById(String username);
+    
+    void Regester(User user);
 }

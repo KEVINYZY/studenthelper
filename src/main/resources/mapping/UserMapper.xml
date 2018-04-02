@@ -16,4 +16,8 @@
   <select id="QueryUserById" resultType="com.cms.Entity.User" parameterType="String">
     SELECT * FROM  USER  WHERE username=#{username}
   </select>
+  
+  <insert id="Regester" parameterType="com.cms.Entity.User">
+    INSERT INTO user (username, password, name, sex, collage, major, grade, classno, phone, email, identity) VALUES (#{username}, #{password}, #{name}, #{sex}, #{collage}, #{major}, #{grade}, #{classno}, #{phone}, #{email}, #{identity});
+  </insert>
 </mapper>

@@ -17,7 +17,7 @@ public class User {
     
     private int classno;
     
-    private int identity;
+    private int identity = 1;
     
     private String phone;
     

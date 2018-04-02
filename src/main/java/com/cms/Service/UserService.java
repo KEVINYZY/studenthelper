@@ -32,4 +32,9 @@ public class UserService {
         return userDao.QueryUserById(username);
     }
     
+    public void Regester(User user){
+        log.info("注册账号");
+        userDao.Regester(user);
+    }
+    
 }

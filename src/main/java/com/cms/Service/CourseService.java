@@ -35,4 +35,9 @@ public class CourseService {
         log.info("获取" + studentid + "-" + day + "课程表");
         return coursetableDao.QueryDaytableById(day, studentid);
     }
+    
+    public void regester(String studentid){
+        log.info("注册账号课程表");
+        coursetableDao.regester(studentid);
+    }
 }

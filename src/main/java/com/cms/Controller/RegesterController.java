@@ -1,6 +1,7 @@
 package com.cms.Controller;
 
 import com.cms.Entity.User;
+import com.cms.Service.CourseService;
 import com.cms.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,9 @@ import javax.servlet.http.HttpSession;
 public class RegesterController {
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private CourseService courseService;
     
     @RequestMapping("regester")
     public String regester (HttpSession session){
@@ -29,5 +33,26 @@ public class RegesterController {
             return "exist";
         }
         return "success";
+    }
+    
+    @RequestMapping("regestersubmit")
+    public String regestersubmit(HttpSession session,@RequestParam("username") String username, @RequestParam("password") String password,
+                                 @RequestParam("name") String name, @RequestParam("phone") String phone, @RequestParam("email") String email,
+                                 @RequestParam("collage") String collage,@RequestParam("major") String major,@RequestParam("grade") int grade,
+                                 @RequestParam("classno") int classno, @RequestParam("sex") String sex){
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setClassno(classno);
+        user.setCollage(collage);
+        user.setEmail(email);
+        user.setPhone(phone);
+        user.setSex(sex);
+        user.setMajor(major);
+        user.setGrade(grade);
+        user.setName(name);
+        userService.Regester(user);
+        courseService.regester(user.getUsername());
+        return "";
     }
 }

@@ -135,7 +135,6 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <form action="#">
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 备忘录详情&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="add()" class="btn btn-inverse"><i class="glyphicon glyphicon-plus"></i></button>
@@ -157,7 +156,6 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -166,7 +164,7 @@
 
 
 <script type="text/javascript">
-    var select = -1;
+    var select = "-1";
     var title = document.getElementById("title");
     var detail = document.getElementById("detail");
     var ishome = document.getElementById("home");

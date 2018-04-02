@@ -13,4 +13,11 @@
         SELECT ${day} FROM coursetable WHERE studentid=#{studentid}
     </select>
     
+    <insert id="regester" parameterType="String">
+        INSERT INTO coursetable (studentid, `classNo`) VALUES (#{studentid}, '1');
+        INSERT INTO coursetable (studentid, `classNo`) VALUES (#{studentid}, '2');
+        INSERT INTO coursetable (studentid, `classNo`) VALUES (#{studentid}, '3');
+        INSERT INTO coursetable (studentid, `classNo`) VALUES (#{studentid}, '4');
+        INSERT INTO coursetable (studentid, `classNo`) VALUES (#{studentid}, '5');
+    </insert>
 </mapper>
