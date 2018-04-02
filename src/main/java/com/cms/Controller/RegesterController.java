@@ -53,6 +53,6 @@ public class RegesterController {
         user.setName(name);
         userService.Regester(user);
         courseService.regester(user.getUsername());
-        return "";
+        return "/login";
     }
 }

@@ -141,6 +141,8 @@
             $("#existcheck").text("此学号已存在, 请确认");
             return false;
         }
+        
+        alert("注册成功");
     }
     
     function existcheck() {
