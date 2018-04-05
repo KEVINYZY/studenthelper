@@ -118,33 +118,50 @@
     </div>
 </div>
 <script type="text/javascript">
+    var isexist;
     function checksubmit() {
+        var emailcheck = new RegExp("^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$", "").test($("#email").val());
+        var passwordcheck = new RegExp("^[a-zA-z][a-zA-Z0-9]{5,16}$", "").test($("#password").val());
+        var phonecheck = new RegExp("0?(13|14|15|18)[0-9]{9}", "").test($("#phone").val());
+        var namecheck = new RegExp("[\u4e00-\u9fa5]", "").test($("#name").val());
+        
         if($("#username").val() == "" || $("#passwordcheck").val() == "" || $("#password").val() == "" || $("#name").val() == ""
             || $("#collage").val() == "" || $("#major").val() == "" || $("#email").val() == "" || $("#phone").val() == ""){
-
             $("#msg").text("请填写完整信息");
             return false;
         }
-        else {
-            $("#msg").text("");
-        }
-        
-        if($("#password").val() != $("#passwordcheck").val()){
+        else if($("#password").val() != $("#passwordcheck").val()){
             $("#msg").text("两次输入密码不一致，请确认后输入");
             return false;
         }
-        else {
-            $("#msg").text("");
-        }
-        
-        if($("#existcheck").val() != ""){
-            $("#existcheck").text("此学号已存在, 请确认");
+        else if(isexist == true){
+            $("#msg").text("此学号已注册 请确认后重试");
             return false;
         }
+        else if(!passwordcheck){
+            $("#msg").text("请输入6-16位由英文字母、数字和下划线组成的密码");
+            return false;
+        }
+        else if(!emailcheck){
+            $("#msg").text("请输入正确的邮箱");
+            return false;
+        }
+        else if(!phonecheck){
+            $("#msg").text("请输入正确的国内手机号");
+            return false;
+        }
+        else if(!namecheck){
+            $("#msg").text("请输入正确的姓名");
+            return false;
+        }
+        else{
+            $("#msg").text("");
+            alert("注册成功 进入登录页面");
+            return true;
+        }
         
-        alert("注册成功");
     }
-    
+
     function existcheck() {
         $.ajax({
             data:{
@@ -159,9 +176,11 @@
             },
             success: function (response) {
                 if(response == "exist"){
+                    isexist = true;
                     $("#existcheck").text("此学号已存在, 请确认");
                 }
                 else{
+                    isexist = false;
                     $("#existcheck").text("");
                 }
             }

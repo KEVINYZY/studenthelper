@@ -27,13 +27,13 @@ DROP TABLE IF EXISTS `coursetable`;
 CREATE TABLE `coursetable` (
   `studentid` varchar(20) NOT NULL,
   `classNo` int(11) NOT NULL,
-  `mon` varchar(100) DEFAULT NULL,
-  `tue` varchar(100) DEFAULT NULL,
-  `wed` varchar(100) DEFAULT NULL,
-  `thu` varchar(100) DEFAULT NULL,
-  `fri` varchar(100) DEFAULT NULL,
-  `sat` varchar(100) DEFAULT NULL,
-  `sun` varchar(100) DEFAULT NULL,
+  `mon` varchar(100) DEFAULT '',
+  `tue` varchar(100) DEFAULT '',
+  `wed` varchar(100) DEFAULT '',
+  `thu` varchar(100) DEFAULT '',
+  `fri` varchar(100) DEFAULT '',
+  `sat` varchar(100) DEFAULT '',
+  `sun` varchar(100) DEFAULT '',
   PRIMARY KEY (`studentid`,`classNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='课程表';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -44,7 +44,7 @@ CREATE TABLE `coursetable` (
 
 LOCK TABLES `coursetable` WRITE;
 /*!40000 ALTER TABLE `coursetable` DISABLE KEYS */;
-INSERT INTO `coursetable` VALUES ('1',1,'null','null','null','null','null','null','null'),('1',2,'null','null','null','null','null','null','null'),('1',3,'null','null','null','null','null','null','null'),('1',4,'null','null','null','null','null','null','null'),('1',5,'null','null','null','null','null','null','null'),('12345',1,'日语精读(4)_04\r\n刘倩  1-18周\r\n尚德楼123（多媒体','软件工程导论_02\r\n冶红  1-9周\r\n四海楼602（多媒体）','数据库原理_04\r\n曹志英  1-18周\r\n四海楼604（多媒体）','编译原理_02\r\n黄健  2-18双周\r\n百川楼401(多媒体)','','',''),('12345',2,'日语视听(3)_02\r\n李文平  1-18周\r\n学汇楼611','互联网软件基础_03\r\n李辉  1-18周\r\n四海楼401（多媒体','日语精读(4)_04\r\n刘倩  1-18周\r\n尚德楼123（多媒体）','软件工程导论_02\r\n冶红  1-9周\r\n四海楼602（多媒体）','日语精读(4)_04\r\n刘倩  1-18周\r\n尚德楼115（多媒体）','',''),('12345',3,'','编译原理_02\r\n黄健  1-18周\r\n百川楼401(多媒体)','','日语视听(3)_02\r\n李文平  1-18周\r\n学汇楼613','算法设计与分析_03\r\n陈飞  1-18周\r\n四海楼405（多媒体）','',''),('12345',4,'毛泽东思想和中国特色社会主义理论体系概论_05\r\n姜海龙  1-18周\r\n知行楼101（多媒体）','体育(4)_122\r\n郭玉良  1-19周\r\n操场东山外专公寓前轮滑场','','','数据库原理_04\r\n曹志英  1-18周\r\n四海楼604（多媒体）','',''),('12345',5,'','','','毛泽东思想和中国特色社会主义理论体系概论_05\r\n姜海龙  1-18周\r\n知行楼101（多媒体）','','','');
+INSERT INTO `coursetable` VALUES ('12345',1,'日语精读(4)_04\r\n刘倩  1-18周\r\n尚德楼123（多媒体）','软件工程导论_02\r\n冶红  1-9周\r\n四海楼602（多媒体）','数据库原理_04\r\n曹志英  1-18周\r\n四海楼604（多媒体）','编译原理_02\r\n黄健  2-18双周\r\n百川楼401(多媒体)','','',''),('12345',2,'日语视听(3)_02\r\n李文平  1-18周\r\n学汇楼611','互联网软件基础_03\r\n李辉  1-18周\r\n四海楼401（多媒体）','日语精读(4)_04\r\n刘倩  1-18周\r\n尚德楼123（多媒体）','软件工程导论_02\r\n冶红  1-9周\r\n四海楼602（多媒体）','日语精读(4)_04\r\n刘倩  1-18周\r\n尚德楼115（多媒体）','',''),('12345',3,'','编译原理_02\r\n黄健  1-18周\r\n百川楼401(多媒体)','','日语视听(3)_02\r\n李文平  1-18周\r\n学汇楼613','算法设计与分析_03\r\n陈飞  1-18周\r\n四海楼405（多媒体）','',''),('12345',4,'毛泽东思想和中国特色社会主义理论体系概论_05\r\n姜海龙  1-18周\r\n知行楼101（多媒体','体育(4)_122\r\n郭玉良  1-19周\r\n操场东山外专公寓前轮滑场','','','数据库原理_04\r\n曹志英  1-18周\r\n四海楼604（多媒体）','',''),('12345',5,'','','','毛泽东思想和中国特色社会主义理论体系概论_05\r\n姜海龙  1-18周\r\n知行楼101（多媒体）','','','');
 /*!40000 ALTER TABLE `coursetable` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -72,7 +72,7 @@ CREATE TABLE `examschedule` (
 
 LOCK TABLES `examschedule` WRITE;
 /*!40000 ALTER TABLE `examschedule` DISABLE KEYS */;
-INSERT INTO `examschedule` VALUES ('12345','JLPT N2','2018-07-01','','大连理工大学外国语学院','2018-03-27-22-22-31'),('12345','CET 6','2018-06-28','','学汇楼','2018-03-27-22-22-40');
+INSERT INTO `examschedule` VALUES ('12345','JLPT N2','2018-07-01','日语二级考试','大连理工大学外国语学院','2018-03-27-22-22-31'),('12345','CET 6','2018-06-28','大学英语六级考试','学汇楼','2018-03-27-22-22-40');
 /*!40000 ALTER TABLE `examschedule` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,7 +121,7 @@ CREATE TABLE `memo` (
 
 LOCK TABLES `memo` WRITE;
 /*!40000 ALTER TABLE `memo` DISABLE KEYS */;
-INSERT INTO `memo` VALUES ('1','2018-03-29-22-26-37','1','1',1),('12345','2018-03-29-16-10-25','完成数据结构笔记','今天学习第六章的知识\n-----------------------------------\n完成笔记\n-----------------------------------\n复习链表结点的删除和添加',1);
+INSERT INTO `memo` VALUES ('1','2018-04-02-22-34-22','完成数据结构笔记','------------------------------------\n----------------------------------',0),('1','2018-04-02-22-34-30','4444','44444',1),('12345','2018-03-29-16-10-25','完成数据结构笔记','今天学习第六章的知识          \n---------------------------------------\n完成关于B树的笔记               \n---------------------------------------\n复习链表结点的删除和添加\n--------------------------------------\n完成课后练习',1),('12345','2018-04-05-14-48-22','社团招新','计算机学社招新开始\n\n周三下午去大学生活动中心进行商讨招新相关事宜',0),('12345','2018-04-05-14-51-00','自习','图书馆自习',0);
 /*!40000 ALTER TABLE `memo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -154,7 +154,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('1','1','测试','男','信息科学技术学院','计算机科学与技术',2015,1,'11301234567','55555@qq.com',1),('12345','1','测试学生','男','信息科学技术学院','软件工程',2016,4,'13012345678','12345@qq.com',1);
+INSERT INTO `user` VALUES ('12345','1','测试学生','男','信息科学技术学院','软件工程',2016,4,'13012345678','12345@qq.com',1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,4 +175,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-29 23:00:28
+-- Dump completed on 2018-04-05 14:55:06

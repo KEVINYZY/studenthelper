@@ -32,29 +32,11 @@ public class UserInfoController {
     }
     
     @RequestMapping("updateuser")
-    public String updateuser(HttpSession session,@RequestParam("name") String name, 
-                             @RequestParam("sex") String sex, 
-                             @RequestParam("phone") String phone, 
-                             @RequestParam("email") String email, 
-                             @RequestParam("collage") String collage, 
-                             @RequestParam("major") String major, 
-                             @RequestParam("grade") int grade, 
-                             @RequestParam("classno") int classno){
+    public String updateuser(HttpSession session, @RequestParam("phone") String phone, @RequestParam("email") String email){
         User user = (User) session.getAttribute("user");
-        User updateuser = new User();
-        updateuser.setUsername(user.getUsername());
-        updateuser.setPassword(user.getPassword());
-        updateuser.setIdentity(user.getIdentity());
-        updateuser.setClassno(classno);
-        updateuser.setCollage(collage);
-        updateuser.setEmail(email);
-        updateuser.setPhone(phone);
-        updateuser.setSex(sex);
-        updateuser.setMajor(major);
-        updateuser.setGrade(grade);
-        updateuser.setName(name);
-        userService.updateUser(updateuser);
-        session.setAttribute("user", updateuser);
+        user.setEmail(email);
+        user.setPhone(phone);
+        session.setAttribute("user", user);
         return "/personal";
     }
 

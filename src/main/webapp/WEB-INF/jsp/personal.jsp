@@ -155,39 +155,40 @@
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         <div class="panel panel-info">
                                             <div class="panel-body">
-                                                <form role="form" method="post" action="/updateuser">
+                                                <form role="form" method="post" onsubmit="return checksubmit()" action="/updateuser">
                                                     <div class="form-group">
                                                         <label>姓名</label>
-                                                        <input class="form-control" name="name" value="<%=user.getName()%>" type="text">
+                                                        <input class="form-control" disabled="disabled" name="name" value="<%=user.getName()%>" type="text">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>性别</label>
-                                                        <input class="form-control" name="sex" value="<%=user.getSex()%>" type="text">
+                                                        <input class="form-control" disabled="disabled" name="sex" value="<%=user.getSex()%>" type="text">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>联系电话</label>
-                                                        <input class="form-control" name="phone" value="<%=user.getPhone()%>" type="text">
+                                                        <input class="form-control" id="phone" name="phone" value="<%=user.getPhone()%>" type="text">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>E-mail</label>
-                                                        <input class="form-control" name="email" value="<%=user.getEmail()%>" type="text">
+                                                        <input class="form-control" id="email" name="email" value="<%=user.getEmail()%>" type="text">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>所在学院</label>
-                                                        <input class="form-control" name="collage" value="<%=user.getCollage()%>" type="text">
+                                                        <input class="form-control" disabled="disabled" name="collage" value="<%=user.getCollage()%>" type="text">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>就读专业</label>
-                                                        <input class="form-control" name="major" value="<%=user.getMajor()%>" type="text">
+                                                        <input class="form-control" disabled="disabled" name="major" value="<%=user.getMajor()%>" type="text">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>所在年级</label>
-                                                        <input class="form-control" name="grade" value="<%=user.getGrade()%>" type="text">
+                                                        <input class="form-control" disabled="disabled" name="grade" value="<%=user.getGrade()%>" type="text">
                                                     </div>
                                                     <div class="form-group">
                                                         <label>班级</label>
-                                                        <input class="form-control" name="classno" value="<%=user.getClassno()%>" type="text">
+                                                        <input class="form-control" disabled="disabled" name="classno" value="<%=user.getClassno()%>" type="text">
                                                     </div>
+                                                    <span id="infomsg" style="color:#F00;font-size:14px;"></span><br>
                                                     <button type="submit" class="btn btn-info">提交</button>
                                                 </form>
                                             </div>
@@ -236,18 +237,23 @@
         var old = $("#old").val();
         var newpwd = $("#newpwd").val();
         var repeat = $("#repeat").val();
-        if(newpwd == "" || repeat == "" || old == ""){
+        var passwordcheck = new RegExp("^[a-zA-z][a-zA-Z0-9]{5,16}$", "").test($("#newpwd").val());
+        if (newpwd == "" || repeat == "" || old == "") {
             $("#msg").text("请输入完整信息");
             return false;
         }
-        if(newpwd != repeat){
+        else if (newpwd != repeat) {
             $("#msg").text("前后密码不一致");
+            return false;
+        }
+        else if(!passwordcheck){
+            $("#msg").text("请输入6-16位由英文字母、数字和下划线组成的密码");
             return false;
         }
         $.ajax({
             data: {
-                old:$("#old").val(),
-                newpwd:$("#newpwd").val()
+                old: $("#old").val(),
+                newpwd: $("#newpwd").val()
             },
             type: "post",
             url: "/revisepassword",
@@ -267,6 +273,28 @@
                 }
             }
         });
+    }
+    function checksubmit() {
+        var emailcheck = new RegExp("^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$", "").test($("#email").val());
+        var phonecheck = new RegExp("0?(13|14|15|18)[0-9]{9}", "").test($("#phone").val());
+
+        if($("#email").val() == "" || $("#phone").val() == ""){
+            $("#infomsg").text("请填写完整信息");
+            return false;
+        }
+        else if(!emailcheck){
+            $("#infomsg").text("请输入正确的邮箱");
+            return false;
+        }
+        else if(!phonecheck){
+            $("#infomsg").text("请输入正确的国内手机号");
+            return false;
+        }
+        else{
+            $("#infomsg").text("");
+            return true;
+        }
+
     }
 </script>
 <div id="footer-sec">
