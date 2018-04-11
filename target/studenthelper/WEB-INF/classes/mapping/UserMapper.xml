@@ -20,4 +20,8 @@
   <insert id="Regester" parameterType="com.cms.Entity.User">
     INSERT INTO user (username, password, name, sex, collage, major, grade, classno, phone, email, identity) VALUES (#{username}, #{password}, #{name}, #{sex}, #{collage}, #{major}, #{grade}, #{classno}, #{phone}, #{email}, #{identity});
   </insert>
+  
+  <update id="UpdateIntroduction" parameterType="String">
+    UPDATE user SET introduction=#{0} WHERE username=#{1}
+  </update>
 </mapper>

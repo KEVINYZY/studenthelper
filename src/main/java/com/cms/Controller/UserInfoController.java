@@ -53,8 +53,9 @@ public class UserInfoController {
     @ResponseBody
     public String introduction(HttpSession session, @RequestParam("introduction") String introduction){
         User user = (User) session.getAttribute("user");
-        System.out.println(introduction);
         userService.UpdateIntroduction(introduction, user.getUsername());
+        user.setIntroduction(introduction);
+        session.setAttribute("user",user);
         return "success";
     }
 }

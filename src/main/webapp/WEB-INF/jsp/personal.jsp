@@ -317,9 +317,8 @@
             },
             success: function (response) {
                 if(response == "success"){
-                    $(that).removeClass("processing");;
                     $("#introductioncheck").text("");
-                    alert("自我介绍已保存")
+                    alert("自我介绍已保存");
                     window.location.href = "/personalInfo";
                 }
             }
