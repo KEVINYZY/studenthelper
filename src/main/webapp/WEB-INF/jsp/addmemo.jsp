@@ -80,7 +80,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">我的社团</a>
+                    <a href="/myclass">我的班级</a>
                 </li>
                 <li>
                     <a class="active-menu" href="/memo">我的个人备忘录</a>

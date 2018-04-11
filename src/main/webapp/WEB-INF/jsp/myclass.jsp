@@ -62,9 +62,9 @@
                     <div class="user-img-div">
                         <img src="images/user.png" class="img-thumbnail" />
                         <div class="inner-text">
-                            <%=user.getName()%>
+                            <%=user.getName()%>&nbsp;<%=user.getCollage()%>&nbsp;
                             <br />
-                            <small><%=user.getCollage()%>&nbsp;<%=user.getMajor()%> <%=user.getGrade()%>级<%=user.getClassno()%>班 <br> <%=day%></small>
+                            <small><%=user.getGrade()%>级&nbsp;<%=user.getMajor()%>&nbsp;<%=user.getClassno()%>班 <br> <%=day%></small>
                         </div>
                     </div>
                 </li>
@@ -84,7 +84,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="active-menu"  href="#">我的社团</a>
+                    <a class="active-menu"  href="/myclass">我的班级</a>
                 </li>
                 <li>
                     <a href="#">我的个人备忘录</a>
@@ -111,8 +111,8 @@
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="page-head-line">我的考试倒计时</h1>
-                    <h1 class="page-subhead-line">关注考试 稳扎稳打不用慌！</h1>
+                    <h1 class="page-head-line">我的班级</h1>
+                    <h1 class="page-subhead-line">大家的狂欢聚集地</h1>
                 </div>
             </div>
         </div>

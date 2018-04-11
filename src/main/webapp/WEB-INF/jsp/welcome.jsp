@@ -64,7 +64,7 @@
             <ul class="nav" id="main-menu">
                 <li>
                     <div class="user-img-div">
-                        <img src="images/user.png" class="img-thumbnail" />
+                        <img src="../../images/user.png" class="img-thumbnail" />
                         <div class="inner-text">
                             <%=user.getName()%>&nbsp;<%=user.getCollage()%>&nbsp;
                             <br />
@@ -88,7 +88,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">我的社团</a>
+                    <a href="/myclass">我的班级</a>
                 </li>
                 <li>
                     <a href="/memo">我的个人备忘录</a>
