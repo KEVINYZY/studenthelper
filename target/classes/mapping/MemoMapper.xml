@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.Dao.MemoDao" >
+    <insert id="addMemo" parameterType="com.cms.Entity.Memo">
+        INSERT INTO memo (studentid, createtime, title, detail, home)VALUES (#{studentid}, #{createtime}, #{title}, #{detail}, #{home})
+    </insert>
+    
+    <select id="QueryMemoById" parameterType="String" resultType="com.cms.Entity.Memo">
+        SELECT * FROM memo WHERE studentid=#{studentid}
+    </select>
+    
+    <update id="updateMemo" parameterType="com.cms.Entity.Memo">
+        UPDATE memo SET title=#{title}, detail=#{detail}, home=#{home} WHERE studentid=#{studentid} AND createtime=#{createtime}
+    </update>
+    
+    <delete id="deleteMemo" parameterType="String">
+        DELETE from memo where studentid=#{studentid} AND createtime=#{createtime}
+    </delete>
+    
+    <select id="QueryHomeMemoById" parameterType="String" resultType="com.cms.Entity.Memo">
+        SELECT * FROM memo WHERE studentid=#{studentid} AND home='1'
+    </select>
+</mapper>

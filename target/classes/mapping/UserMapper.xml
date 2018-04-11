@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.Dao.UserDao" >
+  <select id="login" parameterType="string" resultType="com.cms.Entity.User">
+    SELECT * FROM user WHERE username=#{username} AND password=#{password}
+  </select>
+  
+  <update id="revisePassword" parameterType="String">
+    UPDATE user SET password=#{revisepwd} WHERE username=#{studentid}
+  </update>
+  
+  <update id="updateUser" parameterType="com.cms.Entity.User">
+   UPDATE user SET name=#{name}, sex=#{sex}, collage=#{collage}, major=#{major}, grade=#{grade}, classno=#{classno}, phone=#{phone}, email=#{email}, identity=#{identity} WHERE username =#{username};
+  </update>
+  
+  <select id="QueryUserById" resultType="com.cms.Entity.User" parameterType="String">
+    SELECT * FROM  USER  WHERE username=#{username}
+  </select>
+  
+  <insert id="Regester" parameterType="com.cms.Entity.User">
+    INSERT INTO user (username, password, name, sex, collage, major, grade, classno, phone, email, identity) VALUES (#{username}, #{password}, #{name}, #{sex}, #{collage}, #{major}, #{grade}, #{classno}, #{phone}, #{email}, #{identity});
+  </insert>
+</mapper>

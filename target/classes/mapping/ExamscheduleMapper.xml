@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cms.Dao.ExamscheduleDao" >
+    <insert id="addExamschedule" parameterType="com.cms.Entity.Examschedule">
+      INSERT INTO examschedule (studentid, examname, examtime, remark, examplace, createtime)VALUE (#{studentid}, #{examname}, #{examtime}, #{remark}, #{examplace}, #{createtime})
+    </insert>
+    
+    <select id="QueryExamscheduleById" parameterType="String" resultType="com.cms.Entity.Examschedule">
+        SELECT * FROM examschedule WHERE studentid=#{studentid}
+    </select>
+    
+    <delete id="DeleteExamscheduleByName" parameterType="String">
+        DELETE FROM examschedule WHERE studentid=#{1} AND examname=#{0} AND createtime=#{2};
+    </delete>
+    
+    <update id="UpdateExamscheduleById" parameterType="com.cms.Entity.Examschedule">
+        UPDATE examschedule SET studentid=#{studentid}, examname=#{examname}, examtime=#{examtime}, remark=#{remark}, examplace=#{examplace} WHERE studentid=#{studentid} and examname=#{oldname};
+    </update>
+    
+    
+</mapper>
