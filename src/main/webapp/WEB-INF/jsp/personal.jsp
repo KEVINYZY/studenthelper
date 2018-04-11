@@ -133,10 +133,12 @@
                                             <h4>  <strong>基本信息</strong></h4>
                                             <strong>  <%=user.getName()%>&nbsp;&nbsp; <%=user.getSex()%></strong>
                                             <br />
-                                            <b>学号 :</b> <%=user.getUsername()%><br />
-                                            <b>联系电话 :</b> <%=user.getPhone()%>
-                                            <br />
-                                            <b>E-mail :</b> <%=user.getEmail()%>
+                                            <b>学号 :</b> <%=user.getUsername()%><br/>
+                                            <b>联系电话 :</b> <%=user.getPhone()%><br/>
+                                            <b>E-mail :</b> <%=user.getEmail()%><br/>
+                                            <b>自我介绍(300字) :</b><span id="introductioncheck" style="color:#F00;font-size:14px;"></span><br/>
+                                            <textarea id="introduction" style="width: 1090px;height: 135px;resize:none;"><%=user.getIntroduction()%></textarea><br/>
+                                            <button class="btn btn-info" onclick="introductioncheck()">保存</button>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6">
                                             <h4><strong>学位信息</strong></h4>
@@ -295,6 +297,33 @@
             return true;
         }
 
+    }
+    
+    function introductioncheck() {
+        if($("#introduction").val().length > 300){
+            $("#introductioncheck").text("自我介绍不得超过300字");
+            return false;
+        }
+        $.ajax({
+            data: {
+                introduction:$("#introduction").val()
+            },
+            type: "post",
+            url: "/introduction",
+            dataType: "json",
+            error: function (data) {
+                alert("系统错误 请重试" + data);
+                $(that).removeClass("processing");
+            },
+            success: function (response) {
+                if(response == "success"){
+                    $(that).removeClass("processing");;
+                    $("#introductioncheck").text("");
+                    alert("自我介绍已保存")
+                    window.location.href = "/personalInfo";
+                }
+            }
+        });
     }
 </script>
 <div id="footer-sec">

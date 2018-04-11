@@ -62,9 +62,9 @@
                     <div class="user-img-div">
                         <img src="images/user.png" class="img-thumbnail" />
                         <div class="inner-text">
-                            <%=user.getName()%>&nbsp;<%=user.getCollage()%>&nbsp;
+                            <%=user.getName()%>
                             <br />
-                            <small><%=user.getGrade()%>级&nbsp;<%=user.getMajor()%>&nbsp;<%=user.getClassno()%>班 <br> <%=day%></small>
+                            <small><%=user.getCollage()%>&nbsp;<%=user.getMajor()%> <%=user.getGrade()%>级<%=user.getClassno()%>班 <br> <%=day%></small>
                         </div>
                     </div>
                 </li>
@@ -84,19 +84,19 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="active-menu"  href="/myclass">我的班级</a>
+                    <a class="active-menu" href="/myclass">我的班级</a>
                 </li>
                 <li>
-                    <a href="#">我的个人备忘录</a>
+                    <a href="/memo">我的个人备忘录</a>
                 </li>
                 <li>
-                    <a href="#">校学生通知</a>
+                    <a href="/inform">校学生通知</a>
                 </li>
                 <li>
                     <a href="#"><%=user.getName()%><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">我的个人信息</a>
+                            <a href="/personalInfo">我的个人信息</a>
                         </li>
                         <li>
                             <a href="/logout">注销</a>
@@ -113,6 +113,28 @@
                 <div class="col-md-12">
                     <h1 class="page-head-line">我的班级</h1>
                     <h1 class="page-subhead-line">大家的狂欢聚集地</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#home" data-toggle="tab">我的班级</a>
+                                </li>
+                                <li class=""><a href="#bbs" data-toggle="tab">班级社区</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade active in" id="home">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                                <div class="tab-pane fade" id="bbs">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

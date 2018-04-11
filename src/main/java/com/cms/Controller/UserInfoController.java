@@ -49,5 +49,13 @@ public class UserInfoController {
         return "/personal";
     }
     
+    @RequestMapping("introduction")
+    @ResponseBody
+    public String introduction(HttpSession session, @RequestParam("introduction") String introduction){
+        User user = (User) session.getAttribute("user");
+        System.out.println(introduction);
+        userService.UpdateIntroduction(introduction, user.getUsername());
+        return "success";
+    }
 }
  

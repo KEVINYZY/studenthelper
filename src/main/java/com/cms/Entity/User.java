@@ -21,8 +21,13 @@ public class User {
     
     private String phone;
     
+    private boolean isphonesecret;
+    
     private String email;
     
+    private boolean ismailsecret;
+    
+    private String introduction;
     
     public String getUsername() {
         return username;
@@ -110,5 +115,29 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
+    }
+
+    public boolean isIsphonesecret() {
+        return isphonesecret;
+    }
+
+    public void setIsphonesecret(boolean isphonesecret) {
+        this.isphonesecret = isphonesecret;
+    }
+
+    public boolean isIsmailsecret() {
+        return ismailsecret;
+    }
+
+    public void setIsmailsecret(boolean ismailsecret) {
+        this.ismailsecret = ismailsecret;
     }
 }

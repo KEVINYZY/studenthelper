@@ -37,4 +37,9 @@ public class UserService {
         userDao.Regester(user);
     }
     
+    public void UpdateIntroduction(String introduction, String username){
+        log.info("修改自我介绍");
+        userDao.UpdateIntroduction(introduction, username);
+    }
+    
 }
