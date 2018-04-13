@@ -319,7 +319,6 @@
                 if(response == "success"){
                     $("#introductioncheck").text("");
                     alert("自我介绍已保存");
-                    window.location.href = "/personalInfo";
                 }
             }
         });
