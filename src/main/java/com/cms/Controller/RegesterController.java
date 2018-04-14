@@ -39,7 +39,7 @@ public class RegesterController {
     public String regestersubmit(HttpSession session,@RequestParam("username") String username, @RequestParam("password") String password,
                                  @RequestParam("name") String name, @RequestParam("phone") String phone, @RequestParam("email") String email,
                                  @RequestParam("collage") String collage,@RequestParam("major") String major,@RequestParam("grade") int grade,
-                                 @RequestParam("classno") int classno, @RequestParam("sex") String sex, @RequestParam("isemailsecret") int isemailsecret, @RequestParam("isphonesecret") int isphonesecret){
+                                 @RequestParam("classno") int classno, @RequestParam("sex") String sex, @RequestParam("ismailsecret") int ismailsecret, @RequestParam("isphonesecret") int isphonesecret){
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
@@ -51,7 +51,7 @@ public class RegesterController {
         user.setMajor(major);
         user.setGrade(grade);
         user.setName(name);
-        user.setIsmailsecret(isemailsecret);
+        user.setIsmailsecret(ismailsecret);
         user.setIsphonesecret(isphonesecret);
         userService.Regester(user);
         courseService.regester(user.getUsername());

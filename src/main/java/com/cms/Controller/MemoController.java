@@ -27,7 +27,7 @@ public class MemoController {
         if(user == null){
             return "redirect:/login";
         }
-        String studentid = ((User)session.getAttribute("user")).getUsername();
+        String studentid = (user.getUsername());
         List<Memo> memoList = memoService.QueryMemoById(studentid);
         List<Memo> homememo = memoService.QueryHomeMemoById(studentid);
         session.setAttribute("memolist", memoList);

@@ -5,6 +5,8 @@ import com.cms.Entity.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface UserDao {
     User login (@Param("username") String username, @Param("password")String password);
@@ -18,4 +20,6 @@ public interface UserDao {
     void Regester(User user);
     
     void UpdateIntroduction(String introduction, String username);
+
+    List<User> GetUserlistByUser(User user);
 }

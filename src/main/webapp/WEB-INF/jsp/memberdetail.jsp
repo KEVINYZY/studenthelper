@@ -1,21 +1,18 @@
 <%--
   Created by IntelliJ IDEA.
   User: Creams
-  Date: 2018/3/14
-  Time: 17:35
+  Date: 2018/4/14
+  Time: 23:21
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="com.cms.Entity.User" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.util.Locale" %>
-<%@ page import="java.util.Date" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <%
     User user = (User) session.getAttribute("user");
     String day = (String)session.getAttribute("today");
-    List<User> classmenber = (List<User>)session.getAttribute("classmember");
+    User detailmember = (User) session.getAttribute("detailmember");
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -111,58 +108,33 @@
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="page-head-line">我的班级</h1>
-                    <h1 class="page-subhead-line">大家的狂欢聚集地</h1>
+                    <h1 class="page-head-line"><%=detailmember.getName()%></h1>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="#home" data-toggle="tab">我的班级</a>
-                                </li>
-                                <li class=""><a href="#bbs" data-toggle="tab">班级社区</a>
-                                </li>
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane fade active in" id="home">
-                                    <div class="col-md-12">
-                                        <div class="panel panel-info">
-                                            <div class="panel-body" style="padding: 2px;height: 1000px;width: 1715px; ">
-                                                <div class="chat-widget-main">
-                                                    <%
-                                                        User member = null;
-                                                        for (int i = 0; i < classmenber.size(); i++) {
-                                                            member = classmenber.get(i);
-                                                    %>
-                                                    <a href="/memberdetail?no=<%=i%>" class="list-group-item"><%=member.getUsername() + "   " +  member.getName() + "   " + member.getSex()%></a>
-                                                    <%
-                                                        }
-                                                    %>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="bbs">
-                                    <div class="col-md-12">
-                                        <div class="panel-success simple-table">
-                                            <div class="panel-heading">
-                                                <h4>ECONOMY PLAN</h4>
-                                            </div>
-                                            <div class="alert alert-success">
-                                                <ul class="plan">
-                                                    <li class="price-simple"><strong>50</strong> <i class="fa fa-dollar"></i></li>
-                                                    <li><strong>52</strong> Emails</li>
-                                                    <li><strong>50 GB</strong> Space</li>
-                                                    <li><strong>Free</strong> Support</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-md-12">
+                    <div class="row pad-top-botm client-info">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <h4>学号:<%=detailmember.getUsername()%></h4>
+                            <br />
+                            <h4>姓名:<%=detailmember.getName()%></h4>
+                            <br />
+                            <h4>性别:<%=detailmember.getSex()%></h4>
+                            <br />
+                            <h4>学院:<%=detailmember.getCollage()%></h4>
+                            <br />
+                            <h4>专业:<%=detailmember.getMajor()%></h4>
+                            <br />
+                            <h4>班级:<%=detailmember.getGrade() + "级" + detailmember.getClassno() + "班"%></h4>
+                            <br />
+                            <h4>邮箱:<%=(detailmember.getIsmailsecret() == 1) ? "保密" : detailmember.getEmail()%></h4>
+                            <br />
+                            <h4>联系电话:<%=(detailmember.getIsphonesecret() == 1) ? "保密" : detailmember.getPhone()%></h4>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <h4>自我介绍:</h4>
+                            <br />
+                            <h4><%=detailmember.getIntroduction()%></h4>
                         </div>
                     </div>
                 </div>

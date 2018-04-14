@@ -71,11 +71,11 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>联系电话</label>
+                            <label>联系电话</label>&nbsp;&nbsp;&nbsp;<select name="isphonesecret"><option value="1">保密</option><option value="0">公开</option></select>
                             <input id="phone" name="phone" class="form-control" type="text">
                         </div>
                         <div class="form-group">
-                            <label>E-Mail</label>
+                            <label>E-Mail</label>&nbsp;&nbsp;&nbsp;<select name="ismailsecret"><option value="1">保密</option><option value="0">公开</option></select>
                             <input id="email" name="email" class="form-control" type="text">
                         </div>
                         <div class="form-group">

@@ -14,8 +14,8 @@
 <!DOCTYPE html>
 <%
     User user = (User) session.getAttribute("user");
-    List<String> todaytable = (List<String>)session.getAttribute("todaytable");
     String day = (String)session.getAttribute("today");
+    List<User> classmenber = (List<User>)session.getAttribute("classmember");
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -127,10 +127,40 @@
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane fade active in" id="home">
-                                    
+                                    <div class="col-md-12">
+                                        <div class="panel panel-info">
+                                            <div class="panel-body" style="padding: 2px;height: 1000px;width: 1715px; ">
+                                                <div class="chat-widget-main">
+                                                    <%
+                                                        User member = null;
+                                                        for (int i = 0; i < classmenber.size(); i++) {
+                                                            member = classmenber.get(i);
+                                                    %>
+                                                    <a href="/memberdetail?no=<%=i%>" class="list-group-item"><%=member.getUsername() + "   " +  member.getName() + "   " + member.getSex()%></a>
+                                                    <%
+                                                        }
+                                                    %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="tab-pane fade" id="bbs">
-                                    
+                                    <div class="col-md-12">
+                                        <div class="panel-success simple-table">
+                                            <div class="panel-heading">
+                                                <h4>ECONOMY PLAN</h4>
+                                            </div>
+                                            <div class="alert alert-success">
+                                                <ul class="plan">
+                                                    <li class="price-simple"><strong>50</strong> <i class="fa fa-dollar"></i></li>
+                                                    <li><strong>52</strong> Emails</li>
+                                                    <li><strong>50 GB</strong> Space</li>
+                                                    <li><strong>Free</strong> Support</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

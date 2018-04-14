@@ -6,10 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="com.cms.Entity.User" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.util.Locale" %>
-<%@ page import="java.util.Date" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <%
@@ -167,11 +163,11 @@
                                                         <input class="form-control" disabled="disabled" name="sex" value="<%=user.getSex()%>" type="text">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label>联系电话</label>
+                                                        <label>联系电话</label>>&nbsp;&nbsp;&nbsp;<select name="isphonesecret"><option value="<%=user.getIsphonesecret()%>"><%=(user.getIsphonesecret() == 1) ? "保密" : "公开"%></option><option value="<%=1-user.getIsphonesecret()%>"><%=(user.getIsphonesecret() != 1) ? "保密" : "公开"%></option></select>
                                                         <input class="form-control" id="phone" name="phone" value="<%=user.getPhone()%>" type="text">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label>E-mail</label>
+                                                        <label>E-mail</label>&nbsp;&nbsp;&nbsp;<select name="ismailsecret"><option value="<%=user.getIsmailsecret()%>"><%=(user.getIsmailsecret() == 1) ? "保密" : "公开"%></option><option value="<%=1-user.getIsmailsecret()%>"><%=(user.getIsmailsecret() != 1) ? "保密" : "公开"%></option></select>
                                                         <input class="form-control" id="email" name="email" value="<%=user.getEmail()%>" type="text">
                                                     </div>
                                                     <div class="form-group">

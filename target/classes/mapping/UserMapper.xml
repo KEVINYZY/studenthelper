@@ -10,7 +10,7 @@
   </update>
   
   <update id="updateUser" parameterType="com.cms.Entity.User">
-   UPDATE user SET name=#{name}, sex=#{sex}, collage=#{collage}, major=#{major}, grade=#{grade}, classno=#{classno}, phone=#{phone}, email=#{email}, identity=#{identity} WHERE username =#{username};
+   UPDATE user SET name=#{name}, sex=#{sex}, collage=#{collage}, major=#{major}, grade=#{grade}, classno=#{classno}, phone=#{phone}, email=#{email}, identity=#{identity} ,ismailsecret=#{ismailsecret}, isphonesecret=#{ismailsecret} WHERE username =#{username};
   </update>
   
   <select id="QueryUserById" resultType="com.cms.Entity.User" parameterType="String">
@@ -24,4 +24,8 @@
   <update id="UpdateIntroduction" parameterType="String">
     UPDATE user SET introduction=#{0} WHERE username=#{1}
   </update>
+
+  <select id="GetUserlistByUser" parameterType="com.cms.Entity.User" resultType="com.cms.Entity.User">
+        SELECT * FROM user WHERE collage=#{collage} AND major=#{major} AND grade=#{grade} AND classno=#{classno}
+    </select>
 </mapper>

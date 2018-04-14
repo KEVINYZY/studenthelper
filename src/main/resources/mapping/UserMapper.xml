@@ -18,10 +18,14 @@
   </select>
   
   <insert id="Regester" parameterType="com.cms.Entity.User">
-    INSERT INTO user (username, password, name, sex, collage, major, grade, classno, phone, email, identity) VALUES (#{username}, #{password}, #{name}, #{sex}, #{collage}, #{major}, #{grade}, #{classno}, #{phone}, #{email}, #{identity});
+    INSERT INTO user (username, password, name, sex, collage, major, grade, classno, phone, email, identity,ismailsecret, isphonesecret) VALUES (#{username}, #{password}, #{name}, #{sex}, #{collage}, #{major}, #{grade}, #{classno}, #{phone}, #{email}, #{identity}, #{ismailsecret}, #{ismailsecret});
   </insert>
   
   <update id="UpdateIntroduction" parameterType="String">
     UPDATE user SET introduction=#{0} WHERE username=#{1}
   </update>
+
+  <select id="GetUserlistByUser" parameterType="com.cms.Entity.User" resultType="com.cms.Entity.User">
+        SELECT * FROM user WHERE collage=#{collage} AND major=#{major} AND grade=#{grade} AND classno=#{classno}
+    </select>
 </mapper>

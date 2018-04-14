@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -41,5 +42,9 @@ public class UserService {
         log.info("修改自我介绍");
         userDao.UpdateIntroduction(introduction, username);
     }
-    
+
+    public List<User> GetUserlistByUser(User user){
+        log.info("获取同班同学");
+        return userDao.GetUserlistByUser(user);
+    }
 }
