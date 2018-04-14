@@ -127,7 +127,7 @@
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane fade active in" id="home">
-                                 
+                                    
                                 </div>
                                 <div class="tab-pane fade" id="bbs">
                                     

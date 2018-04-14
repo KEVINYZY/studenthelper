@@ -32,10 +32,13 @@ public class UserInfoController {
     }
     
     @RequestMapping("updateuser")
-    public String updateuser(HttpSession session, @RequestParam("phone") String phone, @RequestParam("email") String email){
+    public String updateuser(HttpSession session, @RequestParam("phone") String phone, @RequestParam("email") String email, @RequestParam("ismailsecret") int ismailsecret, @RequestParam("isphonesecret") int isphonesecret){
         User user = (User) session.getAttribute("user");
         user.setEmail(email);
         user.setPhone(phone);
+        user.setIsphonesecret(isphonesecret);
+        user.setIsmailsecret(ismailsecret);
+        userService.updateUser(user);
         session.setAttribute("user", user);
         return "/personal";
     }

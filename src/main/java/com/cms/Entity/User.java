@@ -21,11 +21,11 @@ public class User {
     
     private String phone;
     
-    private boolean isphonesecret;
+    private int isphonesecret;
     
     private String email;
     
-    private boolean ismailsecret;
+    private int ismailsecret;
     
     private String introduction;
     
@@ -125,19 +125,19 @@ public class User {
         this.introduction = introduction;
     }
 
-    public boolean isIsphonesecret() {
+    public int getIsphonesecret() {
         return isphonesecret;
     }
 
-    public void setIsphonesecret(boolean isphonesecret) {
+    public void setIsphonesecret(int isphonesecret) {
         this.isphonesecret = isphonesecret;
     }
 
-    public boolean isIsmailsecret() {
+    public int getIsmailsecret() {
         return ismailsecret;
     }
 
-    public void setIsmailsecret(boolean ismailsecret) {
+    public void setIsmailsecret(int ismailsecret) {
         this.ismailsecret = ismailsecret;
     }
 }
