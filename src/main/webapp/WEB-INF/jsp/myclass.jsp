@@ -162,7 +162,7 @@
                                                             <ul class="plan">
 
                                                             </ul>
-                                                        </div> 
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -179,7 +179,7 @@
                                                 <div class="form-group">
                                                     <textarea class="form-control" id="topicdetail" name="topicdetail" style="width: 1680px;height: 770px;resize:none;"></textarea>
                                                 </div>
-                                                <button onclick="titlecheck()" class="btn btn-success">提交</button><span id="msg" style="color:#F00;font-size:14px;"></span>
+                                                <button onclick="titlecheck()" class="btn btn-success">提交</button>&nbsp;&nbsp;<span id="msg" style="color:#F00;font-size:14px;"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -217,14 +217,38 @@
 </div>
 <script type="text/javascript">
     function titlecheck() {
-        if($("#topictitle").val() == "" || $("#topicdetail").val() == ""){
-            $("#msg").text() == "帖子不能为空";
+        var topictitle = $("#topictitle").val();
+        var topicdetail = $("#topicdetail").val();
+        if(topictitle == "" || topicdetail == ""){
+            $("#msg").text("帖子不能为空");
             return false;
         }
-        if($("#topictitle").val().length > 50){
-            $("#msg").text() == "标题长度多余50字";
+        if(topictitle.length > 50){
+            $("#msg").text("标题长度多余50字");
             return false;
         }
+        $.ajax({
+            data:{
+                topictitle:$("#topictitle").val(),
+                topicdetail:$("#topicdetail").val()
+            },
+            type:"post",
+            url:"/newtopic",
+            dataType:"json",
+            error:function (data) {
+                alert("系统错误请重试");
+                return false;
+            },
+            success:function (reponse) {
+                if(reponse == "success"){
+                    alert("提交成功");
+                    $("#topictitle").val("");
+                    $("#topicdetail").val("");
+                    $("#msg").text("");
+                    return true;
+                }
+            }
+        })
     }
 </script>
 </body>

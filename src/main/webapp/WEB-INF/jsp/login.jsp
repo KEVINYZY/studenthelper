@@ -53,10 +53,8 @@
                 dataType: "json",
                 error: function (data) {
                     alert("系统错误 请重试");
-                    $(that).removeClass("processing");
                 },
                 success: function (response) {
-                    $(that).removeClass("processing");
                     if (response == "error") {
                         $("#msg").text("用户名或密码错误");
                     } else {
