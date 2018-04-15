@@ -124,6 +124,10 @@
                                 </li>
                                 <li class=""><a href="#bbs" data-toggle="tab">班级社区</a>
                                 </li>
+                                <li class=""><a href="#newtopic" data-toggle="tab">新建主题</a>
+                                </li>
+                                <li class=""><a href="#mytopic" data-toggle="tab">我的主题</a>
+                                </li>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane fade active in" id="home">
@@ -147,17 +151,55 @@
                                 </div>
                                 <div class="tab-pane fade" id="bbs">
                                     <div class="col-md-12">
-                                        <div class="panel-success simple-table">
-                                            <div class="panel-heading">
-                                                <h4>ECONOMY PLAN</h4>
+                                        <div class="panel panel-info">
+                                            <div class="panel-body" style="padding: 2px;height: 1000px;width: 1715px; ">
+                                                <div class="col-md-12">
+                                                    <div class="panel normal-table panel-default adjust-border-radius">
+                                                        <div class="panel-heading adjust-border">
+                                                            <h4>ADVANCE PLAN</h4>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <ul class="plan">
+
+                                                            </ul>
+                                                        </div> 
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="alert alert-success">
-                                                <ul class="plan">
-                                                    <li class="price-simple"><strong>50</strong> <i class="fa fa-dollar"></i></li>
-                                                    <li><strong>52</strong> Emails</li>
-                                                    <li><strong>50 GB</strong> Space</li>
-                                                    <li><strong>Free</strong> Support</li>
-                                                </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="newtopic">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="panel panel-info">
+                                            <div class="panel-body">
+                                                <div class="form-group">
+                                                    <input class="form-control" id="topictitle" name="topictitle"  placeholder="标题(不多于50字)" type="text">
+                                                </div>
+                                                <div class="form-group">
+                                                    <textarea class="form-control" id="topicdetail" name="topicdetail" style="width: 1680px;height: 770px;resize:none;"></textarea>
+                                                </div>
+                                                <button onclick="titlecheck()" class="btn btn-success">提交</button><span id="msg" style="color:#F00;font-size:14px;"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="mytopic">
+                                    <div class="col-md-12">
+                                        <div class="panel panel-info">
+                                            <div class="panel-body" style="padding: 2px;height: 1000px;width: 1715px; ">
+                                                <div class="col-md-12">
+                                                    <div class="panel normal-table panel-default adjust-border-radius">
+                                                        <div class="panel-heading adjust-border">
+                                                            <h4>ADVANCE PLAN</h4>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <ul class="plan">
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -173,6 +215,17 @@
 <div id="footer-sec">
     Copyright &copy; 2018 <a href="http://www.github.com/Crearns" target="_blank" title="">Creams </a>
 </div>
-
+<script type="text/javascript">
+    function titlecheck() {
+        if($("#topictitle").val() == "" || $("#topicdetail").val() == ""){
+            $("#msg").text() == "帖子不能为空";
+            return false;
+        }
+        if($("#topictitle").val().length > 50){
+            $("#msg").text() == "标题长度多余50字";
+            return false;
+        }
+    }
+</script>
 </body>
 </html>

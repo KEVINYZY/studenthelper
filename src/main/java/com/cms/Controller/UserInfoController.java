@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class UserInfoController {
@@ -40,6 +41,8 @@ public class UserInfoController {
         user.setIsmailsecret(ismailsecret);
         userService.updateUser(user);
         session.setAttribute("user", user);
+        List<User> classmemberlist = userService.GetUserlistByUser(user);
+        session.setAttribute("classmember", classmemberlist);
         return "/personal";
     }
 

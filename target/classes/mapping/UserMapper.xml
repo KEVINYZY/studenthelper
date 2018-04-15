@@ -10,7 +10,7 @@
   </update>
   
   <update id="updateUser" parameterType="com.cms.Entity.User">
-   UPDATE user SET name=#{name}, sex=#{sex}, collage=#{collage}, major=#{major}, grade=#{grade}, classno=#{classno}, phone=#{phone}, email=#{email}, identity=#{identity} ,ismailsecret=#{ismailsecret}, isphonesecret=#{ismailsecret} WHERE username =#{username};
+   UPDATE user SET name=#{name}, sex=#{sex}, collage=#{collage}, major=#{major}, grade=#{grade}, classno=#{classno}, phone=#{phone}, email=#{email}, identity=#{identity} ,ismailsecret=#{ismailsecret}, isphonesecret=#{isphonesecret} WHERE username =#{username};
   </update>
   
   <select id="QueryUserById" resultType="com.cms.Entity.User" parameterType="String">
@@ -18,7 +18,7 @@
   </select>
   
   <insert id="Regester" parameterType="com.cms.Entity.User">
-    INSERT INTO user (username, password, name, sex, collage, major, grade, classno, phone, email, identity) VALUES (#{username}, #{password}, #{name}, #{sex}, #{collage}, #{major}, #{grade}, #{classno}, #{phone}, #{email}, #{identity});
+    INSERT INTO user (username, password, name, sex, collage, major, grade, classno, phone, email, identity,ismailsecret, isphonesecret) VALUES (#{username}, #{password}, #{name}, #{sex}, #{collage}, #{major}, #{grade}, #{classno}, #{phone}, #{email}, #{identity}, #{ismailsecret}, #{ismailsecret});
   </insert>
   
   <update id="UpdateIntroduction" parameterType="String">

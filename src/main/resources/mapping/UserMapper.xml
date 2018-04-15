@@ -10,7 +10,7 @@
   </update>
   
   <update id="updateUser" parameterType="com.cms.Entity.User">
-   UPDATE user SET name=#{name}, sex=#{sex}, collage=#{collage}, major=#{major}, grade=#{grade}, classno=#{classno}, phone=#{phone}, email=#{email}, identity=#{identity} ,ismailsecret=#{ismailsecret}, isphonesecret=#{ismailsecret} WHERE username =#{username};
+   UPDATE user SET name=#{name}, sex=#{sex}, collage=#{collage}, major=#{major}, grade=#{grade}, classno=#{classno}, phone=#{phone}, email=#{email}, identity=#{identity} ,ismailsecret=#{ismailsecret}, isphonesecret=#{isphonesecret} WHERE username =#{username};
   </update>
   
   <select id="QueryUserById" resultType="com.cms.Entity.User" parameterType="String">
