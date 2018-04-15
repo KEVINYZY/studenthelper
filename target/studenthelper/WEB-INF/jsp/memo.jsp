@@ -230,7 +230,6 @@
             dataType:"json",
             error:function (data) {
                 alert("系统错误 请重试" + data + select);
-                $(that).removeClass("processing");
             },
             success:function (response) {
                 if(response == "success"){

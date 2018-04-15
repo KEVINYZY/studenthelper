@@ -58,6 +58,8 @@
                     if (response == "error") {
                         $("#msg").text("用户名或密码错误");
                     } else {
+                        document.getElementById("msg").style.cssText = "color:#00FF06;font-size:14px;";
+                        $("#msg").text("用户验证成功 请稍后");
                         window.location.href = "/login";
                     }
                 }

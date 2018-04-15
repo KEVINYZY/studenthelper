@@ -122,9 +122,8 @@
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#home" data-toggle="tab">我的班级</a>
                                 </li>
-                                <li class=""><a href="#bbs" data-toggle="tab">班级社区</a>
-                                </li>
-                                <li class=""><a href="#newtopic" data-toggle="tab">新建主题</a>
+                                <li id="bbsli" class=""><a href="#bbs" data-toggle="tab">班级社区</a>
+                                <li id="newli" class=""><a href="#newtopic" data-toggle="tab">新建主题</a>
                                 </li>
                                 <li class=""><a href="#mytopic" data-toggle="tab">我的主题</a>
                                 </li>
@@ -179,7 +178,7 @@
                                                 <div class="form-group">
                                                     <textarea class="form-control" id="topicdetail" name="topicdetail" style="width: 1680px;height: 770px;resize:none;"></textarea>
                                                 </div>
-                                                <button onclick="titlecheck()" class="btn btn-success">提交</button>&nbsp;&nbsp;<span id="msg" style="color:#F00;font-size:14px;"></span>
+                                                <a href="#bbs" data-toggle="tab" onclick="return titlecheck()" class="btn btn-success">提交</a>&nbsp;&nbsp;<span id="msg" style="color:#F00;font-size:14px;"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -221,7 +220,9 @@
         var topicdetail = $("#topicdetail").val();
         if(topictitle == "" || topicdetail == ""){
             $("#msg").text("帖子不能为空");
-            return false;
+            $('test').onclick = function(){
+                this.href = 'javascript://';
+            }
         }
         if(topictitle.length > 50){
             $("#msg").text("标题长度多余50字");
@@ -241,10 +242,14 @@
             },
             success:function (reponse) {
                 if(reponse == "success"){
+                    var bbsli = document.getElementById("bbsli");
+                    var newli = document.getElementById("newli");
                     alert("提交成功");
                     $("#topictitle").val("");
                     $("#topicdetail").val("");
                     $("#msg").text("");
+                    bbsli.className = 'active';
+                    newli.className = '';
                     return true;
                 }
             }

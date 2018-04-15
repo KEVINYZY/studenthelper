@@ -122,9 +122,8 @@
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#home" data-toggle="tab">我的班级</a>
                                 </li>
-                                <li class=""><a href="#bbs" data-toggle="tab">班级社区</a>
-                                </li>
-                                <li class=""><a href="#newtopic" data-toggle="tab">新建主题</a>
+                                <li id="bbsli" class=""><a href="#bbs" data-toggle="tab">班级社区</a>
+                                <li id="newli" class=""><a href="#newtopic" data-toggle="tab">新建主题</a>
                                 </li>
                                 <li class=""><a href="#mytopic" data-toggle="tab">我的主题</a>
                                 </li>
@@ -162,7 +161,7 @@
                                                             <ul class="plan">
 
                                                             </ul>
-                                                        </div> 
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -179,7 +178,7 @@
                                                 <div class="form-group">
                                                     <textarea class="form-control" id="topicdetail" name="topicdetail" style="width: 1680px;height: 770px;resize:none;"></textarea>
                                                 </div>
-                                                <button onclick="titlecheck()" class="btn btn-success">提交</button><span id="msg" style="color:#F00;font-size:14px;"></span>
+                                                <a href="#bbs" id="submit" data-toggle="tab" onclick="return titlecheck()" class="btn btn-success">提交</a>&nbsp;&nbsp;<span id="msg" style="color:#F00;font-size:14px;"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -217,14 +216,50 @@
 </div>
 <script type="text/javascript">
     function titlecheck() {
-        if($("#topictitle").val() == "" || $("#topicdetail").val() == ""){
-            $("#msg").text() == "帖子不能为空";
-            return false;
+        var topictitle = $("#topictitle").val();
+        var topicdetail = $("#topicdetail").val();
+        if(topictitle == "" || topicdetail == ""){
+            $("#msg").text("帖子不能为空");
+            $('submit').onclick = function(){
+                this.href = 'javascript://';
+            }
         }
-        if($("#topictitle").val().length > 50){
-            $("#msg").text() == "标题长度多余50字";
+        if(topictitle.length > 50){
+            $("#msg").text("标题长度多余50字");
             return false;
+            $('submit').onclick = function(){
+                this.href = 'javascript://';
+            }
         }
+        $.ajax({
+            data:{
+                topictitle:$("#topictitle").val(),
+                topicdetail:$("#topicdetail").val()
+            },
+            type:"post",
+            url:"/newtopic",
+            dataType:"json",
+            error:function (data) {
+                alert("系统错误请重试");
+                return false;
+                $('submit').onclick = function(){
+                    this.href = 'javascript://';
+                }
+            },
+            success:function (reponse) {
+                if(reponse == "success"){
+                    var bbsli = document.getElementById("bbsli");
+                    var newli = document.getElementById("newli");
+                    alert("提交成功");
+                    $("#topictitle").val("");
+                    $("#topicdetail").val("");
+                    $("#msg").text("");
+                    bbsli.className = 'active';
+                    newli.className = '';
+                    return true;
+                }
+            }
+        })
     }
 </script>
 </body>
