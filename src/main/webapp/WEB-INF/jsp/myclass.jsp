@@ -10,12 +10,14 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Locale" %>
 <%@ page import="java.util.Date" %>
+<%@ page import="com.cms.Entity.Bbs" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <%
     User user = (User) session.getAttribute("user");
     String day = (String)session.getAttribute("today");
     List<User> classmenber = (List<User>)session.getAttribute("classmember");
+    List<Bbs> bbsList = (List<Bbs>)session.getAttribute("bbsList");
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -122,8 +124,8 @@
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#home" data-toggle="tab">我的班级</a>
                                 </li>
-                                <li id="bbsli" class=""><a href="#bbs" data-toggle="tab">班级社区</a>
-                                <li id="newli" class=""><a href="#newtopic" data-toggle="tab">新建主题</a>
+                                <li class=""><a href="#bbs" data-toggle="tab">班级社区</a>
+                                <li class=""><a href="#newtopic" data-toggle="tab">新建主题</a>
                                 </li>
                                 <li class=""><a href="#mytopic" data-toggle="tab">我的主题</a>
                                 </li>
@@ -152,18 +154,26 @@
                                     <div class="col-md-12">
                                         <div class="panel panel-info">
                                             <div class="panel-body" style="padding: 2px;height: 1000px;width: 1715px; ">
+                                                <%
+                                                    Bbs bbs = null;
+                                                    for (int i = 0; i < bbsList.size(); i++) {
+                                                        bbs = bbsList.get(i);
+                                                %>
                                                 <div class="col-md-12">
                                                     <div class="panel normal-table panel-default adjust-border-radius">
                                                         <div class="panel-heading adjust-border">
-                                                            <h4>ADVANCE PLAN</h4>
+                                                            <h4><%=bbs.getTitle()%></h4>
                                                         </div>
                                                         <div class="panel-body">
                                                             <ul class="plan">
-
+                                                                <%=bbs.getDetail()%>
                                                             </ul>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <%
+                                                    }
+                                                %>
                                             </div>
                                         </div>
                                     </div>
@@ -178,7 +188,7 @@
                                                 <div class="form-group">
                                                     <textarea class="form-control" id="topicdetail" name="topicdetail" style="width: 1680px;height: 770px;resize:none;"></textarea>
                                                 </div>
-                                                <a href="#bbs" data-toggle="tab" onclick="return titlecheck()" class="btn btn-success">提交</a>&nbsp;&nbsp;<span id="msg" style="color:#F00;font-size:14px;"></span>
+                                                <button onclick="return titlecheck()" class="btn btn-success">提交</button>&nbsp;&nbsp;<span id="msg" style="color:#F00;font-size:14px;"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -220,9 +230,7 @@
         var topicdetail = $("#topicdetail").val();
         if(topictitle == "" || topicdetail == ""){
             $("#msg").text("帖子不能为空");
-            $('test').onclick = function(){
-                this.href = 'javascript://';
-            }
+            return false;
         }
         if(topictitle.length > 50){
             $("#msg").text("标题长度多余50字");
@@ -242,14 +250,11 @@
             },
             success:function (reponse) {
                 if(reponse == "success"){
-                    var bbsli = document.getElementById("bbsli");
-                    var newli = document.getElementById("newli");
-                    alert("提交成功");
+                    alert("主题已发表");
                     $("#topictitle").val("");
                     $("#topicdetail").val("");
                     $("#msg").text("");
-                    bbsli.className = 'active';
-                    newli.className = '';
+                    window.location.href = "/myclas";
                     return true;
                 }
             }

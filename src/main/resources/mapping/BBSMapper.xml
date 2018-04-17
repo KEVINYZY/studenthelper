@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cms.Dao.BBSDao" >
+    <insert id="newtopic" parameterType="com.cms.Entity.Bbs">
+       INSERT INTO bbs (studentid, title, createtime, detail, good) VALUES (#{studentid}, #{title}, #{createtime}, #{detail}, #{good});
+    </insert>
     
+    <select id="GetTopicByUser" parameterType="com.cms.Entity.User" resultType="com.cms.Entity.Bbs">
+        SELECT * FROM bbs b WHERE  (SELECT grade FROM user WHERE username=b.studentid) = #{grade} AND (SELECT classno FROM user WHERE username=b.studentid) = #{classno}
+        AND (SELECT collage FROM user WHERE username=b.studentid) = #{collage} AND (SELECT major FROM user WHERE username=b.studentid) = #{major}
+    </select>
 </mapper>

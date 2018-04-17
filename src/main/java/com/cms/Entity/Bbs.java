@@ -5,7 +5,27 @@ public class Bbs{
 
     private String detail;
 
-    private Integer good;
+    private int good = 0;
+
+    private String studentid;
+
+    private String createtime;
+
+    public String getStudentid() {
+        return studentid;
+    }
+
+    public void setStudentid(String studentid) {
+        this.studentid = studentid == null ? null : studentid.trim();
+    }
+
+    public String getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(String createtime) {
+        this.createtime = createtime == null ? null : createtime.trim();
+    }
 
     public String getTitle() {
         return title;
@@ -23,11 +43,11 @@ public class Bbs{
         this.detail = detail == null ? null : detail.trim();
     }
 
-    public Integer getGood() {
+    public int getGood() {
         return good;
     }
 
-    public void setGood(Integer good) {
+    public void setGood(int good) {
         this.good = good;
     }
 }
