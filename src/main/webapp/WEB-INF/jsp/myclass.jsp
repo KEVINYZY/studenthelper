@@ -7,9 +7,6 @@
 --%>
 <%@ page import="com.cms.Entity.User" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.util.Locale" %>
-<%@ page import="java.util.Date" %>
 <%@ page import="com.cms.Entity.Bbs" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -135,7 +132,7 @@
                                     <div class="col-md-12">
                                         <div class="panel panel-info">
                                             <div class="panel-body" style="padding: 2px;height: 1000px;width: 1715px; ">
-                                                <div class="chat-widget-main">
+                                                <div class="chat-widget-main" style="height: 998px;">
                                                     <%
                                                         User member = null;
                                                         for (int i = 0; i < classmenber.size(); i++) {
@@ -154,26 +151,26 @@
                                     <div class="col-md-12">
                                         <div class="panel panel-info">
                                             <div class="panel-body" style="padding: 2px;height: 1000px;width: 1715px; ">
-                                                <%
-                                                    Bbs bbs = null;
-                                                    for (int i = 0; i < bbsList.size(); i++) {
-                                                        bbs = bbsList.get(i);
-                                                %>
-                                                <div class="col-md-12">
-                                                    <div class="panel normal-table panel-default adjust-border-radius">
-                                                        <div class="panel-heading adjust-border">
-                                                            <h4><%=bbs.getTitle()%></h4>
-                                                        </div>
-                                                        <div class="panel-body">
-                                                            <ul class="plan">
-                                                                <%=bbs.getDetail()%>
-                                                            </ul>
+                                                <div class="chat-widget-main" style="height: 998px;">
+                                                    <%
+                                                        Bbs bbs = null;
+                                                        for (int i = bbsList.size() - 1; i >= 0; i--) {
+                                                            bbs = bbsList.get(i);
+                                                    %>
+                                                    <div class="col-md-12">
+                                                        <div class="panel normal-table panel-default adjust-border-radius">
+                                                            <div class="panel-heading adjust-border">
+                                                                <a href="#"><h4><%=bbs.getTitle()%></h4></a><span style="text-align: right;"><%=bbs.getStudentid() + " 发表于 " + bbs.getCreatetime()%></span>
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <%=(bbs.getDetail().length() > 226) ? bbs.getDetail().substring(0, 225) + "..." : bbs.getDetail()%>
+                                                            </div>
                                                         </div>
                                                     </div>
+                                                    <%
+                                                        }
+                                                    %>
                                                 </div>
-                                                <%
-                                                    }
-                                                %>
                                             </div>
                                         </div>
                                     </div>
@@ -186,7 +183,7 @@
                                                     <input class="form-control" id="topictitle" name="topictitle"  placeholder="标题(不多于50字)" type="text">
                                                 </div>
                                                 <div class="form-group">
-                                                    <textarea class="form-control" id="topicdetail" name="topicdetail" style="width: 1680px;height: 770px;resize:none;"></textarea>
+                                                    <textarea class="form-control" id="topicdetail" name="topicdetail" placeholder="内容(不多于1500字)" style="width: 1680px;height: 770px;resize:none;"></textarea>
                                                 </div>
                                                 <button onclick="return titlecheck()" class="btn btn-success">提交</button>&nbsp;&nbsp;<span id="msg" style="color:#F00;font-size:14px;"></span>
                                             </div>
@@ -254,7 +251,7 @@
                     $("#topictitle").val("");
                     $("#topicdetail").val("");
                     $("#msg").text("");
-                    window.location.href = "/myclas";
+                    window.location.href = "/myclass";
                     return true;
                 }
             }

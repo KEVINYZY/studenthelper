@@ -44,7 +44,7 @@
     =============================================*/
 
 .chat-widget-main {
-    max-height:500px;
+    max-height:1000px;
     padding:20px;
     overflow:auto;
 }

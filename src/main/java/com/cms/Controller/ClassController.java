@@ -24,7 +24,7 @@ public class ClassController {
     @Autowired
     private BBSService bbsService;
     
-    @RequestMapping("myclass")
+    @RequestMapping("/myclass")
     public String myclass(HttpSession session){
         User user = (User)session.getAttribute("user");
         List<User> classmemberlist = userService.GetUserlistByUser(user);

@@ -120,7 +120,7 @@
                             备忘录
                         </div>
                         <div class="panel-body" style="padding: 2px;height: 502px; ">
-                            <div class="chat-widget-main">
+                            <div class="chat-widget-main" style="height: 500px;">
                                 <%
                                     Memo memo = null;
                                     for (int i = 0; i < memoList.size(); i++) {
