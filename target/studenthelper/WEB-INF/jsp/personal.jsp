@@ -132,7 +132,7 @@
                                             <b>学号 :</b> <%=user.getUsername()%><br/>
                                             <b>联系电话 :</b> <%=user.getPhone()%><br/>
                                             <b>E-mail :</b> <%=user.getEmail()%><br/>
-                                            <b>自我介绍(300字) :</b><span id="introductioncheck" style="color:#F00;font-size:14px;"></span><br/>
+                                            <b>自我介绍(300字以内) :</b><span id="introductioncheck" style="color:#F00;font-size:14px;"></span><br/>
                                             <textarea id="introduction" style="width: 1090px;height: 135px;resize:none;"><%=user.getIntroduction()%></textarea><br/>
                                             <button class="btn btn-info" onclick="introductioncheck()">保存</button>
                                         </div>

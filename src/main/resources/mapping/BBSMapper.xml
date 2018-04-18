@@ -2,11 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cms.Dao.BBSDao" >
     <insert id="newtopic" parameterType="com.cms.Entity.Bbs">
-       INSERT INTO bbs (studentid, title, createtime, detail, good) VALUES (#{studentid}, #{title}, #{createtime}, #{detail}, #{good});
+       INSERT INTO bbs (studentid, studentname, title, createtime, detail, good) VALUES (#{studentid}, (SELECT name FROM user WHERE username=#{studentid}), #{title}, #{createtime}, #{detail}, #{good});
     </insert>
     
     <select id="GetTopicByUser" parameterType="com.cms.Entity.User" resultType="com.cms.Entity.Bbs">
         SELECT * FROM bbs b WHERE  (SELECT grade FROM user WHERE username=b.studentid) = #{grade} AND (SELECT classno FROM user WHERE username=b.studentid) = #{classno}
-        AND (SELECT collage FROM user WHERE username=b.studentid) = #{collage} AND (SELECT major FROM user WHERE username=b.studentid) = #{major}
+        AND (SELECT collage FROM user WHERE username=b.studentid) = #{collage} AND (SELECT major FROM user WHERE username=b.studentid) = #{major} ORDER BY createtime DESC 
+    </select>
+    
+    <select id="GetOwnTopic"  parameterType="String" resultType="com.cms.Entity.Bbs">
+        SELECT * FROM bbs WHERE studentid=#{studentid}
+    </select>
+    
+    <select id="QueryBBSByIdAndTime" parameterType="String" resultType="com.cms.Entity.Bbs">
+        SELECT * FROM bbs WHERE studentid=#{0} AND createtime=#{1}
+    </select>
+    
+    <update id="Good" parameterType="String">
+        UPDATE bbs SET good=good + 1 WHERE studentid=#{0} AND createtime=#{1};
+        INSERT INTO good (topicstudentid, createtime, goodstudentid) VALUES (#{0}, #{1}, #{2});
+    </update>
+    
+    <select id="QueryIsGood" parameterType="String" resultType="String">
+        SELECT goodstudentid FROM good WHERE topicstudentid=#{0} AND createtime=#{1} AND goodstudentid=#{2}
     </select>
 </mapper>

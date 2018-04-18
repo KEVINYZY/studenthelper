@@ -15,6 +15,7 @@
     String day = (String)session.getAttribute("today");
     List<User> classmenber = (List<User>)session.getAttribute("classmember");
     List<Bbs> bbsList = (List<Bbs>)session.getAttribute("bbsList");
+    List<Bbs> usertopiclist = (List<Bbs>)session.getAttribute("usertopiclist");
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -138,7 +139,7 @@
                                                         for (int i = 0; i < classmenber.size(); i++) {
                                                             member = classmenber.get(i);
                                                     %>
-                                                    <a href="/memberdetail?no=<%=i%>" class="list-group-item"><%=member.getUsername() + "   " +  member.getName() + "   " + member.getSex()%></a>
+                                                    <a href="/memberdetail?id=<%=member.getUsername()%>" class="list-group-item"><%=member.getUsername() + "   " +  member.getName() + "   " + member.getSex()%></a>
                                                     <%
                                                         }
                                                     %>
@@ -154,13 +155,13 @@
                                                 <div class="chat-widget-main" style="height: 998px;">
                                                     <%
                                                         Bbs bbs = null;
-                                                        for (int i = bbsList.size() - 1; i >= 0; i--) {
+                                                        for (int i =  0; i < bbsList.size(); i++) {
                                                             bbs = bbsList.get(i);
                                                     %>
                                                     <div class="col-md-12">
                                                         <div class="panel normal-table panel-default adjust-border-radius">
                                                             <div class="panel-heading adjust-border">
-                                                                <a href="#"><h4><%=bbs.getTitle()%></h4></a><span style="text-align: right;"><%=bbs.getStudentid() + " 发表于 " + bbs.getCreatetime()%></span>
+                                                                <a href="/BBSdetail?stu=<%=bbs.getStudentid()%>&time=<%=bbs.getCreatetime()%>"><h4><%=bbs.getTitle()%></h4></a><span style="text-align: right;"><a href="/memberdetail?id=<%=bbs.getStudentid()%>"><%=bbs.getStudentname()%></a> <%=" 发表于 " + bbs.getCreatetime()%></span>
                                                             </div>
                                                             <div class="panel-body">
                                                                 <%=(bbs.getDetail().length() > 226) ? bbs.getDetail().substring(0, 225) + "..." : bbs.getDetail()%>
@@ -194,17 +195,25 @@
                                     <div class="col-md-12">
                                         <div class="panel panel-info">
                                             <div class="panel-body" style="padding: 2px;height: 1000px;width: 1715px; ">
-                                                <div class="col-md-12">
-                                                    <div class="panel normal-table panel-default adjust-border-radius">
-                                                        <div class="panel-heading adjust-border">
-                                                            <h4>ADVANCE PLAN</h4>
-                                                        </div>
-                                                        <div class="panel-body">
-                                                            <ul class="plan">
-
-                                                            </ul>
+                                                <div class="chat-widget-main" style="height: 998px;">
+                                                    <%
+                                                        Bbs ownbbs = null;
+                                                        for (int i = usertopiclist.size() - 1; i >= 0; i--) {
+                                                            ownbbs = usertopiclist.get(i);
+                                                    %>
+                                                    <div class="col-md-12">
+                                                        <div class="panel normal-table panel-default adjust-border-radius">
+                                                            <div class="panel-heading adjust-border">
+                                                                <a href="/BBSdetail?stu=<%=ownbbs.getStudentid()%>&time=<%=ownbbs.getCreatetime()%>"><h4><%=ownbbs.getTitle()%></h4></a><span style="text-align: right;"><%="我 发表于 " + ownbbs.getCreatetime()%></span>
+                                                            </div>
+                                                            <div class="panel-body">
+                                                                <%=(ownbbs.getDetail().length() > 226) ? ownbbs.getDetail().substring(0, 225) + "..." : ownbbs.getDetail()%>
+                                                            </div>
                                                         </div>
                                                     </div>
+                                                    <%
+                                                        }
+                                                    %>
                                                 </div>
                                             </div>
                                         </div>
@@ -213,7 +222,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>  
             </div>
         </div>
     </div>

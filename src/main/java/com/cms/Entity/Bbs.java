@@ -2,6 +2,8 @@ package com.cms.Entity;
 
 public class Bbs{
     private String title;
+    
+    private String studentname;
 
     private String detail;
 
@@ -49,5 +51,13 @@ public class Bbs{
 
     public void setGood(int good) {
         this.good = good;
+    }
+
+    public String getStudentname() {
+        return studentname;
+    }
+
+    public void setStudentname(String studentname) {
+        this.studentname = studentname;
     }
 }

@@ -30,15 +30,17 @@ public class ClassController {
         List<User> classmemberlist = userService.GetUserlistByUser(user);
         session.setAttribute("classmember", classmemberlist);
         List<Bbs> bbsList = bbsService.GetTopicByUser(user);
+        List<Bbs> usertopiclist = bbsService.GetOwnTopic(user.getUsername());
+        session.setAttribute("usertopiclist", usertopiclist);
         session.setAttribute("bbsList", bbsList);
         return "myclass";
     }
     
     @RequestMapping("memberdetail")
     public String memberdetail(HttpSession session, HttpServletRequest request){
-        List<User> classmenber = (List<User>)session.getAttribute("classmember");
-        int no = Integer.parseInt(request.getParameter("no"));
-        session.setAttribute("detailmember", classmenber.get(no));
+        String id = request.getParameter("id");
+        User detailmember = userService.QueryUserById(id);
+        session.setAttribute("detailmember", detailmember);
         return "memberdetail";
     }
     
@@ -56,5 +58,31 @@ public class ClassController {
         return "success";
     }
     
+    @RequestMapping("/BBSdetail")
+    public String BBSdetail(HttpSession session, HttpServletRequest request){
+        String studentid = request.getParameter("stu");
+        String time = request.getParameter("time");
+        Bbs bbs = bbsService.QueryBBSByIdAndTime(studentid, time);
+        session.setAttribute("bbs", bbs);
+        return "BBSdetail";
+    }
+    
+    @RequestMapping("/good")
+    @ResponseBody
+    public String good(HttpSession session, HttpServletRequest request){
+        String topicstudentid = request.getParameter("topicstudentid");
+        String createtime = request.getParameter("createtime");
+        String goodstudentid = request.getParameter("goodstudentid");
+        String num = request.getParameter("num");
+        String response = bbsService.QueryIsGood(topicstudentid, createtime, goodstudentid);
+        if(response == null){
+            bbsService.Good(topicstudentid, createtime, goodstudentid);
+            this.myclass(session);
+            return Integer.parseInt(num) + 1 + "";
+        }
+        else{
+            return "exist";
+        }
+    }
     
 }

@@ -25,4 +25,23 @@ public class BBSService {
         logger.info("获取所有主题");
         return bbsDao.GetTopicByUser(user);
     }
+    
+    public List<Bbs> GetOwnTopic(String studentid){
+        logger.info("获取用户主题");
+        return bbsDao.GetOwnTopic(studentid);
+    }
+    
+    public Bbs QueryBBSByIdAndTime(String studentid, String createtime){
+        logger.info("获取选中主题");
+        return bbsDao.QueryBBSByIdAndTime(studentid, createtime);
+    }
+    
+    public void Good(String studentid, String createtime, String goodstudentid){
+        logger.info("点赞");
+        bbsDao.Good(studentid, createtime, goodstudentid);
+    }
+    
+    public String QueryIsGood(String topicstudentid, String createtime, String goodstudentid){
+        return bbsDao.QueryIsGood(topicstudentid, createtime, goodstudentid);
+    }
 }
