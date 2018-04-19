@@ -26,4 +26,18 @@
     <select id="QueryIsGood" parameterType="String" resultType="String">
         SELECT goodstudentid FROM good WHERE topicstudentid=#{0} AND createtime=#{1} AND goodstudentid=#{2}
     </select>
+    
+    <insert id="reply" parameterType="String">
+        INSERT INTO comment (topicstudentid, createtime, commentstudentid, commenttime, studentname, comment) VALUES (#{0}, #{1}, #{3}, #{5}, #{4}, #{2})
+    </insert>
+    
+    <select id="GetReply" parameterType="String" resultType="com.cms.Entity.Comment">
+        SELECT * FROM comment WHERE topicstudentid=#{0} AND createtime=#{1} ORDER BY commenttime ASC 
+    </select>
+    
+    <delete id="deletetopic" parameterType="String">
+        DELETE FROM bbs WHERE studentid=#{0} AND createtime=#{1};
+        DELETE FROM comment WHERE topicstudentid=#{0} AND createtime=#{1};
+        DELETE FROM good WHERE topicstudentid=#{0} AND createtime=#{1};
+    </delete>
 </mapper>

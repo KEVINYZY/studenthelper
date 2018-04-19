@@ -1,6 +1,7 @@
 package com.cms.Controller;
 
 import com.cms.Entity.Bbs;
+import com.cms.Entity.Comment;
 import com.cms.Entity.User;
 import com.cms.Service.BBSService;
 import com.cms.Service.UserService;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
@@ -63,6 +65,8 @@ public class ClassController {
         String studentid = request.getParameter("stu");
         String time = request.getParameter("time");
         Bbs bbs = bbsService.QueryBBSByIdAndTime(studentid, time);
+        List<Comment> commentList = bbsService.GetReply(studentid, time);
+        session.setAttribute("commentList", commentList);
         session.setAttribute("bbs", bbs);
         return "BBSdetail";
     }
@@ -83,6 +87,23 @@ public class ClassController {
         else{
             return "exist";
         }
+    }
+    
+    @RequestMapping("reply")
+    @ResponseBody
+    public String reply (HttpSession session, @RequestParam("reply") String reply, @RequestParam("topicstudentid") String topicstudentid, @RequestParam("createtime") String createtime){
+        User user = (User)session.getAttribute("user");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
+        bbsService.reply(topicstudentid, createtime, reply, user.getUsername(), user.getName(), sdf.format(new Date()));
+        return "success";
+    }
+    
+    @RequestMapping("deletetopic")
+    public String deletetopic(HttpSession session, HttpServletRequest request){
+        String createtime = request.getParameter("time");
+        User user = (User)session.getAttribute("user");
+        bbsService.deletetopic(user.getUsername(), createtime);
+        return this.myclass(session);
     }
     
 }

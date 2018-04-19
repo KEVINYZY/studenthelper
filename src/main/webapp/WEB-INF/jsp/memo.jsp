@@ -141,9 +141,9 @@
                             </div>
                             <div class="panel-body" style="padding: 0px;height: 460px;">
                                 <div class="chat-widget-main">
-                                    <input id="title" placeholder="标题" type="text" style="width: 820px;height: 45px"><br><br>
-                                    <textarea id="detail" style="resize:none;height: 325px;width: 820px;"></textarea>
-                                    <span id="msg" style="color:#F00;font-size:14px;text-align: center"></span>
+                                    <input id="title" placeholder="标题" type="text" style="width: 700px;height: 45px"><br><br>
+                                    <textarea id="detail" style="resize:none;height: 325px;width: 700px;"></textarea>
+                                    <br><span id="msg" style="color:#F00;font-size:14px;text-align: center"></span>
                                 </div>
                             </div>
                             <div class="panel-footer">

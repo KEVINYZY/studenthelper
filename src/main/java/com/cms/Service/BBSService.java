@@ -2,6 +2,7 @@ package com.cms.Service;
 
 import com.cms.Dao.BBSDao;
 import com.cms.Entity.Bbs;
+import com.cms.Entity.Comment;
 import com.cms.Entity.User;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -43,5 +44,17 @@ public class BBSService {
     
     public String QueryIsGood(String topicstudentid, String createtime, String goodstudentid){
         return bbsDao.QueryIsGood(topicstudentid, createtime, goodstudentid);
+    }
+    
+    public void reply(String topicstudentid, String createtime, String reply, String commentstudentid, String studentname, String commenttime){
+        bbsDao.reply(topicstudentid, createtime, reply, commentstudentid, studentname, commenttime);
+    }
+    
+    public List<Comment> GetReply(String topicstudentid, String createtime){
+        return bbsDao.GetReply(topicstudentid, createtime);
+    }
+    
+    public void deletetopic(String topicstudentid, String createtime){
+        bbsDao.deletetopic(topicstudentid, createtime);
     }
 }
