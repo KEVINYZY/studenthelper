@@ -80,5 +80,10 @@ public class LoginController {
         session.setMaxInactiveInterval(1);
         return "redirect:/login";
     }
+    
+    @RequestMapping("about")
+    public String about(HttpSession session){
+        return "about";
+    }
 
 }

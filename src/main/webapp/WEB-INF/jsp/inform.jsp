@@ -104,6 +104,9 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="/about" >关于</a>
+                </li>
             </ul>
         </div>
     </nav>
