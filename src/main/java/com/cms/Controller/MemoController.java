@@ -35,11 +35,6 @@ public class MemoController {
         return "/memo";
     }
     
-    @RequestMapping("/addmemo")
-    public String addmemo(HttpSession session){
-        return "/addmemo";
-    }
-    
     @RequestMapping("submitmemo")
     @ResponseBody
     public String submitmemo(HttpSession session, HttpServletRequest request, @RequestParam("title") String title, @RequestParam("detail") String detail, @RequestParam("select") String select, @RequestParam("home") String home){

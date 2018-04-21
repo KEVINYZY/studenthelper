@@ -28,7 +28,7 @@
         <a href="/regester">注册
         </a><br>
         <div class="clear"></div>
-        <input type="button" id="submit" value="Login" onclick="login()">
+        <input type="button" id="submit" value="登录" onclick="login()">
     </form>
 </div>
 <div class="footer-w3l">
@@ -43,6 +43,11 @@
                 $("#msg").text("请输入用户名或密码");
                 return false;
             }
+            else{
+                $("#msg").text("");
+            }
+            document.getElementById("submit").value = "请稍后";
+            document.getElementById("submit").style.background = "#00E909";
             $.ajax({
                 data: {
                     username:$("#username").val(),
@@ -57,6 +62,8 @@
                 success: function (response) {
                     if (response == "error") {
                         $("#msg").text("用户名或密码错误");
+                        document.getElementById("submit").value = "登录";
+                        document.getElementById("submit").style.background = "#e91e63";
                     } else {
                         document.getElementById("msg").style.cssText = "color:#00FF06;font-size:14px;";
                         $("#msg").text("用户验证成功 请稍后");

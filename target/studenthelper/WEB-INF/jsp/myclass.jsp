@@ -210,7 +210,7 @@
                                                                 <a href="/BBSdetail?stu=<%=ownbbs.getStudentid()%>&time=<%=ownbbs.getCreatetime()%>" target="_blank"><h4><%=ownbbs.getTitle()%></h4></a><span style="text-align: right;"><%="我 发表于 " + ownbbs.getCreatetime()%></span>&nbsp;&nbsp;<a href="/deletetopic?time=<%=ownbbs.getCreatetime()%>">删除该主题</a>
                                                             </div>
                                                             <div class="panel-body">
-                                                                <%=(ownbbs.getDetail().length() > 226) ? ownbbs.getDetail().substring(0, 225) + "..." : ownbbs.getDetail()%>
+                                                                <%=((ownbbs.getDetail().length() > 226) ? ownbbs.getDetail().substring(0, 225) + "..." : ownbbs.getDetail()).replace("\n", "<br>").replace(" ", "&nbsp;")%>
                                                             </div>
                                                         </div>
                                                     </div>

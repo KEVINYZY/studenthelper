@@ -136,7 +136,9 @@
                                             <a href="/memberdetail?id=<%=bbs.getStudentid()%>" target="_blank"><%=bbs.getStudentname()%></a>
                                         </div>
                                         <div class="panel-body" style="min-height: 200px;">
-                                            <p><%=bbs.getDetail()%></p>
+                                            <%
+                                                out.println(bbs.getDetail().replace("\n", "<br>").replace(" ", "&nbsp;"));
+                                            %>
                                         </div>
                                         <div class="panel-footer">
                                             <%=" 发表于 " + bbs.getCreatetime()%>&nbsp;&nbsp;<a id="good" onclick="CheckIsGood()">点赞(<%=bbs.getGood()%>)</a>&nbsp;&nbsp;<span id="msg" style="color:#F00;font-size:14px;"></span>
@@ -154,7 +156,9 @@
                                             <a href="/memberdetail?id=<%=comment.getCommentstudentid()%>"><%=comment.getStudentname()%></a>
                                         </div>
                                         <div class="panel-body" style="min-height: 200px;">
-                                            <p><%=comment.getComment()%></p>
+                                            <%
+                                                out.println(comment.getComment().replace("\n", "<br>").replace(" ", "&nbsp;"));
+                                            %>
                                         </div>
                                         <div class="panel-footer">
                                             <%=" 回复于 " + comment.getCommenttime()%>
