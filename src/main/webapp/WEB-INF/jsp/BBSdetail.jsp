@@ -5,13 +5,6 @@
   Time: 15:03
   To change this template use File | Settings | File Templates.
 --%>
-<%--
-  Created by IntelliJ IDEA.
-  User: Creams
-  Date: 2018/3/14
-  Time: 17:35
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page import="com.cms.Entity.User" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.cms.Entity.Bbs" %>
@@ -121,7 +114,7 @@
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="page-head-line"><%=bbs.getTitle()%></h1>
+                    <h1 class="page-head-line"><span><%=bbs.getTitle()%></span></h1>
                     <h1 class="page-subhead-line"><a href="/memberdetail?id=<%=bbs.getStudentid()%>" target="_blank"><%=bbs.getStudentname()%></a> <%=" 发表于 " + bbs.getCreatetime()%></h1>
                 </div>
             </div>
