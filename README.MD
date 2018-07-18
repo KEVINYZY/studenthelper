@@ -1,7 +1,7 @@
 # DMU Student Helper System
 
 
-![Langeage](https://img.shields.io/badge/Langeuage-Java-yellow.svg)   ![version](https://img.shields.io/badge/Version-2.0-blue.svg)
+![createtime](https://img.shields.io/badge/Create%20time-2018--3--4-red.svg)   ![version](https://img.shields.io/badge/Version-2.0-blue.svg)
 
 ## 大连海事大学学生校园助手
 
