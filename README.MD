@@ -1,5 +1,8 @@
 # DMU Student Helper System
 
+
+![Langeage](https://img.shields.io/badge/Made%20With-Java-yellow.svg)   ![version](https://img.shields.io/badge/Version-2.0-blue.svg)
+
 ## 大连海事大学学生校园助手
 
 <code>2018年4月19日更新 班级功能</code>
@@ -12,6 +15,7 @@
 * 爬虫：Jsoup
 * 使用Spring + Spring-MVC + MyBatis整合
 * 在用户的登录等地方使用JQuery的$Ajax异步调用
+* 前端来自网络
 
 
 ## 主要功能
@@ -27,8 +31,44 @@
 ---
 ## 如何使用
 * 下载本项目或者使用 <code>git clone https://github.com/Crearns/studenthelper.git</code>命令
-* 打开Intellij IDEA - import project - /pom.xml
-* 导入database.sql
+* 打开Intellij IDEA - import project - 选中项目文件夹中的pom.xml
+* 导入 src/main/java/com/cms/Mysql/database.sql
 * 设置Tomcat后即可使用
+* 启动本项目
 
+ ## 项目截图
+
+
+ ### 登录页面
+
+ ![登录界面](https://i.loli.net/2018/07/18/5b4efb0f8ac8c.png)
+
+ ### 主页
+
+ ![主页](https://i.loli.net/2018/07/18/5b4efb0e1a2a3.png)
+
+ ### 课表编辑
+
+ ![课表编辑](https://i.loli.net/2018/07/18/5b4efb0e15f69.png)
+
+ ### 考试倒计时
  
+ ![考试倒计时](https://i.loli.net/2018/07/18/5b4efb0e1400c.png)
+ 
+ ### 班级论坛
+
+ ![班级论坛](https://i.loli.net/2018/07/18/5b4efb0e15e49.png)
+
+ ###学生通知
+
+ ![学生通知](https://i.loli.net/2018/07/18/5b4efb0e1d188.png)
+
+ ### 备忘录
+ 
+ ![备忘录](https://i.loli.net/2018/07/18/5b4efb0e1219f.png)
+
+ ### 个人信息
+
+ ![个人信息](https://i.loli.net/2018/07/18/5b4efb0e166d2.png)
+
+
