@@ -1,7 +1,7 @@
 # DMU Student Helper System
 
 
-![Langeage](https://img.shields.io/badge/Made%20With-Java-yellow.svg)   ![version](https://img.shields.io/badge/Version-2.0-blue.svg)
+![Langeage](https://img.shields.io/badge/Langeuage-Java-yellow.svg)   ![version](https://img.shields.io/badge/Version-2.0-blue.svg)
 
 ## 大连海事大学学生校园助手
 
@@ -59,7 +59,7 @@
 
  ![班级论坛](https://i.loli.net/2018/07/18/5b4efb0e15e49.png)
 
- ###学生通知
+ ### 学生通知
 
  ![学生通知](https://i.loli.net/2018/07/18/5b4efb0e1d188.png)
 
