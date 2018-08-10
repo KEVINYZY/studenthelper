@@ -120,12 +120,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <h3>本项目是针对本校制作的学生助手Web项目</h3>
-                    <h3>后端为SSM(Spring SpringMVC MyBatis) 数据库MySQL 爬虫为Jsoup 前端来源网络</h3>
+                    <h3>后端为SSM(Spring SpringMVC MyBatis) 数据库MySQL 爬虫为Jsoup 前端bootstrap+jquery</h3>
                     <h3>仅供参考学习</h3>
                     <h3>作者: Creams 欢迎共同讨论和学习 欢迎star和follow</h3>
                     <h3>获取源码:<a href="https://github.com/Crearns/studenthelper" target="_blank">项目源码</a></h3>
                     <h3>GitHub: <a href="http://www.github.com/Crearns" target="_blank">Crearns</a></h3>
-                    <h3>博客: <a href="https://blog.csdn.net/qq200258" target="_blank">CSDN博客</a></h3>
+                    <h3>CSDN: <a href="https://blog.csdn.net/qq200258" target="_blank">CSDN博客</a></h3>
+                    <h3>个人博客: <a href="codingcms.cn" target="_blank">Creams's Blog</a></h3>
                 </div>
             </div>
         </div>

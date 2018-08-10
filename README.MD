@@ -15,7 +15,7 @@
 * 爬虫：Jsoup
 * 使用Spring + Spring-MVC + MyBatis整合
 * 在用户的登录等地方使用JQuery的$Ajax异步调用
-* 前端来自网络
+* 前端:BootStrap
 
 
 ## 主要功能
